@@ -654,6 +654,14 @@ static void _bt_music_cb(bt_music_state_e state) {
 	// 更新蓝牙连接状态文本
 	update_link_status_text();
 
+	// [FIX] 主界面隐藏时跳过UI操作
+	if (_is_ui_update_paused) {
+		if (bt::music_is_playing()) {
+			sys::setting::set_music_play_dev(E_AUDIO_TYPE_BT_MUSIC);
+		}
+		return;
+	}
+
 	if (bt::music_is_playing()) {
 		_update_music_info();
 		_update_music_progress();
@@ -678,6 +686,22 @@ static void _bt_music_cb(bt_music_state_e state) {
 }
 
 static void _music_play_status_cb(music_play_status_e status) {
+	// [FIX] 当主界面隐藏时（倒车/互联），仅更新数据状态，不操作UI控件
+	// 音乐状态回调可能在任何时刻被media线程触发（通过_notify_play_status_cb），
+	// 如果此时main已被hide且正处于倒车摄像头初始化阶段，操作隐藏控件会：
+	// 1. 触发SDK内部的texture重分配/刷新，与camera v4l2 buffer争夺内存
+	// 2. parse_id3_info() 读取SD卡文件，与camera驱动争夺IO带宽
+	// 3. 在FreeMem<2MB时任何malloc都可能导致OOM卡死
+	if (_is_ui_update_paused) {
+		// 仅保存状态，不操作任何UI
+		if (status == E_MUSIC_PLAY_STATUS_STARTED || status == E_MUSIC_PLAY_STATUS_RESUME) {
+			sys::setting::set_music_play_dev(E_AUDIO_TYPE_MUSIC);
+		}
+		// 缓存失效标记，onUI_show时会重新刷新
+		_is_music_info_cached = false;
+		return;
+	}
+
 	switch (status) {
 	case E_MUSIC_PLAY_STATUS_STARTED:
 		parser();
@@ -1030,7 +1054,9 @@ static void onUI_init() {
 	_bt_add_cb();
 	bt::query_state();
 
-	media::music_add_play_status_cb(_music_play_status_cb);
+	// [FIX] 删除重复注册: music_add_play_status_cb 已在上方注册，重复注册导致
+	// _music_play_status_cb 在音乐状态变化时被调用两次，每次都执行 parser() 和 UI更新，
+	// 在低内存时双倍开销可能成为压垮骆驼的最后一根稻草
 	if (martistTextViewPtr) {
 		martistTextViewPtr->setTouchPass(true);
 	}
@@ -1141,6 +1167,10 @@ static void onUI_hide() {
 	_cached_title.clear();
 	_cached_artist.clear();
 
+	// [FIX] 释放完背景后立即drop_caches，在camera startPreview之前
+	// 腾出pagecache空间给v4l2 mmap buffer
+	fy::drop_caches();
+
 	clock_gettime(CLOCK_MONOTONIC, &end_time);
 	double elapsed_time = (end_time.tv_sec - start_time.tv_sec) +
 	                      (end_time.tv_nsec - start_time.tv_nsec) / 1000000000.0;
@@ -1196,6 +1226,13 @@ static bool onUI_Timer(int id) {
 	case 1: {
         MEM_TIMER_SNAP_SAMPLED("main_1s", 1, 10);
         MEM_WARN_IF_LOW("main_timer", 4000);
+
+        // [FIX] 当主界面被hide时（倒车/互联/其他Activity覆盖），跳过UI更新
+        // 避免在隐藏状态下操作SeekBar等控件，减少不必要的CPU和内存开销
+        if (_is_ui_update_paused) {
+            break;
+        }
+
         int curPos = -1;
         if (sys::setting::get_music_play_dev() == E_AUDIO_TYPE_MUSIC) {
             if (media::music_is_playing()) {

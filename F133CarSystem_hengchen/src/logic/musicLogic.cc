@@ -36,6 +36,7 @@
 #include "media/media_parser.h"
 #include "media/music_player.h"
 #include "fy/files.hpp"
+#include "fy/os.hpp"
 #include "media/media_parser.h"
 #include "manager/ConfigManager.h"
 #include "utils/Loading_icon.hpp"
@@ -317,6 +318,22 @@ static void onUI_show() {
  */
 static void onUI_hide() {
 	MEM_LIFECYCLE("music", "hide");
+
+	// [FIX] 释放音乐界面的图片资源，为倒车摄像头腾出内存
+	// music.ftu 共42个控件 = 14.4MB RGBA纹理，加上main的30.8MB，
+	// 再加camera的9MB = 54.2MB > 系统可用50MB → 必然OOM卡死
+	//
+	// 虽然控件纹理缓冲区无法释放（直到Activity quit），
+	// 但可以释放动态加载的图片资源减轻压力：
+
+	// 1. 释放专辑封面图片 (来自/tmp/m1.jpg的解码bitmap)
+	if (mpicTextViewPtr) {
+		mpicTextViewPtr->setBackgroundPic(NULL);
+	}
+
+	// 2. 强制释放pagecache，立即为camera腾出空间
+	//    /tmp/m1.jpg 的pagecache + id3解析的文件cache
+	fy::drop_caches();
 }
 
 /*

@@ -1,0 +1,1101 @@
+{
+  "beepEnable": true,
+  "id": 0,
+  "resolution": {
+    "height": 600,
+    "width": 1600
+  },
+  "topmost": false,
+  "position": {
+    "height": 600,
+    "left": 0,
+    "top": 0,
+    "width": 1600
+  },
+  "textview__1": {
+    "alignment": 36,
+    "caption": "TextViewTop",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50008,
+    "touchable": false,
+    "position": {
+      "height": 47,
+      "left": 0,
+      "top": 60,
+      "width": 1600
+    }
+  },
+  "textview__2": {
+    "alignment": 36,
+    "caption": "TextViewBottom",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50020,
+    "touchable": false,
+    "position": {
+      "height": 86,
+      "left": 0,
+      "top": 514,
+      "width": 1600
+    }
+  },
+  "textview__3": {
+    "alignment": 36,
+    "caption": "TextViewLeft",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50021,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 0,
+      "top": 107,
+      "width": 39
+    }
+  },
+  "textview__4": {
+    "alignment": 36,
+    "caption": "TextViewDivider1",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50022,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 318,
+      "top": 107,
+      "width": 32
+    }
+  },
+  "textview__5": {
+    "alignment": 36,
+    "caption": "TextViewDivider2",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50023,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 629,
+      "top": 107,
+      "width": 32
+    }
+  },
+  "textview__6": {
+    "alignment": 36,
+    "caption": "TextViewDivider3",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50024,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 940,
+      "top": 107,
+      "width": 32
+    }
+  },
+  "textview__7": {
+    "alignment": 36,
+    "caption": "TextViewDivider4",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50025,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 1251,
+      "top": 107,
+      "width": 32
+    }
+  },
+  "textview__8": {
+    "alignment": 36,
+    "caption": "TextViewRight",
+    "colorTab": {
+      "color0": 16777215
+    },
+    "id": 50026,
+    "touchable": false,
+    "position": {
+      "height": 407,
+      "left": 1562,
+      "top": 107,
+      "width": 38
+    }
+  },
+  "radiogroup__9": {
+    "caption": "StatusRadioGroup",
+    "id": 94001,
+    "touchable": false,
+    "position": {
+      "height": 20,
+      "left": 729,
+      "top": 575,
+      "width": 200
+    },
+    "radiobuttons": [
+      {
+        "alignment": 38,
+        "caption": "RadioButton0",
+        "checked": false,
+        "colorTab": {
+          "color0": 16777215
+        },
+        "iconPosition": {
+          "height": 18,
+          "left": 0,
+          "top": 0,
+          "width": 18
+        },
+        "id": 22001,
+        "picTab": {
+          "pic0": "HomePage/page_n.png",
+          "pic2": "HomePage/page_p.png"
+        },
+        "position": {
+          "height": 5,
+          "left": 0,
+          "top": 0,
+          "width": 30
+        }
+      },
+      {
+        "alignment": 38,
+        "caption": "RadioButton1",
+        "checked": false,
+        "colorTab": {
+          "color0": 16777215
+        },
+        "iconPosition": {
+          "height": 18,
+          "left": 0,
+          "top": 0,
+          "width": 18
+        },
+        "id": 22002,
+        "picTab": {
+          "pic0": "HomePage/page_n.png",
+          "pic2": "HomePage/page_p.png"
+        },
+        "position": {
+          "height": 5,
+          "left": 56,
+          "top": 0,
+          "width": 30
+        }
+      },
+      {
+        "alignment": 38,
+        "caption": "RadioButton2",
+        "checked": false,
+        "colorTab": {
+          "color0": 16777215
+        },
+        "iconPosition": {
+          "height": 18,
+          "left": 0,
+          "top": 0,
+          "width": 18
+        },
+        "id": 22003,
+        "picTab": {
+          "pic0": "HomePage/page_n.png",
+          "pic2": "HomePage/page_p.png"
+        },
+        "position": {
+          "height": 5,
+          "left": 112,
+          "top": 0,
+          "width": 30
+        }
+      }
+    ]
+  },
+  "window__10": {
+    "beepEnable": true,
+    "caption": "dockPageWindow",
+    "id": 110006,
+    "position": {
+      "height": 417,
+      "left": 23,
+      "top": 102,
+      "width": 1555
+    },
+    "window__11": {
+      "beepEnable": true,
+      "caption": "dock1Window",
+      "id": 110001,
+      "visible": false,
+      "position": {
+        "height": 417,
+        "left": 0,
+        "top": 0,
+        "width": 1555
+      },
+      "button__12": {
+        "alignment": 41,
+        "caption": "CarPlayButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20001,
+        "position": {
+          "height": 417,
+          "left": 16,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__13": {
+        "alignment": 41,
+        "caption": "AndroidAutoButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20002,
+        "position": {
+          "height": 417,
+          "left": 327,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__14": {
+        "alignment": 41,
+        "caption": "BluetoothButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20003,
+        "position": {
+          "height": 417,
+          "left": 638,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__15": {
+        "alignment": 41,
+        "caption": "AirPlayButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20004,
+        "position": {
+          "height": 417,
+          "left": 949,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__16": {
+        "alignment": 41,
+        "caption": "MiracastButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20005,
+        "position": {
+          "height": 417,
+          "left": 1260,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "textview__17": {
+        "alignment": 36,
+        "caption": "page1BluetoothTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50002,
+        "text": "@Bluetooth",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 671,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__18": {
+        "alignment": 36,
+        "caption": "page1CarPlayTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50005,
+        "text": "CarPlay",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 49,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__19": {
+        "alignment": 36,
+        "caption": "page1AndroidAutoTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50010,
+        "text": "Android Auto",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 360,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__20": {
+        "alignment": 36,
+        "caption": "page1MiracastTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50016,
+        "text": "Miracast",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 1293,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__21": {
+        "alignment": 36,
+        "caption": "page1AirPlayTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50019,
+        "text": "AirPlay",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 982,
+          "top": 3,
+          "width": 200
+        }
+      }
+    },
+    "window__22": {
+      "beepEnable": true,
+      "caption": "dock2Window",
+      "id": 110002,
+      "visible": false,
+      "position": {
+        "height": 417,
+        "left": 0,
+        "top": 0,
+        "width": 1555
+      },
+      "button__23": {
+        "alignment": 41,
+        "caption": "AicastButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20010,
+        "position": {
+          "height": 417,
+          "left": 16,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__24": {
+        "alignment": 41,
+        "caption": "MusicButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20008,
+        "position": {
+          "height": 417,
+          "left": 327,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__25": {
+        "alignment": 41,
+        "caption": "AudiooutButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20009,
+        "text": "Click to switch",
+        "position": {
+          "height": 417,
+          "left": 638,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__26": {
+        "alignment": 41,
+        "caption": "SettingsButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20006,
+        "text": "@Setting",
+        "position": {
+          "height": 417,
+          "left": 949,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "button__27": {
+        "alignment": 41,
+        "caption": "videoButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20007,
+        "text": "@Video",
+        "position": {
+          "height": 417,
+          "left": 1260,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "window__28": {
+        "beepEnable": true,
+        "caption": "musicWindow",
+        "id": 110012,
+        "position": {
+          "height": 417,
+          "left": 319,
+          "top": 0,
+          "width": 279
+        },
+        "textview__29": {
+          "alignment": 37,
+          "caption": "titleTextView",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "fontSize": 20,
+          "id": 50001,
+          "text": "@Unknown",
+          "touchable": false,
+          "position": {
+            "height": 29,
+            "left": 50,
+            "top": 240,
+            "width": 193
+          }
+        },
+        "button__30": {
+          "alignment": 37,
+          "caption": "NextButton",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "id": 20027,
+          "picTab": {
+            "pic0": "HomePage/icon_next_n.png",
+            "pic1": "HomePage/icon_next_p.png"
+          },
+          "position": {
+            "height": 70,
+            "left": 186,
+            "top": 304,
+            "width": 70
+          }
+        },
+        "button__31": {
+          "alignment": 37,
+          "caption": "ButtonPlay",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "id": 20026,
+          "picTab": {
+            "pic0": "HomePage/icon_play_n.png",
+            "pic1": "HomePage/icon_play_p.png",
+            "pic2": "HomePage/icon_pause_n.png",
+            "pic3": "HomePage/icon_pause_p.png"
+          },
+          "position": {
+            "height": 70,
+            "left": 112,
+            "top": 304,
+            "width": 70
+          }
+        },
+        "button__32": {
+          "alignment": 37,
+          "caption": "PrevButton",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "id": 20023,
+          "picTab": {
+            "pic0": "HomePage/icon_pre_n.png",
+            "pic1": "HomePage/icon_pre_p.png"
+          },
+          "position": {
+            "height": 70,
+            "left": 38,
+            "top": 304,
+            "width": 70
+          }
+        },
+        "textview__33": {
+          "alignment": 36,
+          "backgroundPic": "HomePage/progress_n.png",
+          "caption": "TextView2",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "id": 50003,
+          "touchable": false,
+          "position": {
+            "height": 3,
+            "left": 27,
+            "top": 384,
+            "width": 240
+          }
+        },
+        "seekbar__34": {
+          "caption": "PlayProgressSeekbar",
+          "id": 91002,
+          "max": 100,
+          "progressPic": "HomePage/progress_p.png",
+          "thumb": {
+            "normalPic": "HomePage/music_thumb_n.png",
+            "pressedPic": "HomePage/music_thumb_p.png",
+            "size": {
+              "height": 36,
+              "width": 36
+            }
+          },
+          "touchable": false,
+          "position": {
+            "height": 3,
+            "left": 27,
+            "top": 384,
+            "width": 240
+          }
+        },
+        "textview__35": {
+          "alignment": 36,
+          "backgroundPic": "HomePage/icon_media_cover_n.png",
+          "caption": "musicPicTextView",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "id": 50004,
+          "touchable": false,
+          "visible": false,
+          "position": {
+            "height": 72,
+            "left": 93,
+            "top": 122,
+            "width": 72
+          }
+        },
+        "button__36": {
+          "alignment": 41,
+          "caption": "ToMusic",
+          "colorTab": {
+            "color0": 0
+          },
+          "fontSize": 20,
+          "id": 20021,
+          "visible": false,
+          "position": {
+            "height": 231,
+            "left": 1,
+            "top": 21,
+            "width": 255
+          },
+          "textPosition": {
+            "height": 226,
+            "left": 0,
+            "top": 0,
+            "width": 255
+          }
+        },
+        "textview__37": {
+          "alignment": 37,
+          "caption": "artistTextView",
+          "colorTab": {
+            "color0": 12177139
+          },
+          "id": 50015,
+          "text": "@Unknown",
+          "touchable": false,
+          "position": {
+            "height": 23,
+            "left": 26,
+            "top": 269,
+            "width": 240
+          }
+        },
+        "button__38": {
+          "alignment": 37,
+          "caption": "toLocalmusicButton",
+          "colorTab": {
+            "color0": 16777215
+          },
+          "iconPosition": {
+            "height": 0,
+            "left": 0,
+            "top": 0,
+            "width": 0
+          },
+          "id": 20016,
+          "position": {
+            "height": 220,
+            "left": 0,
+            "top": 0,
+            "width": 293
+          }
+        }
+      },
+      "textview__39": {
+        "alignment": 36,
+        "caption": "page2AudiooutputTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50009,
+        "text": "@Audio output",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 671,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__40": {
+        "alignment": 36,
+        "caption": "page3SettingsTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50011,
+        "text": "@Setting",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 982,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__41": {
+        "alignment": 36,
+        "caption": "page2VideoTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50012,
+        "text": "@Video",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 1293,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__42": {
+        "alignment": 36,
+        "caption": "page2AiCastTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50017,
+        "text": "AiCast",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 49,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__43": {
+        "alignment": 36,
+        "caption": "musictext",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50018,
+        "text": "@Music",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 360,
+          "top": 3,
+          "width": 250
+        }
+      }
+    },
+    "window__44": {
+      "beepEnable": true,
+      "caption": "dock3Window",
+      "id": 110003,
+      "position": {
+        "height": 417,
+        "left": 0,
+        "top": 0,
+        "width": 1555
+      },
+      "button__45": {
+        "alignment": 41,
+        "caption": "PictureButton",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "iconPosition": {
+          "height": 65,
+          "left": 0,
+          "top": 0,
+          "width": 150
+        },
+        "id": 20011,
+        "text": "@Album",
+        "position": {
+          "height": 417,
+          "left": 16,
+          "top": 0,
+          "width": 279
+        },
+        "textPosition": {
+          "height": 377,
+          "left": 0,
+          "top": 0,
+          "width": 279
+        }
+      },
+      "textview__46": {
+        "alignment": 36,
+        "caption": "page3AlbumTextView",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 26,
+        "id": 50014,
+        "text": "@Album",
+        "touchable": false,
+        "position": {
+          "height": 36,
+          "left": 49,
+          "top": 3,
+          "width": 200
+        }
+      },
+      "textview__47": {
+        "alignment": 36,
+        "caption": "TextViewRightarea2",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "id": 50007,
+        "touchable": false,
+        "position": {
+          "height": 407,
+          "left": 327,
+          "top": 5,
+          "width": 279
+        }
+      },
+      "textview__48": {
+        "alignment": 36,
+        "caption": "TextViewRightarea3",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "id": 50027,
+        "touchable": false,
+        "position": {
+          "height": 407,
+          "left": 638,
+          "top": 5,
+          "width": 279
+        }
+      },
+      "textview__49": {
+        "alignment": 36,
+        "caption": "TextViewRightarea4",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "id": 50028,
+        "touchable": false,
+        "position": {
+          "height": 407,
+          "left": 949,
+          "top": 5,
+          "width": 279
+        }
+      },
+      "textview__50": {
+        "alignment": 36,
+        "caption": "TextViewRightarea5",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "id": 50029,
+        "touchable": false,
+        "position": {
+          "height": 407,
+          "left": 1260,
+          "top": 5,
+          "width": 279
+        }
+      }
+    }
+  },
+  "window__51": {
+    "backgroundPic": "HomePage/wbag.png",
+    "beepEnable": true,
+    "caption": "linkTipsWindow",
+    "hideTimeOut": 1,
+    "id": 110010,
+    "modal": true,
+    "visible": false,
+    "position": {
+      "height": 600,
+      "left": 0,
+      "top": 0,
+      "width": 1600
+    },
+    "window__52": {
+      "backgroundPic": "HomePage/popbag.png",
+      "beepEnable": true,
+      "caption": "Window5",
+      "id": 110011,
+      "position": {
+        "height": 190,
+        "left": 615,
+        "top": 205,
+        "width": 370
+      },
+      "textview__53": {
+        "alignment": 37,
+        "caption": "TextView6",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 24,
+        "id": 50013,
+        "text": "@Other devices are connected",
+        "touchable": false,
+        "position": {
+          "height": 97,
+          "left": 6,
+          "top": 36,
+          "width": 357
+        }
+      }
+    }
+  },
+  "window__54": {
+    "backgroundPic": "HomePage/wbag.png",
+    "beepEnable": true,
+    "caption": "btTipsWindow",
+    "hideTimeOut": 1,
+    "id": 110004,
+    "modal": true,
+    "visible": false,
+    "position": {
+      "height": 600,
+      "left": 0,
+      "top": 0,
+      "width": 1600
+    },
+    "window__55": {
+      "backgroundPic": "HomePage/popbag.png",
+      "beepEnable": true,
+      "caption": "Window1",
+      "id": 110005,
+      "position": {
+        "height": 190,
+        "left": 615,
+        "top": 205,
+        "width": 370
+      },
+      "textview__56": {
+        "alignment": 37,
+        "caption": "TextView3",
+        "colorTab": {
+          "color0": 16777215
+        },
+        "fontSize": 22,
+        "id": 50006,
+        "text": "@The phone is on a call",
+        "touchable": false,
+        "position": {
+          "height": 109,
+          "left": 1,
+          "top": 43,
+          "width": 369
+        }
+      }
+    }
+  }
+}

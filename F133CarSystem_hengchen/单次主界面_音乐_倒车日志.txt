@@ -1,3 +1,102 @@
+1、1600x600分辨率不播放音乐的时候，资源如下：Mem: 44376K used, 9520K free, 44K shrd, 696K buff, 11460K cached
+CPU: 50.0% usr 50.0% sys  0.0% nic  0.0% idle  0.0% io  0.0% irq  0.0% sirq
+Load average: 0.21 0.10 0.04 1/93 144
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+  144   141 0        R      932  1.7   0 50.0 busybox top
+   61     1 0        S    30412 56.0   0  0.0 {zkgui_ui} /bin/zkgui
+  116    93 0        S     9920 18.2   0  0.0 /res/bin/lylinkapp_ab
+   93    92 0        S     8492 15.6   0  0.0 /res/bin/lylinkapp_ab
+   60     1 0        S     3232  5.9   0  0.0 /bin/vold
+   62     1 0        S     2816  5.1   0  0.0 /bin/fifo_server
+  131     1 0        S     1944  3.5   0  0.0 /bin/adbd
+  130     1 0        S     1812  3.3   0  0.0 /bin/wpa_supplicant -iwlan0 -Dnl80
+  123     1 0        S     1416  2.6   0  0.0 /res/bin/mdnsd
+  117     1 0        S     1416  2.6   0  0.0 /res/bin/mdnsd
+  141   131 0        S     1104  2.0   0  0.0 /bin/sh -
+   63     1 0        S     1104  2.0   0  0.0 /bin/sh
+   92     1 0        S     1080  1.9   0  0.0 {link.sh} /bin/sh /tmp/link.sh
+    1     0 0        S      972  1.7   0  0.0 /sbin/init
+   56     1 0        S      956  1.7   0  0.0 /sbin/ueventd
+    4     2 0        IW<      0  0.0   0  0.0 [kworker/0:0H-kb]
+    7     2 0        SW       0  0.0   0  0.0 [ksoftirqd/0]
+   64     2 0        IW<      0  0.0   0  0.0 [kworker/0:2H-kb]
+  109     2 0        SW       0  0.0   0  0.0 [aicwf_busrx_thr]
+  110     2 0        SW       0  0.0   0  0.0 [ksdioirqd/mmc1]
+。。2、1600x600播放音乐的时候，资源如下：Mem: 48980K used, 4916K free, 80K shrd, 1252K buff, 13340K cached
+CPU: 28.5% usr 17.8% sys  0.0% nic 53.5% idle  0.0% io  0.0% irq  0.0% sirq
+Load average: 0.16 0.10 0.04 1/97 148
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+   61     1 0        S    40172 74.0   0 24.9 {zkgui_ui} /bin/zkgui
+  131     1 0        S     1944  3.5   0  3.5 /bin/adbd
+  144   141 0        R      932  1.7   0  3.5 busybox top
+  116    93 0        S     9920 18.2   0  0.0 /res/bin/lylinkapp_ab
+   93    92 0        S     8492 15.6   0  0.0 /res/bin/lylinkapp_ab
+   60     1 0        S     3232  5.9   0  0.0 /bin/vold
+   62     1 0        S     2816  5.1   0  0.0 /bin/fifo_server
+  130     1 0        S     1812  3.3   0  0.0 /bin/wpa_supplicant -iwlan0 -Dnl80
+  117     1 0        S     1416  2.6   0  0.0 /res/bin/mdnsd
+  123     1 0        S     1416  2.6   0  0.0 /res/bin/mdnsd
+  141   131 0        S     1104  2.0   0  0.0 /bin/sh -
+   63     1 0        S     1104  2.0   0  0.0 /bin/sh
+   92     1 0        S     1080  1.9   0  0.0 {link.sh} /bin/sh /tmp/link.sh
+    1     0 0        S      972  1.7   0  0.0 /sbin/init
+   56     1 0        S      956  1.7   0  0.0 /sbin/ueventd
+    4     2 0        IW<      0  0.0   0  0.0 [kworker/0:0H-kb]
+    7     2 0        SW       0  0.0   0  0.0 [ksoftirqd/0]
+  109     2 0        SW       0  0.0   0  0.0 [aicwf_busrx_thr]
+   64     2 0        IW<      0  0.0   0  0.0 [kworker/0:2H-kb]
+  110     2 0        SW       0  0.0   0  0.0 [ksdioirqd/mmc1]
+。3、1024x600不播放音乐的时候，资源如下：Mem: 40832K used, 13064K free, 44K shrd, 652K buff, 11916K cached
+CPU:  0.6% usr  1.0% sys  0.0% nic 98.1% idle  0.0% io  0.0% irq  0.2% sirq
+Load average: 0.14 0.05 0.02 1/94 142
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+   61     1 0        S    25696 47.3   0  0.8 {zkgui_ui} /bin/zkgui
+  115    93 0        S     9800 18.0   0  0.4 /res/bin/lylinkapp_ab
+  142   139 0        R      932  1.7   0  0.2 busybox top
+  108     2 0        SW       0  0.0   0  0.2 [aicwf_busrx_thr]
+   50     2 0        SW       0  0.0   0  0.2 [tvd detect]
+   93    92 0        S     8492 15.6   0  0.0 /res/bin/lylinkapp_ab
+   60     1 0        S     3232  5.9   0  0.0 /bin/vold
+   62     1 0        S     2816  5.1   0  0.0 /bin/fifo_server
+  129     1 0        S     1944  3.5   0  0.0 /bin/adbd
+  125     1 0        S     1800  3.3   0  0.0 /bin/wpa_supplicant -iwlan0 -Dnl80
+  120     1 0        S     1444  2.6   0  0.0 /res/bin/mdnsd
+  139   129 0        S     1104  2.0   0  0.0 /bin/sh -
+   63     1 0        S     1104  2.0   0  0.0 /bin/sh
+   92     1 0        S     1080  1.9   0  0.0 {link.sh} /bin/sh /tmp/link.sh
+    1     0 0        S      972  1.7   0  0.0 /sbin/init
+   56     1 0        S      956  1.7   0  0.0 /sbin/ueventd
+    4     2 0        IW<      0  0.0   0  0.0 [kworker/0:0H-kb]
+    7     2 0        SW       0  0.0   0  0.0 [ksoftirqd/0]
+   64     2 0        IW<      0  0.0   0  0.0 [kworker/0:2H-kb]
+  109     2 0        SW       0  0.0   0  0.0 [ksdioirqd/mmc1]
+。播放音乐的时候，资源如下：Mem: 46908K used, 6988K free, 80K shrd, 120K buff, 15248K cached
+CPU:  4.3% usr 13.0% sys  0.0% nic 82.6% idle  0.0% io  0.0% irq  0.0% sirq
+Load average: 0.08 0.05 0.01 1/99 147
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+   61     1 0        S    32824 60.5   0 10.8 {zkgui_ui} /bin/zkgui
+  129     1 0        S     1944  3.5   0  2.1 /bin/adbd
+  142   139 0        R      932  1.7   0  2.1 busybox top
+    7     2 0        SW       0  0.0   0  2.1 [ksoftirqd/0]
+  115    93 0        S     9800 18.0   0  0.0 /res/bin/lylinkapp_ab
+   93    92 0        S     8492 15.6   0  0.0 /res/bin/lylinkapp_ab
+   60     1 0        S     3232  5.9   0  0.0 /bin/vold
+   62     1 0        S     2816  5.1   0  0.0 /bin/fifo_server
+  125     1 0        S     1800  3.3   0  0.0 /bin/wpa_supplicant -iwlan0 -Dnl80
+  120     1 0        S     1444  2.6   0  0.0 /res/bin/mdnsd
+   63     1 0        S     1104  2.0   0  0.0 /bin/sh
+  139   129 0        S     1104  2.0   0  0.0 /bin/sh -
+   92     1 0        S     1080  1.9   0  0.0 {link.sh} /bin/sh /tmp/link.sh
+    1     0 0        S      972  1.7   0  0.0 /sbin/init
+   56     1 0        S      956  1.7   0  0.0 /sbin/ueventd
+    4     2 0        IW<      0  0.0   0  0.0 [kworker/0:0H-mm]
+  108     2 0        SW       0  0.0   0  0.0 [aicwf_busrx_thr]
+  107     2 0        SW       0  0.0   0  0.0 [aicwf_bustx_thr]
+  109     2 0        SW       0  0.0   0  0.0 [ksdioirqd/mmc1]
+   64     2 0        IW<      0  0.0   0  0.0 [kworker/0:2H-kb]
+。。
+
+
 zkswe@flythings:/ # logcat -v time
 01-01 00:01:00.950 D/uiwif   (   61): run|1059:/dev/socket/ap/wlan0 not exists, try 2
 01-01 00:01:01.950 D/uiwif   (   61): run|1059:/dev/socket/ap/wlan0 not exists, try 3

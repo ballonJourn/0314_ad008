@@ -314,27 +314,27 @@ static void onUI_intent(const Intent *intentPtr) {
 static void onUI_show() {
 	MEM_LIFECYCLE("reverse", "show");
 	MEM_WARN_IF_LOW("reverse_show", 3000);
-//	if (effect) {
-//		audio::set_system_vol(0, effect);
-//	}
+
 	bool effect = bt::is_calling() || (lk::is_connected() && lk::get_is_call_state() != CallState_Hang);
 	
+	// [FIX] 暂停音乐播放——必须在camera startPreview之前执行
+	// 原因: reverse_show() 被注释掉后，音乐播放器在倒车期间持续运行：
+	// 1. 音频解码线程持续malloc分配解码缓冲区
+	// 2. 音频DMA buffer占用内存
+	// 3. 与camera v4l2 buffer争夺仅剩的几MB内存 → OOM → 卡死
+	reverse_show();
+
 	// 根据当前状态调整相应音量
 	if (bt::is_calling()) {
-		// 蓝牙通话中，静音系统音量，保持通话音量
-		// audio::set_system_vol(0, !effect);
+		// 蓝牙通话中，不静音
 	} else if (lk::is_connected() && lk::get_is_call_state() != CallState_Hang) {
-		// Lylink通话中，静音系统音量，保持Lylink通话音量
-		// audio::set_system_vol(0, !effect);
+		// Lylink通话中，不静音
 	} else {
 		// 非通话状态，静音系统音量
 		audio::set_system_vol(0, !effect);
 	}
 	fy::drop_caches();
 
-
-
-//	reverse_show();
 	mActivityPtr->registerUserTimer(DELAY_START_PREVIEM_TIMER, 0);
 	if (sys::setting::is_reverse_topbar_show()) {
 		app::hide_topbar();
@@ -369,14 +369,10 @@ static void onUI_quit() {
 	// 恢复对应的音量设置
 	bool effect = bt::is_calling() || (lk::is_connected() && lk::get_is_call_state() != CallState_Hang);
 	if (bt::is_calling()) {
-		// audio::set_system_vol(vol_record.system_vol, true);
-		// bt::call_vol(vol_record.bt_call_vol);
 		if(vol_record.system_vol != 0){
 			audio::set_system_vol(vol_record.system_vol, true);
 		}
 	} else if (lk::is_connected() && lk::get_is_call_state() != CallState_Hang) {
-		// audio::set_system_vol(vol_record.system_vol, true);
-		// audio::set_lylink_call_vol(vol_record.lylink_call_vol, true);
 		if(vol_record.system_vol != 0){
 			audio::set_system_vol(vol_record.system_vol, true);
 		}
@@ -387,17 +383,16 @@ static void onUI_quit() {
 	if (sys::setting::is_reverse_topbar_show()) {
 		app::show_topbar();
 	}
-//	reverse_quit();
+
+	// [FIX] 恢复被暂停的音乐/音频播放
+	// 与 onUI_show 中的 reverse_show() 配对
+	reverse_quit();
 
 	if (bt::is_calling() && lk::get_lylink_type() != LINK_TYPE_WIFIAUTO) {
 		EASYUICONTEXT->openActivity("callingActivity");
 	}
 //  强制清理内存 - 防止OOM导致的黑屏
 	fy::drop_caches();
-// 	usleep(200000); // 100ms~200ms - 给系统更多时间清理内存
-
-// //  再次强制清理，确保内存充足
-// 	fy::drop_caches();
 }
 
 /**
