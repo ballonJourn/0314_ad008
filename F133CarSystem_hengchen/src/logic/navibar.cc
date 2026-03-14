@@ -47,6 +47,7 @@
 #include "os/MountMonitor.h"
 #include "system/hardware.h"
 #include "utils/BrightnessHelper.h"
+#include "utils/mem_profiler.h"
 
 #define DELAY_INIT_TIMER     2
 #define TEMP_PROTECT_DEBOUNCE	2
@@ -402,6 +403,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init() {
+	MEM_LIFECYCLE("navibar", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	_UI_init();
 
@@ -445,6 +447,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("navibar", "show");
 //	if (!sys::reverse_does_enter_status() && BRIGHTNESSHELPER->isScreenOn()) {
 //		sys::setting::set_reverse_topbar_show(true);
 //		app::show_topbar();
@@ -455,6 +458,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("navibar", "hide");
 
 }
 
@@ -462,6 +466,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("navibar", "quit");
 	Activity_is_load = false;
 	mPlayVolSeekBarPtr->setSeekBarChangeListener(NULL);
 	mbriSeekBarPtr->setSeekBarChangeListener(NULL);

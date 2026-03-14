@@ -37,6 +37,7 @@
 #include "link/context.h"
 #include "bt/context.h"
 #include "media/audio_context.h"
+#include "utils/mem_profiler.h"
 
 REGISTER_SYSAPP(APP_TYPE_SYS_CTRLBAR, ctrlbarActivity);
 
@@ -135,6 +136,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("ctrlbar", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	_event_mode_cb(mode::get_event_mode());
 	mode::add_event_mode_cb(_event_mode_cb);
@@ -157,6 +159,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("ctrlbar", "show");
 
 }
 
@@ -164,6 +167,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("ctrlbar", "hide");
 
 }
 
@@ -171,6 +175,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("ctrlbar", "quit");
 	mode::remove_event_mode_cb(_event_mode_cb);
 	ctrlbar_is_load = false;
 	mvolumSeekBarPtr->setSeekBarChangeListener(NULL);

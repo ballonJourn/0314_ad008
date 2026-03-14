@@ -40,6 +40,7 @@
 #include "utils/BitmapHelper.h"
 #include "manager/ConfigManager.h"
 #include "mode_observer.h"
+#include "utils/mem_profiler.h"
 
 static zkf::IconRotate iconRotate;
 //#include "bt/database.h"
@@ -262,6 +263,7 @@ static void _init_bt_info() {
  *
  */
 static void onUI_init() {
+	MEM_LIFECYCLE("btsetting", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 //	mdevNameButtonPtr->setLongMode(ZKTextView::E_LONG_MODE_DOTS);
 //	bt::create_base_table_phone_book();
@@ -284,6 +286,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("btsetting", "show");
 //	iconRotate.SetCtrl(mopeningPointerPtr, mopeningWndPtr);
 	// 在界面显示时断开wifi连接，避免与蓝牙操作产生冲突
 	_disconnect_wifi_for_bt();
@@ -301,6 +304,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("btsetting", "hide");
 //	if (iconRotate.isRunning())
 //		iconRotate.requestExitAndWait();
 
@@ -310,6 +314,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("btsetting", "quit");
 //	phone_book_sort.requestExitAndWait();
 //	if (iconRotate.isRunning())
 //		iconRotate.requestExitAndWait();

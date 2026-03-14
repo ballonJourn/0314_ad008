@@ -42,6 +42,7 @@
 #include "utils/BitmapHelper.h"
 #include "manager/ConfigManager.h"
 #include "mode_observer.h"
+#include "utils/mem_profiler.h"
 
 #define LINK_RESTART_TIMER    1
 
@@ -165,6 +166,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("linkhelp", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 //	std::string bt_name = sys::setting::get_bt_name();//bt::get_name();
 //	std::string tips = std::string("3.找到") + bt_name + std::string(",点击进行配对连接");
@@ -189,6 +191,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("linkhelp", "show");
 	//mmc3TextViewPtr->setText(fy::format("3.找到lylink_%s,点击进行连接", fy::gen_uuid_str().c_str()));
 //	set_back_pic();
 	mTextViewBgPtr->setBackgroundPic("/link/wallpaper.png");
@@ -199,6 +202,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("linkhelp", "hide");
 	mTextViewBgPtr->setBackgroundPic(NULL);
 }
 
@@ -206,6 +210,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("linkhelp", "quit");
 //	lk::remove_lylink_callback(_lylink_callback);
 	mTextViewBgPtr->setBackgroundPic(NULL);
 }

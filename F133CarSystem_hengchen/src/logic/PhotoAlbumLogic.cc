@@ -13,6 +13,7 @@
 #include "fy/files.hpp"
 #include "sysapp_context.h"
 #include "mode_observer.h"
+#include "utils/mem_profiler.h"
 
 #define DELAY_DISP_PIC_TIMER	4
 
@@ -423,6 +424,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
 * 当界面构造时触发
 */
 static void onUI_init(){
+	MEM_LIFECYCLE("PhotoAlbum", "init");
    //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
    s_multiple = 1;
    fy::drop_caches();
@@ -452,6 +454,7 @@ static void onUI_intent(const Intent *intentPtr) {
 * 当界面显示时触发
 */
 static void onUI_show() {
+	MEM_LIFECYCLE("PhotoAlbum", "show");
    mActivityPtr->registerUserTimer(DELAY_DISP_PIC_TIMER, 0);
    mode::set_switch_mode(E_SWITCH_MODE_GOBACK);
    if(_is_carousel_pic) {
@@ -463,6 +466,7 @@ static void onUI_show() {
 * 当界面隐藏时触发
 */
 static void onUI_hide() {
+	MEM_LIFECYCLE("PhotoAlbum", "hide");
    // 界面隐藏时，图片设置为空，减少内存占用
    mIndexPic1Ptr->setBackgroundPic("");
    mIndexPic2Ptr->setBackgroundPic("");
@@ -474,6 +478,7 @@ static void onUI_hide() {
 * 当界面完全退出时触发
 */
 static void onUI_quit() {
+	MEM_LIFECYCLE("PhotoAlbum", "quit");
    media::remove_scan_cb(_media_scan_cb);
    mode::remove_event_mode_cb(_event_mode_cb);
    PAsw.SetIsInitDone(false);

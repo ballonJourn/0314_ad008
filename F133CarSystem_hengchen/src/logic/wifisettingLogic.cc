@@ -35,6 +35,7 @@
 #include "sysapp_context.h"
 #include "ntp/ntp.h"
 #include <unordered_set>
+#include "utils/mem_profiler.h"
 
 #define WIFIMANAGER			NETMANAGER->getWifiManager()
 
@@ -214,6 +215,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
 };
 
 static void onUI_init() {
+	MEM_LIFECYCLE("wifisetting", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 
 	mButtonOnOffPtr->setSelected(WIFIMANAGER->isWifiEnable());
@@ -246,6 +248,7 @@ static void onUI_init() {
 }
 
 static void onUI_quit() {
+	MEM_LIFECYCLE("wifisetting", "quit");
 	net::remove_mode_update_cb(_net_mode_cb);
 	WIFIMANAGER->removeWifiListener(&sMyWifiListener);
 

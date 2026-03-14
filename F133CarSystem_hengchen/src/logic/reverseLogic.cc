@@ -12,6 +12,7 @@
 #include "sysapp_context.h"
 #include "fy/os.hpp"
 #include "system/hardware.h"
+#include "utils/mem_profiler.h"
 
 #define DELAY_START_PREVIEM_TIMER 1
 #define FORCE_HIDE_TOPBAR_TIMER   2
@@ -245,6 +246,8 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init() {
+    MEM_LIFECYCLE("reverse", "init");
+    MEM_VM_DETAIL("reverse_init_ENTRY");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	fold_statusbar();
 //	screenOn_event();
@@ -309,6 +312,8 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("reverse", "show");
+	MEM_WARN_IF_LOW("reverse_show", 3000);
 //	if (effect) {
 //		audio::set_system_vol(0, effect);
 //	}
@@ -350,6 +355,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("reverse", "hide");
 	WAIT(!mCameraViewReversePtr->isPreviewing(), 100, 50);
 }
 
@@ -357,6 +363,8 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("reverse", "quit");
+	MEM_WARN_IF_LOW("reverse_quit_BEFORE_RESTORE", 3000);
 	mCameraViewReversePtr->setErrorCodeCallback(NULL);
 	// 恢复对应的音量设置
 	bool effect = bt::is_calling() || (lk::is_connected() && lk::get_is_call_state() != CallState_Hang);

@@ -31,6 +31,7 @@
 */
 
 #include "uart/context.h"
+#include "utils/mem_profiler.h"
 
 /**
  * 注册定时器
@@ -46,6 +47,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("soundField", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 
 }
@@ -63,6 +65,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("soundField", "show");
 
 }
 
@@ -70,6 +73,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("soundField", "hide");
 
 }
 
@@ -77,6 +81,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("soundField", "quit");
 
 }
 

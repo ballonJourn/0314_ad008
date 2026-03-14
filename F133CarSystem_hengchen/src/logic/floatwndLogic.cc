@@ -35,6 +35,7 @@
 #include "mode_observer.h"
 #include "sysapp_context.h"
 #include "common.h"
+#include "utils/mem_profiler.h"
 
 // 注册成系统界面
 REGISTER_SYSAPP(APP_TYPE_SYS_FLOATWND, floatwndActivity);
@@ -194,6 +195,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("floatwnd", "init");
 	LOGD("[floatwnd] init gannina\n");
 	EASYUICONTEXT->registerGlobalTouchListener(mActivityPtr);
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
@@ -237,6 +239,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("floatwnd", "show");
 	LOGD("[floatwnd] show gannina\n");
 }
 
@@ -244,6 +247,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("floatwnd", "hide");
 	mPopButtonPtr->setVisible(false);
 }
 
@@ -251,6 +255,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("floatwnd", "quit");
 	mPopButtonPtr->setVisible(false);
 	EASYUICONTEXT->unregisterGlobalTouchListener(mActivityPtr);
 }

@@ -40,6 +40,7 @@
 #include "sysapp_context.h"
 #include "utils/BitmapHelper.h"
 #include "manager/ConfigManager.h"
+#include "utils/mem_profiler.h"
 
 #define DELAY_PLAY_TIMER     1
 
@@ -77,6 +78,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("screenOff", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	set_time(*TimeHelper::getDateTime());
 }
@@ -95,6 +97,7 @@ static void onUI_intent(const Intent *intentPtr) {
  */
 
 static void onUI_show() {
+	MEM_LIFECYCLE("screenOff", "show");
 	mActivityPtr->registerUserTimer(DELAY_PLAY_TIMER, 900);
 	// 先隐藏指针和中心文本控件
 	mPointMinutePtr->setVisible(false);
@@ -114,6 +117,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("screenOff", "hide");
 	if (!sys::reverse_does_enter_status() && !lk::is_connected()) {
 		sys::setting::set_reverse_topbar_show(true);
 		app::show_topbar();
@@ -127,6 +131,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("screenOff", "quit");
 	BRIGHTNESSHELPER->screenOn();
 	LOGD("sys::setting::get_brightness() = %d",sys::setting::get_brightness());
 	//sys::setting::set_brightness(sys::setting::get_brightness());

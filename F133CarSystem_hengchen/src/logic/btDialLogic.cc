@@ -33,6 +33,7 @@
 #include "bt/context.h"
 #include "mode_observer.h"
 #include "media/audio_context.h"
+#include "utils/mem_profiler.h"
 
 static std::string dial_munber_str;
 
@@ -79,6 +80,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("btDial", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	dial_munber_str = "";
 	std::string enterMaximum = LTOV("You can only enter a maximum of 20 characters");
@@ -104,6 +106,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("btDial", "show");
 	mode::set_switch_mode(E_SWITCH_MODE_NULL);
 }
 
@@ -111,6 +114,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("btDial", "hide");
 	if (dial_munber_str != "") {
 		dial_munber_str = "";
 		mnumTextViewPtr->setText(dial_munber_str);
@@ -121,6 +125,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("btDial", "quit");
 	dial_munber_str = "";
 	mdelButtonPtr->setLongClickListener(NULL);
 }

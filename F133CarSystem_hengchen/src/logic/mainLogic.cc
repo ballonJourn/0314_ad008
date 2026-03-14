@@ -62,6 +62,7 @@
 #include "utils/TimeHelper.h"
 #include "mode_observer.h"
 #include "mcu_hash_checker.h"
+#include "utils/mem_profiler.h"
 
 #define WIFIMANAGER			NETMANAGER->getWifiManager()
 
@@ -243,6 +244,7 @@ static void update_link_status_text() {
 // dock1Window按钮的背景图片设置
 // ============================================================================
 static void set_dock1_button_backgrounds() {
+    MEM_SNAP_SIMPLE("dock1_bg_LOAD_START");
     if (mCarPlayButtonPtr) {
         mCarPlayButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_carplay_n.png").c_str());
@@ -296,6 +298,7 @@ static void set_dock2_button_backgrounds() {
 // 第三页只有一个PictureButton，其余4个位置用占位背景图填充
 // ============================================================================
 static void set_dock3_button_backgrounds() {
+    MEM_SNAP_SIMPLE("dock3_bg_LOAD_START");
     if (mPictureButtonPtr) {
         mPictureButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_picture_n.png").c_str());
@@ -802,62 +805,81 @@ static void set_back_pic() {
 // ============================================================================
 static void set_split_backgrounds() {
     bitmap_t *bmp = NULL;
+    MEM_SNAP_SIMPLE("main_split_bg_START");
 
     // 1. Top
     if (mTextViewTopPtr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_top);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_1_top.jpg").c_str(), 3);
         mTextViewTopPtr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_top", img_top, CONFIGMANAGER->getResFilePath("/HomePage/crop_1_top.jpg").c_str());
     }
 
     // 2. Bottom
     if (mTextViewBottomPtr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_bottom);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_2_bottom.jpg").c_str(), 3);
         mTextViewBottomPtr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_bottom", img_bottom, CONFIGMANAGER->getResFilePath("/HomePage/crop_2_bottom.jpg").c_str());
     }
 
     // 3. Left
     if (mTextViewLeftPtr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_left);
 //        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_3_left.jpg").c_str(), 3);
         mTextViewLeftPtr->setBackgroundPic(CONFIGMANAGER->getResFilePath("/HomePage/crop_3_left.png").c_str());
+        MEM_IMG_LOAD_END("split_bg_left", img_left, CONFIGMANAGER->getResFilePath("/HomePage/crop_3_left.png").c_str());
     }
 
     // 4. Divider1
     if (mTextViewDivider1Ptr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_div1);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_4_divider1.jpg").c_str(), 3);
         mTextViewDivider1Ptr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_divider1", img_div1, CONFIGMANAGER->getResFilePath("/HomePage/crop_4_divider1.jpg").c_str());
     }
 
     // 5. Divider2
     if (mTextViewDivider2Ptr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_div2);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_5_divider2.jpg").c_str(), 3);
         mTextViewDivider2Ptr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_divider2", img_div2, CONFIGMANAGER->getResFilePath("/HomePage/crop_5_divider2.jpg").c_str());
     }
 
     // 6. Divider3
     if (mTextViewDivider3Ptr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_div3);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_6_divider3.jpg").c_str(), 3);
         mTextViewDivider3Ptr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_divider3", img_div3, CONFIGMANAGER->getResFilePath("/HomePage/crop_6_divider3.jpg").c_str());
     }
 
     // 7. Divider4
     if (mTextViewDivider4Ptr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_div4);
         BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_7_divider4.jpg").c_str(), 3);
         mTextViewDivider4Ptr->setBackgroundBmp(bmp);
+        MEM_IMG_LOAD_END("split_bg_divider4", img_div4, CONFIGMANAGER->getResFilePath("/HomePage/crop_7_divider4.jpg").c_str());
     }
 
     // 8. Right
     if (mTextViewRightPtr) {
         bmp = NULL;
+        MEM_IMG_LOAD_BEGIN(img_right);
 //        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_8_right.jpg").c_str(), 3);
         mTextViewRightPtr->setBackgroundPic(CONFIGMANAGER->getResFilePath("/HomePage/crop_8_right.png").c_str());
+        MEM_IMG_LOAD_END("split_bg_right", img_right, CONFIGMANAGER->getResFilePath("/HomePage/crop_8_right.png").c_str());
     }
+
+    MEM_SNAP_SIMPLE("main_split_bg_END");
 }
 
 // ============================================================================
@@ -965,7 +987,10 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
 };
 
 static void onUI_init() {
+	MEM_LIFECYCLE("main", "init");
+	MEM_VM_DETAIL("main_init_ENTRY");
 	_preload_resources();
+	MEM_SNAP_SIMPLE("main_init_after_preload");
 	ctrl_UI_init();
 
     _is_in_reverse_mode = false;
@@ -1033,6 +1058,7 @@ static void onUI_intent(const Intent *intentPtr) {
 }
 
 static void onUI_show() {
+	MEM_LIFECYCLE("main", "show");
 	mode::set_switch_mode(E_SWITCH_MODE_NULL);
     LOGD("[main] Transitioning setup gannina");
     _is_ui_update_paused = false;
@@ -1098,6 +1124,7 @@ static void onUI_hide() {
 	LOGD("[main] onUI_hide() ENTER");
 
 	LOGD("[main] onUI_hide - cleaning up resources");
+	MEM_LIFECYCLE("main", "hide");
 	_is_ui_update_paused = true;
 
 	// 释放分片背景资源
@@ -1121,6 +1148,7 @@ static void onUI_hide() {
 }
 
 static void onUI_quit() {
+	MEM_LIFECYCLE("main", "quit");
 	uart::remove_power_state_cb(key_status);
 	lk::remove_lylink_callback(_lylink_callback);
 	media::music_remove_play_status_cb(_music_play_status_cb);
@@ -1166,6 +1194,8 @@ static bool onUI_Timer(int id) {
 	}
 		break;
 	case 1: {
+        MEM_TIMER_SNAP_SAMPLED("main_1s", 1, 10);
+        MEM_WARN_IF_LOW("main_timer", 4000);
         int curPos = -1;
         if (sys::setting::get_music_play_dev() == E_AUDIO_TYPE_MUSIC) {
             if (media::music_is_playing()) {

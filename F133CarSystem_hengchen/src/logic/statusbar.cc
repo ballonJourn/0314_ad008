@@ -45,6 +45,7 @@
 #include "system/fm_emit.h"
 #include "system/setting.h"
 #include "fy/os.hpp"
+#include "utils/mem_profiler.h"
 
 #define WIFIMANAGER			NETMANAGER->getWifiManager()
 extern void screenOn_event();
@@ -196,6 +197,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("statusbar", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	_bt_add_cb();
 }
@@ -204,6 +206,7 @@ static void onUI_init(){
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("statusbar", "quit");
 	_bt_remove_cb();
 }
 

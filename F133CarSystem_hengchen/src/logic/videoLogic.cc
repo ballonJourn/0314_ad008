@@ -50,6 +50,7 @@
 #include "mode_observer.h"
 #include "vbasetype.h"
 #include "bt/context.h"
+#include "utils/mem_profiler.h"
 
 #define LOOP_TIMER            1
 #define DELAY_CHECK_TIMER     2
@@ -371,6 +372,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+    MEM_LIFECYCLE("video", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	ctrl_init();
 	iconRotate.SetCtrl(msyncPointerPtr, mscaningWindowPtr);
@@ -408,6 +410,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("video", "show");
 	LOGD("[video] onUI_show");
 	is_video_activity_show = true;
 	is_back = false;
@@ -438,6 +441,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("video", "hide");
 	is_video_activity_show = false;
 	is_video_show = false;
 	if (mvideoPlayWindowPtr->isWndShow()) {
@@ -460,6 +464,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("video", "quit");
 	if (iconRotate.isRunning())
 		iconRotate.requestExitAndWait();
 	if (mvideoPlayWindowPtr->isWndShow()) {

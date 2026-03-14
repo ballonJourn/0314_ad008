@@ -37,6 +37,7 @@
 #include "manager/ConfigManager.h"
 #include "mode_observer.h"
 #include "media/audio_context.h"  // 添加音频上下文头文件
+#include "utils/mem_profiler.h"
 
 extern void set_navibar_PlayVolSeekBar(int progress);
 
@@ -103,6 +104,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("btMusic", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	LOGD("[btMusic] onUI_init");
 	_bt_add_cb();
@@ -166,6 +168,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("btMusic", "show");
 	mode::set_switch_mode(E_SWITCH_MODE_NULL);
 
 	// 如果蓝牙音乐正在播放但UI状态不对，修正UI状态
@@ -182,6 +185,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("btMusic", "hide");
 
 }
 
@@ -189,6 +193,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("btMusic", "quit");
 	_bt_remove_cb();
 }
 

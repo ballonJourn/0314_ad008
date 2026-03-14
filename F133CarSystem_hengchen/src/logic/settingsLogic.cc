@@ -18,6 +18,7 @@
 #include "mode_observer.h"
 #include "media/audio_context.h"
 #include <base/time.hpp>
+#include "utils/mem_profiler.h"
 
 #define DEFAULT_BT_NAME "BT_BOX"
 #define TIMEBIGSIZE 	45 	//时间设置中间字体大小
@@ -359,6 +360,7 @@ static void _init_setting_info() {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("settings", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	Get_CurrentCode(LANGUAGEMANAGER->getCurrentCode());
 
@@ -388,6 +390,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("settings", "show");
 	mode::set_switch_mode(E_SWITCH_MODE_GOBACK);
 	systemWnd(true);
 }
@@ -396,6 +399,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("settings", "hide");
 
 }
 
@@ -403,6 +407,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("settings", "quit");
 	mode::remove_event_mode_cb(_event_mode_cb);
 	uart::remove_mcubt_cb(_mcu_cb);
 }

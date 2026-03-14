@@ -44,7 +44,7 @@
 #include "system/setting.h"
 #include "mode_observer.h"
 #include "bt/context.h"
-#define DEBUG	//LOGD("--%d-- --%s-- ---DEBUG!!!--", __LINE__, __FILE__);
+#include "utils/mem_profiler.h"
 
 static storage_type_e _s_select_storage = E_STORAGE_TYPE_SD; //E_STORAGE_TYPE_INVALID;	//选中的文件仓库
 static storage_type_e _s_play_storage = E_STORAGE_TYPE_SD; //E_STORAGE_TYPE_INVALID;		//播放的文件仓库
@@ -122,8 +122,10 @@ static void refreshMusicInfo() {
 	}
 
 	isTrue = media::parse_id3_pic(cur_play_file.c_str(), "/tmp/m1.jpg");
+	MEM_IMG_LOAD_BEGIN(albumart);
 	mpicTextViewPtr->setBackgroundPic(NULL);
 	mpicTextViewPtr->setBackgroundPic(isTrue ? "/tmp/m1.jpg" : CONFIGMANAGER->getResFilePath("media_player/icon_media_cover_n.png").c_str());
+	MEM_IMG_LOAD_END("music_albumart", albumart, isTrue ? "/tmp/m1.jpg" : "icon_media_cover_n.png");
 	mmusicListViewPtr->refreshListView();
 }
 
@@ -261,6 +263,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init() {
+    MEM_LIFECYCLE("music", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	ctrl_init();
 	iconRotate.SetCtrl(msyncPointerPtr, mscaningWindowPtr);
@@ -287,6 +290,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("music", "show");
 	is_back = false;
 	if (media::music_is_playing()) {
 	    refreshMusicInfo();
@@ -312,13 +316,14 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
-
+	MEM_LIFECYCLE("music", "hide");
 }
 
 /*
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("music", "quit");
 	if (iconRotate.isRunning())
 		iconRotate.requestExitAndWait();
 	mode::remove_event_mode_cb(_event_mode_cb);

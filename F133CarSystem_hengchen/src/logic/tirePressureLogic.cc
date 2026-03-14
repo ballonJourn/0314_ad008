@@ -34,6 +34,7 @@
 #include <memory>
 #include <fy/format.hpp>
 #include "tire/tire_parse.h"
+#include "utils/mem_profiler.h"
 
 namespace {
 enum Messages {
@@ -170,6 +171,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+	MEM_LIFECYCLE("tirePressure", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	reflash_tire_state_info();
 	reflash_tire_option_info();
@@ -190,6 +192,7 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("tirePressure", "show");
 
 }
 
@@ -197,6 +200,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("tirePressure", "hide");
 
 }
 
@@ -204,6 +208,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("tirePressure", "quit");
 	tire::remove_tire_info_update_cb(_tire_misc_callback);
 	handler.reset();
 }

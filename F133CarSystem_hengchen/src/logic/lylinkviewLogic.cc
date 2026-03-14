@@ -13,6 +13,7 @@
 #include "system/reverse.h"
 #include "utils/BrightnessHelper.h"
 #include <base/ui_handler.h>
+#include "utils/mem_profiler.h"
 
 #define DELAY_PLAY_TIMER     1
 #define STOP_TIMER		9
@@ -240,6 +241,7 @@ static ViewTouchListener _s_view_touch_listener;
  * 当界面构造时触发
  */
 static void onUI_init() {
+    MEM_LIFECYCLE("lylinkview", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	_bt_add_cb();
 	LayoutPosition pos = LayoutPosition(0, 0, ScreenHelper::getScreenWidth(), ScreenHelper::getScreenHeight());
@@ -266,6 +268,8 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
+	MEM_LIFECYCLE("lylinkview", "show");
+	MEM_WARN_IF_LOW("lylinkview_show", 3000);
 	// 推迟检测播放，处理倒车界面未完全退出，播放异常问题
 	//usleep(1000*1000);
 	mActivityPtr->registerUserTimer(DELAY_PLAY_TIMER, 900);
@@ -285,6 +289,7 @@ static void onUI_show() {
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
+	MEM_LIFECYCLE("lylinkview", "hide");
 	mActivityPtr->unregisterUserTimer(DELAY_PLAY_TIMER);
 	_link_stop();
 
@@ -298,6 +303,7 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("lylinkview", "quit");
 	// DELAY(100);
 	_bt_remove_cb();
 	mVideoView1Ptr->setTouchListener(NULL);
