@@ -1,0 +1,2981 @@
+arcâble
+â →
+
+     简体中文                       zh_CN
+     English(United States)         en_US
+     Français(France)              fr_FRA
+     العربية                      ar
+     Čeština                       cs_CZ
+     Deutsch(Deutschland)          de_DE
+     Español(España)              es_ES
+     עברית                        he_IL
+     Italiano(Italia)             it_IT
+     日本語                        ja_JP
+     Polski                       pl_PL
+     Русский                      ru_RU
+     Türkçe                        tr_TR
+ 
+ 
+     الموسيقى 
+     الفيديو 
+     اتصال الهاتف 
+     البلوتوث 
+     مستوى الصوت 
+     مستوى صوت الموسيقى 
+     مستوى صوت مكالمات CarPlay 
+     مستوى صوت التسجيل 
+     غير معروف 
+     الاثنين 
+     الثلاثاء 
+     الأربعاء 
+     الخميس 
+     الجمعة 
+     السبت 
+     الأحد 
+     جاري المسح.. 
+     خطأ في التشغيل! 
+     الإعدادات 
+     الراديو 
+     الإيقاع 
+     الاتصال 
+     مكالمة 
+     سجل المكالمات 
+     جهات الاتصال 
+     جاري التحميل... 
+     إعدادات الواي فاي 
+     الاسم 
+     طريقة التشفير 
+     كلمة المرور 
+     إظهار كلمة المرور 
+     الاتصال 
+     حالة الاتصال 
+     قطع الاتصال 
+     متصل 
+     خطأ في كلمة المرور 
+     عنوان IP 
+     قناع الشبكة الفرعية 
+     البوابة الافتراضية 
+     عنوان MAC 
+     العودة 
+     إعدادات اللغة 
+     السطوع 
+     الواي فاي 
+     تصحيح ADB السلكي 
+     رقم إصدار النظام 
+     معلومات الإصدار 
+     التباين 
+     درجة اللون 
+     التشبع 
+     السطوع 
+     التاريخ 
+     طريقة الاتصال 
+     العرض 
+     الربط البيني 
+     الصوت 
+     الرجوع للخلف 
+     المصنع 
+     النظام 
+     المزيد 
+     معلمات الكاميرا 
+     تنسيق الكاميرا 
+     قناة الكاميرا 
+     نوع التبديل 
+     نوع الكاميرا الحالي 
+     خيارات المطور 
+     نظام الألوان 
+     مستوى صوت الوسائط 
+     مستوى صوت المكالمة 
+     المؤثرات الصوتية 
+     موافق 
+     إلغاء 
+     تعيين عدد الإطارات المراد تخطيها 
+     تعيين زاوية دوران الكاميرا 
+     هل الصوت المتصل قادم من السيارة؟ 
+     ستصبح الإعدادات سارية بعد إعادة التشغيل 
+     بدء التمرير 
+     جاري تحميل الصور 
+     تسريع بلمسة واحدة 
+     غير متصل 
+     متصل 
+     جاري الاتصال... 
+     جاري الفتح 
+     غير مفتوح 
+     جاري الإغلاق 
+     جاري قطع الاتصال 
+     الألبوم 
+     إرسال FM 
+     مكبر الصوت 
+     تشغيل 
+     إيقاف 
+     هل هذا الإصدار المحلي؟ 
+     جاري التحميل... 
+     الترفيه 
+     تم الوصول إلى الحد الأقصى لعدد الاتصالات! 
+     اسم الجهاز 
+     الجهاز المتاح 
+     اتصال الجهاز 
+     الاتصال 
+     جاري الاتصال 
+     غير متصل 
+     متصل 
+     ضغط الإطارات 
+     غير متطابق 
+     غير موجود 
+     متصل 
+     إعادة تعيين 
+     طبيعي 
+     غير طبيعي 
+     انقر على الإطار للمطابقة 
+     إعدادات ضغط الإطارات 
+     الوحدة 
+     ضغط عالي 
+     ضغط منخفض 
+     درجة الحرارة (℃) 
+     مسح الاقتران 
+     هل أنت متأكد من استعادة الإعدادات الافتراضية؟ 
+     استعادة الإعدادات الافتراضية 
+     مفتاح البلوتوث 
+     الرد التلقائي 
+     الاتصال التلقائي 
+     الجهاز مقترن 
+     قطع الاتصال عن الجهاز؟ 
+     الاسم طويل جداً! 
+     يُرجى استخدام هذه الوظيفة عندما لا يكون الهاتف متصلاً 
+     استيراد 
+     العودة 
+     الصوت 
+     استعلام الإصدار 
+     فحص التحديثات 
+     ترقية MCU 
+     بدء الترقية 
+     لا توجد إشارة 
+     تفعيل/إلغاء تفعيل هذه الوظيفة سيؤدي إلى قطع الاتصال وإعادة الاتصال تلقائياً قبل أن تصبح سارية. يرجى التأكيد إذا كنت تريد استخدام هذه الوظيفة. 
+     أجهزة أخرى متصلة 
+     التفويض 
+     قراءة رمز التفويض 
+     الربط البيني غير مخول 
+     الربط البيني مخول 
+     الانتقال إلى صفحة ترقية MCU؟ 
+     مساءً 
+     صباحاً 
+     إخراج الصوت من مكبر الصوت 
+     إخراج الصوت من AUX 
+     صوت Carplay/Auto يخرج من بلوتوث هاتفك 
+     لا يدعم عرض هذه الصورة! 
+     لا توجد ملفات 
+     تعديل معلمات العرض 
+     نموذج MCU 
+     توجد ملفات ترقية متاحة، هل تريد الترقية؟ 
+     لم يتم العثور على ملفات الترقية. 
+     اكتملت الترقية 
+     أحدث إصدار 
+     محتوى التحديث 
+     خطوط مساعدة الرجوع للخلف 
+     مرآة عكس الكاميرا 
+     تفعيل/إلغاء تفعيل هذه الوظيفة سيؤدي إلى قطع الاتصال وإعادة الاتصال تلقائياً قبل أن تصبح سارية. يرجى التأكيد إذا كنت تريد التبديل. 
+     نظام الوقت 
+     12 ساعة 
+     24 ساعة 
+     يمكنك إدخال 20 حرفاً كحد أقصى 
+     الإعداد 
+     خيارات المطور 
+     مفتاح التصحيح 
+     إعدادات الشبكة 
+     إعدادات الواي فاي 
+     إعدادات 4G 
+     إعدادات النقطة الساخنة 
+     إعدادات الإيثرنت 
+     مفتاح النقطة الساخنة 
+     اسم النقطة الساخنة 
+     كلمة مرور النقطة الساخنة 
+     إظهار كلمة المرور 
+     حفظ 
+     إعدادات اللغة 
+     إلغاء 
+     موافق 
+     تبديل لغة النظام إلى %s؟ 
+     الاسم 
+     طريقة التشفير 
+     التشفير 
+     مفتوح 
+     كلمة المرور 
+     الحالة 
+     اتصال 
+     قطع الاتصال 
+     التحقق من الهوية 
+     الحصول على IP 
+     متصل 
+     عنوان IP 
+     عنوان MAC 
+     خطأ في كلمة المرور 
+     الشركة المصنعة 
+     الإصدار 
+     نوع الاتصال 
+     الحصول على IP تلقائياً 
+     IP ثابت 
+     عنوان IP 
+     قناع الشبكة الفرعية 
+     البوابة الافتراضية 
+     خادم DNS المفضل 
+     خادم DNS الاحتياطي 
+     تم الحفظ بنجاح 
+     فشل الحفظ 
+     معايرة اللمس 
+     الترقية 
+     سيتم إعادة تشغيل النظام قريباً للترقية. 
+     تمت الترقية بنجاح، سيتم إعادة تشغيل النظام قريباً. 
+     فشلت الترقية 
+     تنسيق حزمة الترقية غير صحيح. يرجى إنشاء حزمة الترقية مرة أخرى! 
+     نوع حزمة الترقية غير متطابق! 
+     لا تقم بالترقية! 
+     الصورة المرآة أكبر من حجم القسم، وفشلت الترقية. 
+     دقة صورة شعار التمهيد أكبر من دقة الشاشة، وفشلت الترقية. 
+     ترقية شعار التمهيد غير مدعومة. فشلت الترقية. 
+     خروج 
+     جاري الترقية، يرجى عدم قطع مصدر الطاقة. 
+     ملاحظة: بعد اكتمال الترقية، يرجى حذف ملف ts.cfg في بطاقة T لمنع الترقية مرة أخرى! 
+     النوع 
+     الإصدار 
+     الدقة 
+     التاريخ 
+ 
+ 
+ 
+     Hudba 
+     Video 
+     Propojitelnost telefonu 
+     Bluetooth 
+     hlasitost 
+     Hlasitost hudby 
+     Hlasitost hovoru CarPlay 
+     Hlasitost nahrávání 
+     Neznámý 
+     Pondělí 
+     Úterý 
+     Středa 
+     Čtvrtek 
+     Pátek 
+     Sobota 
+     Neděle 
+     Probíhá skenování... 
+     Chyba přehrávání! 
+     Nastavení 
+     Rádio 
+     Rytmus 
+     Vytočit 
+     zavolat 
+     Záznam hovorů 
+     Kontakty 
+     Načítání 
+     Nastavení Wi-Fi 
+     Název 
+     Způsob šifrování 
+     Heslo 
+     Zobrazit heslo 
+     Stav připojení 
+     Stav připojení 
+     Odpojit 
+     Připojeno 
+     Chybné heslo 
+     IP adresa 
+     maska podsítě 
+     výchozí brána 
+     MAC adresa 
+     návrat 
+     Nastavení jazyka 
+     jas 
+     Wi-Fi 
+     Vychytání chyb kabelového ADB 
+     Číslo verze systému 
+     Informace o verzi 
+     kontrast 
+     barevný tón 
+     nasycení 
+     svítivost 
+     Datum 
+     Způsob připojení 
+     ukázat 
+     Propojení 
+     hlas 
+     zpětný 
+     továrna 
+     systém 
+     více 
+     Parametry kamery 
+     Formát kamery 
+     Kanál kamery 
+     Typ přepínání 
+     Typ současné kamery 
+     Vývojářské volby 
+     systém barev 
+     hlasitost médií 
+     Hlasitost hovoru 
+     zvukový efekt 
+     OK 
+     Zrušit 
+     Nastavte počet rámečků k přeskočení 
+     Nastavte úhel otáčení fotoaparátu 
+     Vychází připojený zvuk z automobilu? 
+     Nastavení se projeví až po znovuspuštění 
+     Začít posun textu 
+     Načítání obrázků 
+     Zrychlení jedním tlačítkem 
+     zrušené vypnutí zvuku 
+     připojeno 
+     připojování 
+     otevření 
+     deaktivováno 
+     zavírání 
+     odpojování 
+     Album 
+     Vysílání FM 
+     Klakson 
+     Zapnout 
+     Vypnout 
+     Je tohle domácí verze? 
+     stahování 
+     znovuvytvoření 
+     Bylo dosaženo maximálního počtu připojení! 
+     Název zařízení 
+     Dostupné zařízení 
+     Připojit zařízení 
+     Stav připojení 
+     Připojování 
+     Nepřipojeno 
+     Připojeno 
+     Tlak v pneumatikách 
+     Nespárováno 
+     Nenalezeno 
+     PRIPOJENO 
+     přenastavit 
+     normální 
+     abnormální 
+     Klikněte ke spárování pneumatiky 
+     Nastavení tlaku v pneumatikách 
+     jednotka 
+     vysoký tlak 
+     Nízký tlak 
+     Teplota (℃) 
+     Vymazat párování 
+     Určitě chcete obnovit tovární nastavení? 
+     Obnovit tovární nastavení 
+     Spínač Bluetooth 
+     Automatická odpověď 
+     Automatické připojení 
+     Zařízení je spárované 
+     Odpojit od zařízení? 
+     Název je příliš dlouhý! 
+     Tuto funkci použijte prosím, když váš telefon není připojený 
+     Importovat 
+     zpět 
+     Zvuk 
+     Dotázat se na verzi 
+     Zkontrolovat aktualizace 
+     Aktualizovat MCU 
+     Zahájit aktualizaci 
+     Není signál 
+     Aktivace/deaktivace této funkce automaticky odpojí a připojí předtím, než to začne fungovat. Potvrďte, prosím, zda tuto funkci chcete použít. 
+     Další zařízení jsou připojená 
+     Povolení 
+     Načíst autorizační kód 
+     Propojení není povolené 
+     Propojení je povolené 
+     Přejít na stránku aktualizace MCU? 
+     Po poledni 
+     Před polednem 
+     Výstup audia z reproduktoru 
+     Výstup audia z AUX 
+     Audio CarPlay/Auto je výstup z Bluetooth vašeho telefonu 
+     Tento obrázek není podporován k zobrazení! 
+     Žádné soubory 
+     Nastavení parametru zobrazení 
+     Model MCU 
+     Jsou dostupné aktualizační soubory, chcete aktualizovat? 
+     Žádné aktualizační soubory nebyly nalezeny. 
+     Aktualizace byla dokončena 
+     Nejnovější verze 
+     Obsah aktualizace 
+     Asistenční čáry couvání 
+     Kamera ve zpětném zrcátku 
+     Aktivace/deaktivace této funkce automaticky odpojí a připojí předtím, než to začne fungovat. Potvrďte, prosím, zda to chcete přepnout. 
+     Časová soustava 
+     12hodinový 
+     24hodinový 
+     Můžete zadat maximálně 20 znaků 
+     Nastavení 
+     Vývojářské volby 
+     Spínač vychytání chyb 
+     Nastavení sítě 
+     Nastavení Wi-Fi 
+     Nastavení 4G 
+     Nastavení hotspotu 
+     Nastavení ethernetu 
+     Spínač hotspotu 
+     Název hotspotu 
+     Heslo hotspotu 
+     Zobrazit heslo 
+     Uložit 
+     Nastavení jazyka 
+     Zrušit 
+     OK 
+     Přepnout jazyk systému na %s? 
+     Název 
+     Způsob šifrování 
+     Šifrování 
+     Otevřít 
+     Heslo 
+     Stav 
+     Stav připojení 
+     Odpojit 
+     Ověřování 
+     Získávání IP 
+     Připojeno 
+     IP adresa 
+     MAC adresa 
+     Chybné heslo 
+     Výrobce 
+     Verze 
+     Typ připojení 
+     Automaticky získat IP 
+     Statická IP 
+     IP adresa 
+     maska podsítě 
+     výchozí brána 
+     Preferovaný server DNS 
+     Záložní server DNS 
+     Uložení bylo úspěšné 
+     Uložení bylo neúspěšné 
+     Kalibrace doteku 
+     Aktualizovat 
+     Systém se brzy restartuje kvůli aktualizaci. 
+     Aktualizace byla úspěšná, systém se brzy restartuje. 
+     Aktualizace nebyla úspěšná 
+     Formát aktualizačního balíku je nesprávný. Vygenerujte znovu aktualizační balík, prosím! 
+     Model aktualizačního balíku se neshoduje! 
+     Neaktualizujte! 
+     Zrcadlený obraz je větší, než velikost oddílu a aktualizace nebyla úspěšná. 
+     Rozlišení obrázku bootovacího loga je větší než rozlišení obrazovky a aktualizace nebyla úspěšná. 
+     Aktualizace bootovacího loga není podporována. Aktualizace nebyla úspěšná. 
+     Ukončit program 
+     Probíhá aktualizace, neodpojujte napájecí zdroj, prosím. 
+     Poznámka: Po dokončení aktualizace, prosím, vymažte soubor ts.cfg na T kartě, abyste zabránili opětovné aktualizaci! 
+     Typ 
+     Verze 
+     Rozlišení 
+     Datum 
+ 
+ 
+ 
+     Musik 
+     Video 
+     Handyverbindung 
+     Bluetooth 
+     Lautstärke 
+     Musiklautstärke 
+     Carplay-Anruflautstärke 
+     Aufnahmelautstärke 
+     Unbekannt 
+     Montag 
+     Dienstag 
+     Mittwoch 
+     Donnerstag 
+     Freitag 
+     Samstag 
+     Sonntag 
+     Scannen... 
+     Wiedergabefehler! 
+     Einstellungen 
+     Radio 
+     Rhythmus 
+     Wählen 
+     Anruf 
+     Anrufliste 
+     Kontakte 
+     Laden... 
+     WiFi-Einstellungen 
+     Name 
+     Verschlüsselung 
+     Passwort 
+     Passwort anzeigen 
+     Verbinden 
+     Verbindungsstatus 
+     Trennen 
+     Verbunden 
+     Passwortfehler 
+     IP-Adresse 
+     Subnetzmaske 
+     Standard-Gateway 
+     MAC-Adresse 
+     Zurück 
+     Spracheinstellungen 
+     Helligkeit 
+     WiFi 
+     Kabelgebundenes ADB-Debugging 
+     System-Versionsnummer 
+     Versionsinformation 
+     Kontrast 
+     Farbton 
+     Sättigung 
+     Luminanz 
+     Datum 
+     Verbindungsmethode 
+     Anzeigen 
+     Zusammenschaltung 
+     Stimme 
+     Umkehren 
+     Fabrik 
+     System 
+     Mehr 
+     Kameraeinstellungen 
+     Kameraformat 
+     Kamera-Kanal 
+     Schaltart 
+     Aktueller Kameratyp 
+     Entwickler-Optionen 
+     Farbsystem 
+     Medienlautstärke 
+     Anruf-Lautstärke 
+     Soundeffekt 
+     Ja 
+     Abbrechen 
+     Bilderzahl zu überspringen 
+     Kamera-Drehwinkel 
+     Wird der Sound vom Fahrzeug verbunden? 
+     Einstellung nach Restart wirksam 
+     Scrollen starten 
+     Bilder laden... 
+     Ein-Touch-Beschleunigen 
+     Nicht verbunden 
+     Verbunden 
+     Verbinden... 
+     Öffnen... 
+     Deaktiviert 
+     Schließen... 
+     Trennen... 
+     Album 
+     FM-Übertragung 
+     Horn 
+     Ein 
+     Aus 
+     Ist dies die Inlandsversion? 
+     Herunterladen... 
+     neu erstellen 
+     Max. Anzahl der Verbindungen erreicht 
+     Gerätename 
+     Verfügbares Gerät 
+     Gerät verbinden 
+     Verbinden 
+     Verbinden... 
+     Nicht verbunden 
+     Verbunden 
+     Reifendruck 
+     Nicht zutreffend 
+     Nicht gefunden 
+     VERBUNDEN 
+     Zurücksetzen 
+     normal 
+     abnormal 
+     Klicke auf den passenden Reifen 
+     Reifendruck-Einstellung 
+     Einheit 
+     Hochdruck 
+     Niederdruck 
+     Temperatur (°C) 
+     Kopplung löschen 
+     Wollen Sie auf Werkseinstellungen zurücksetzen? 
+     Zurücksetzen auf Werkseinstellungen 
+     Bluetooth-Schalter 
+     Auto-Antwort 
+     Auto-Verbinden 
+     Das Gerät ist gekoppelt 
+     Kopplung mit diesem Gerät trennen? 
+     Der Name ist zu lang! 
+     Bitte diese Funktion benutzen, wenn Ihr Handy nicht verbunden ist. 
+     Import 
+     Zurück 
+     Sound 
+     Version abfragen 
+     Nach Update suchen 
+     MCU aktualisieren 
+     Upgrade starten 
+     Kein Signal 
+     Durch De-/Aktivieren dieser Funktion wird die Verbindung automatisch getrennt/hergestellt, bevor die Änderung wirksam wird. Wollen Sie diese Funktion nutzen? 
+     Berechtigen 
+     Autorisierungscode lesen 
+     Zusammenschaltung ist nicht autorisiert 
+     Zusammenschaltung ist autorisiert 
+     Zur MCU-Upgrade-Seite wechseln? 
+     PM 
+     AM 
+     Audioausgabe über Lautsprecher 
+     Ausgabe von AUX-Audio 
+     Carplay/Auto-Audioausgabe über Handy-Bluetooth 
+     Dieses Bildes wird für die Anzeige nicht unterstützt! 
+     Keine Dateien 
+     Einstellung der Anzeigeparameter 
+     MCU-Modell 
+     Upgrade-Dateien verfügbar. Upgrade durchführen? 
+     Keine Upgrade-Dateien gefunden. 
+     Upgrade abgeschlossen 
+     Neueste Version 
+     Aktualisierter Inhalt 
+     Rückfahr-Hilfslinien 
+     Kamera-Rückfahrspiegel 
+     Durch De-/Aktivieren dieser Funktion wird die Verbindung automatisch getrennt/hergestellt, bevor die Änderung wirksam wird. Wollen Sie die Änderung vornehmen? 
+     Zeitsystem 
+     12 Std.-Format 
+     24 Std.-Format 
+     Maximal 20 Zeichen eingeben 
+     Einstellungen 
+     Entwickler-Optionen 
+     Debug-Schalter 
+     Netzwerk-Einstellung 
+     WiFi-Einstellung 
+     LTE4g-Einstellung 
+     Hotspot-Einstellung 
+     Ethernet-Einstellung 
+     Hotspot-Schalter 
+     Hotspot-Name 
+     Hotspot-Passwort 
+     Passwort anzeigen 
+     Speichern 
+     Spracheinstellungen 
+     Abbrechen 
+     OK 
+     Systemsprache auf %s schalten? 
+     Name 
+     Verschlüsselungsart 
+     Verschlüsselt 
+     Offen 
+     Passwort 
+     Status 
+     Verbinden 
+     Trennen 
+     Authentifizieren 
+     IP abrufen 
+     Verbunden 
+     IP-Adresse 
+     MAC-Adresse 
+     Passwortfehler 
+     Hersteller 
+     Version 
+     Verbindungstyp 
+     Dynamische IP 
+     Statische IP 
+     IP-Adresse 
+     Subnetz maske 
+     Standard gateway 
+     Bevorzugter DNS-Server 
+     Ersatz-DNS-Server 
+     Erfolgreich gespeichert 
+     Speichern fehlgeschlagen 
+     Touch-Kalibrierung 
+     Upgrade 
+     System wird in Kürze für das Upgrade neu gestartet. 
+     Upgrade erfolgreich. System wird in Kürze neu gestartet. 
+     Upgrade fehlgeschlagen 
+     Format des Upgrade-Pakets nicht korrekt. Bitte das Upgrade-Paket erneut erstellen. 
+     Upgrade-Paket passt nicht zu diesem Modell! 
+     Nicht aktualisieren! 
+     Das Spiegelbild ist größer als die Partition. Upgrade fehlgeschlagen. 
+     Auflösung des Boot-Logos ist höher als die Bildschirmauflösung. Upgrade fehlgeschlagen. 
+     Upgrade des Boot-Logos wird nicht unterstützt. Upgrade fehlgeschlagen. 
+     Verlassen 
+     Während des Upgrades darf die Stromversorgung nicht unterbrochen werden. 
+     Hinweis: Nach Abschluss des Upgrades die Datei &quot;ts.cfg&quot; auf der T-Karte löschen, um ein erneutes Upgrade zu verhindern! 
+     Typ 
+     Version 
+     Auflösung 
+     Datum 
+ 
+ 
+ 
+     Music 
+     Video 
+     PhoneLink 
+     Bluetooth 
+     volume 
+     Music volume 
+     Carplay call volume 
+     Recording volume 
+     Unknown 
+     Monday 
+     Tuesday 
+     Wednesday 
+     Thursday 
+     Friday 
+     Saturday 
+     Sunday 
+     In the scan.. 
+     Playback error! 
+     This video cannot be played. 
+     Setting 
+     Radio 
+     Rhythm 
+     Dial 
+     Call 
+     Records 
+     Contacts 
+     Loading 
+     WiFi Settings 
+     Ssid: 
+     SecType: 
+     WifiPwd: 
+     ShowPwd 
+     Connect 
+     ConnectState: 
+     Disconnect 
+     Connected 
+     Please use this function when your&quot;mobile phone is not connected 
+     PwdError 
+     IPAddress: 
+     subnet mask 
+     default gateway 
+     MACAddr: 
+      return 
+      language 
+     brightness 
+     WiFi 
+     Wired ADB Debug 
+     contrast 
+     hue 
+     saturation 
+     luminance 
+     data 
+     Connection method 
+     show 
+     link 
+     voice 
+     reverse 
+     factory 
+     system 
+     more 
+     Camera parameters 
+     Camera Format 
+     Camera Channel 
+     Cut 
+     CameraType： 
+     developer 
+     system version 
+     Version Information 
+     color system 
+     media volume 
+     phone volume 
+     sound effect 
+     Sure 
+     Cancel 
+   	 skip 
+	 rot 
+	 Does the interconnection sound come from the car engine 
+	 Restarting after setting takes effect 
+	 Whether it is a domestic version 
+	 Scroll 
+	 Loading images 
+	 speed up 
+	 ununited 
+	 connected 
+	 connecting... 
+	 opening 
+	 disabled 
+	 closing 
+	 disconnecting 
+	 Album 
+	 FMT 
+	 Horn 
+	 Turn on 
+     Turn off 
+	 downloading 
+	 Calling 
+	 Please use this function when your mobile phone is not connected 
+	 sound effects 
+	 Connection steps: 
+	 Tip: 
+	 CarPlay connection help 
+	 1. Use an iPhone to connect to Bluetooth,the Bluetooth name is: 
+	 2. When the pop-up window on the phone shows &quot;Use iPhone for Carplay car?&quot;, select the &quot;Use Carplay car option&quot; 
+	 1. The waiting time for the first connection is relatively long 
+	 2. Only supports Apple phones 
+	 3. After successful connection, Bluetooth will automatically disconnect 
+	 Android Auto connection help 
+	 1. Select the Android Auto option 
+	 2. Use your phone to connect to Bluetooth, the Bluetooth name is: 
+	 1. Only supports Android phones 
+	 2. Please confirm that the Auto 
+application and dependent applications are the latest versions 
+	 AirPlay connection help 
+	 1. Please use your iPhone to connect to WiFi.The WiFi name is: 
+	 2. The WiFi password is: 
+	 3. In the screen mirror of the iPhone control center, select: 
+	 1. Only supports iPhone phones 
+	 Miracast connection help 
+	 1. Open your Android phone and enter the system settings interface 
+	 2. Find more connections and enable phone screen mirroring 
+	 3. Wait for scanning, connect device name: 
+	 AiCast connection help 
+	 1.Open your Android phone and enter the AiCast 
+	 2.Click to add device 
+	 3. Wait for scanning, connect device name: 
+	 CarLife connection help 
+	 1.Turn on the wifi of the car and connect the car to 
+the mobile phone hotspot. 
+	 2.Open the Baidu CarLife app on your phone 
+	 3.Wait for the car machine to jump automatically 
+	 4.The connection is complete 
+	 UNMATCH 
+	 NOTFOUND 
+	 CONNECTED 
+	 Reset 
+	 normal 
+	 abnormal 
+	 Click on the tire to match 
+	 Tire 
+	 Tire pressure setting 
+	 Unit 
+	 High pressure 
+	 Low pressure 
+	 Temperature(℃) 
+	 Clear pairing 
+	 Confirm a factory reset? 
+	 Factory reset 
+	 Device 
+	 Connect device 
+     Bt switch 
+     Auto-answer 
+	 Auto-connect 
+	 The device is paired 
+     Want to disconnect from the device? 
+     The name is too long! 
+     Please use this function when your mobile phone is not connected 
+	 Import 
+	 back 
+	 Sound 
+	 Query the version 
+	 Check for updates 
+	 Upgrade MCU 
+	 Start the upgrade 
+	 Enable/disable this feature will automatically disconnect and reconnect before it takes 
+effect, so please check whether to use this 
+function 
+	 Other devices are connected 
+	 Authorization 
+	 Read auto code 
+	 Lylink is not auto 
+	 Lylink is auto 
+	 Specifies whether to go to the MCU upgrade page 
+	 No signal 
+	 PM 
+	 AM 
+	 Audio output from the speaker 
+	 Audio output from AUX 
+	 Carplay/Auto audio is output from your phone's Bluetooth 
+	 Do you wish to delete 
+the contact? 
+	 Whether to delete the call history? 
+	 This image is not supported for display! 
+	 No files 
+	 Display parameter adjustment 
+	 MCU model 
+	 There are available upgrade files, 
+do you want to upgrade? 
+	 No upgrade files found. 
+	 Upgrade complete 
+	 Latest version 
+	 Updated content 
+	 Reversing assistance lines 
+	 Camera avatar mirroring 
+	 Enabling/disabling this
+function will automatically disconnect 
+and reconnect before it can take effect. 
+Please confirm whether to switch 
+	 Time system 
+	 12 hour 
+	 24 hour 
+	 You can only enter a maximum of 20 characters 
+	 The phone is on a call 
+	 Audio Out 
+	 Unknown incoming call 
+	 year 
+	 mon 
+	 day 
+	 hour 
+	 min 
+	 Close 
+	 Upgrade Information 
+	 A total of  
+	  contacts. 
+ 
+
+ 
+ 
+     Música 
+     Vídeo 
+     Conectividad móvil 
+     Bluetooth 
+     volumen 
+     Volumen de música 
+     Volumen de llamada Carplay 
+     Volumen de grabación 
+     Desconocido 
+     Lunes 
+     Martes 
+     Miércoles 
+     Jueves 
+     Viernes 
+     Sábado 
+     Domingo 
+     Escaneando… 
+     ¡Error de reproducción! 
+     Ajuste 
+     Radio 
+     Ritmo 
+     Marcar 
+     Llamar 
+     Historial de llamadas 
+     Contactos 
+     Cargando 
+     Ajustes Wi-Fi 
+     Nombre 
+     Método de cifrado 
+     Contraseña 
+     Mostrar contraseña 
+     Conectar 
+     Estado de la conexión 
+     Desconectado 
+     Conectado 
+     Error de contraseña 
+     Dirección IP 
+     máscara de subred 
+     puerta de enlace predeterminada 
+     Dirección MAC 
+     volver 
+     Configuración de idioma 
+     brillo 
+     Wi-Fi 
+     Depuración ADB por cable 
+     Version del sistema 
+     Información de la versión 
+     contraste 
+     tono 
+     saturación 
+     luminancia 
+     Fecha 
+     Método de conexión 
+     mostrar 
+     Interconexión 
+     voz 
+     revertir 
+     fábrica 
+     sistema 
+     más 
+     Parámetros de la cámara 
+     Formato de cámara 
+     Canal de cámara 
+     Tipo de cambio 
+     Tipo de cámara actual 
+     Opciones de desarrollador 
+     sistema de color 
+     volumen multimedia 
+     Volumen de llamada 
+     efecto de sonido 
+     Ok 
+     Cancelar 
+     Establecer el número de fotogramas a omitir 
+     Ajustar el ángulo de rotación de la cámara. 
+     ¿El sonido conectado proviene del coche? 
+     La configuración se aplicará tras reiniciar. 
+     Iniciar desplazamiento. 
+     Cargando imágenes 
+     Aceleración con un pulsación. 
+     desvinculado 
+     connected 
+     conectando 
+     abriendo 
+     desactivado 
+     cerrando 
+     desconectando 
+     Álbum 
+     Transmisión FM 
+     Bocina 
+     Encendido 
+     Apagado 
+     ¿Es esta la versión nacional? 
+     descargando 
+     recreación 
+     ¡Se ha alcanzado el número máximo de conexiones! 
+     Nombre del dispositivo 
+     Dispositivo disponible 
+     Dispositivo conectado 
+     Conectar 
+     Connecting 
+     Desconectado 
+     Conectado 
+     Presión del neumático 
+     Sin vincular 
+     No encontrado 
+     CONNECTED 
+     reiniciar 
+     normal 
+     anormal 
+     Haga clic en el neumático para emparejar 
+     Ajuste de la presión del neumático 
+     unidad 
+     presión alta 
+     presión baja 
+     Temperatura (℃) 
+     Eliminar el emparejamiento 
+     ¿Confirmar el restablecimiento de fábrica? 
+     Restablecimiento de fábrica 
+     Interruptor Bluetooth 
+     Respuesta automática 
+     Conexión automática 
+     El dispositivo está emparejado 
+     ¿Desea desconectarse del dispositivo? 
+     ¡El nombre es demasiado largo! 
+     Utilice esta función cuando el teléfono móvil no esté conectado 
+     Importar 
+     atrás 
+     Sonido 
+     Consultar la versión 
+     Buscar actualizaciones 
+     Actualizar MCU 
+     Iniciar la actualización 
+     No hay señal 
+     Al activar o desactivar esta función, se desconectará y volverá a conectarse automáticamente antes de que surta efecto. Confirme si desea utilizar esta función. 
+     Hay otros dispositivos conectados 
+     Autorización 
+     Leer el código de autorización 
+     La interconexión no está autorizada. 
+     La interconexión está autorizada. 
+     ¿Ir a la página de actualización de MCU? 
+     PM 
+     AM 
+     Salida de audio del altavoz 
+     Salida de audio desde AUX 
+     El audio de Carplay/Auto se emite desde el Bluetooth del móvil 
+     ¡Esta imagen no es compatible para su visualización! 
+     No hay archivos 
+     Ajuste de los parámetros de visualización 
+     Modelo MCU 
+     Hay archivos de actualización disponibles, ¿desea actualizar? 
+     No se han encontrado archivos de actualización. 
+     Actualización completada 
+     Última versión 
+     Actualizar contenido 
+     Líneas de asistencia de marcha atrás 
+     Espejo de marcha atrás con cámara 
+     Al activar o desactivar esta función, se desconectará y volverá a conectarse automáticamente antes de que surta efecto. Confirme si desea cambiarla. 
+     Sistema horario 
+     12 horas 
+     24 horas 
+     Sólo puede introducir un máximo de 20 caracteres 
+     Configuración 
+     Opciones de desarrolador 
+     Interruptor de depuración 
+     Configuración de red 
+     Configuración de Wi-Fi 
+     Configuración 4G 
+     Configuración de punto de acceso 
+     Configuración Ethernet 
+     Interruptor del punto de acceso 
+     Nombre del punto de acceso 
+     Contraseña del punto de acceso 
+     Mostrar contraseña 
+     Guardar 
+     Configuración del idioma 
+     Cancel 
+     Ok 
+     ¿Cambiar el idioma del sistema a %s? 
+     Nombre 
+     Método de cifrado 
+     Cifrado 
+     Abrir 
+     Contraseña 
+     Estado 
+     Connect 
+     Disconnect 
+     Autenticación 
+     Obteniendo IP 
+     Connected 
+     Dirección IP 
+     Dirección MAC 
+     Error de contraseña 
+     Fabricante 
+     Version 
+     Tipo de conexión 
+     Obtener IP automáticamente 
+     IP estática 
+     Dirección IP 
+     máscara de subred 
+     puerta predeterminada 
+     Servidor DNS preferido 
+     Servidor DNS secundario 
+     Guardado correctamente 
+     Error al guardar 
+     Calibración táctil 
+     Actualizar 
+     El sistema se reiniciará en breve para realizar la actualización. 
+     Actualización realizada correctamente, el sistema se reiniciará en breve. 
+     Actualización fallida. 
+     El formato del paquete de actualización es incorrecto. ¡Vuelva a generar el paquete de actualización! 
+     ¡El modelo del paquete de actualización no coincide! 
+     ¡No actualice! 
+     La imagen espejo es mayor que el tamaño de la partición y la actualización ha fallado. 
+     La resolución de la imagen del logotipo de arranque es mayor que la resolución de la pantalla y la actualización ha fallado. 
+     No se admite la actualización del logotipo de arranque. La actualización ha fallado. 
+     Salir 
+     Actualizando, no desconecte la fuente de alimentación. 
+     Nota: Una vez completada la actualización, elimine el archivo ts.cfg de la tarjeta T para evitar que se vuelva a actualizar. 
+     Tipo 
+     Version 
+     Resolución 
+     Fecha 
+ 
+ 
+ 
+     Musique 
+     Vidéo 
+     Connexion téléphone 
+     Bluetooth 
+     Volume 
+     Volume Musique 
+     Volume Appel CarPlay 
+     Volume Enreg. 
+     Inconnu 
+     Lun. 
+     Mar. 
+     Mer. 
+     Jeu. 
+     Ven. 
+     Sam. 
+     Dim. 
+     Analyse en cours... 
+     Erreur de lecture ! 
+     Réglages 
+     Radio 
+     Rythme 
+     Composer 
+     Appel 
+     Historique des appels 
+     Contacts 
+     Chargement 
+     Réglages Wi-Fi 
+     SSID 
+     Méthode de chiffrement 
+     Mot de passe Wi-Fi 
+     Afficher le mot de passe 
+     Connecter 
+     État de la connexion 
+     Déconnecter 
+     Connecté 
+     Mot de passe incorrect 
+     Adresse IP 
+     Masque sous-réseau 
+     Passerelle 
+     Adresse MAC 
+     Retour 
+     Paramètres de langue 
+     Luminosité 
+     Wi-Fi 
+     Débogage ADB par câble 
+     Version du système 
+     Infos Version 
+     Contraste 
+     Nuance 
+     Saturation 
+     Luminance 
+     Date 
+     Mode Connexion 
+     Afficher 
+     Interconnexion 
+     Voix 
+     Inverser 
+     Usine 
+     Système 
+     Plus 
+     Param. Caméra 
+     Format de la caméra 
+     Canal de la caméra 
+     Type de basculement 
+     Type de caméra actuel 
+     Options pour développeurs 
+     SystèmeCouleur 
+     Volume Médias 
+     Volume des appels 
+     Effet Sonore 
+     OK 
+     Annuler 
+     Définir les images à ignorer 
+     Angle de rotation de la caméra 
+     Le son connecté provient-il du véhicule ? 
+     Les paramètres prendront effet après redémarrage 
+     Début du défilement 
+     Chargement images 
+     Accélération instantanée 
+     Non connecté 
+     Connecté 
+     Connexion... 
+     Ouverture 
+     Désactivé 
+     Fermeture 
+     Déconnexion... 
+     Album 
+     Transmission FM 
+     Klaxon 
+     Activer 
+     Désactiver 
+     S'agit-il de la version domestique ? 
+     Téléchargement... 
+     Divertissement 
+     Nombre maximal de connexions atteint ! 
+     Nom de l'appareil 
+     Appareils dispo. 
+     Connecter app. 
+     Connecter 
+     Connexion... 
+     Non connecté 
+     Connecté 
+     Pression des pneus 
+     Non apparié 
+     Non trouvé 
+     Connecté 
+     Réinitialiser 
+     Normal 
+     Anormal 
+     Cliquez sur le pneu pour l’apparier 
+     Réglage pression pneu 
+     Unité 
+     Haute pression 
+     Basse pression 
+     Température (℃) 
+     Supprimer l’appariement 
+     Confirmer la restauration des paramètres d’usine ? 
+     Rétablir les paramètres d’usine 
+     Interrupteur Bluetooth 
+     Réponse auto 
+     Connexion auto 
+     Appareil apparié 
+     Déconnecter l’appareil ? 
+     Nom trop long ! 
+     Utilisez cette fonction hors connexion mobile 
+     Importer 
+     Retour 
+     Son 
+     Vérifier la version 
+     Rechercher màj 
+     Mise à jour MCU 
+     Démarrer la mise à jour 
+     Pas de signal 
+     Activer ou désactiver cette fonction entraînera une reconnexion automatique. Confirmez si vous souhaitez continuer. 
+     Autres appareils connectés 
+     Autorisation 
+     Lire le code d'autorisation 
+     Interconnexion non autorisée 
+     Interconnexion autorisée 
+     Accéder à la page de mise à jour MCU ? 
+     PM 
+     AM 
+     Sortie audio enceinte 
+     Sortie audio via AUX 
+     Audio CarPlay/Auto via Bluetooth téléphone 
+     Image non prise en charge ! 
+     Aucun fichier 
+     Réglage paramètres affichage 
+     Modèle MCU 
+     Fichiers màj dispo, mettre à jour ? 
+     Aucun fichier de mise à jour trouvé 
+     Mise à jour terminée 
+     Version la plus récente 
+     Contenu de la mise à jour 
+     Lignes aide recul 
+     Miroir de recul caméra 
+     Activer ou désactiver cette fonction entraînera une reconnexion automatique. Confirmez le changement de mode. 
+     Format horaire 
+     12 h 
+     24 h 
+     20 caractères maximum autorisés 
+     Configuration 
+     Options développeur 
+     Interrupteur de débogage 
+     Paramètres réseau 
+     Paramètres Wi-Fi 
+     Paramètres 4G/LTE 
+     Paramètres du point d'accès 
+     Paramètres Ethernet 
+     Activer le point d'accès 
+     Nom du point d'accès 
+     Mot de passe du point d'accès 
+     Afficher mdp 
+     Enregistrer 
+     Paramètres de langue 
+     Annuler 
+     Confirmer 
+     Passer la langue système à %s ? 
+     Nom 
+     Méthode de sécurité 
+     Chiffré 
+     Ouvert 
+     Mot de passe 
+     État 
+     Se connecter 
+     Se déconnecter 
+     Authentification en cours 
+     Obtention de l'adresse IP 
+     Connecté 
+     Adresse IP 
+     Adresse MAC 
+     Mdp invalide 
+     Fabricant 
+     Version 4G 
+     Type connexion 
+     Obtenir automatiquement l'adresse IP 
+     IP statique 
+     Adresse IP 
+     Masque 
+     Passerelle 
+     Serveur DNS principal 
+     Serveur DNS secondaire 
+     Enregistré avec succès 
+     Échec de l'enregistrement 
+     Calibration de l'écran tactile 
+     Mise à jour 
+     Le système va redémarrer pour la mise à jour. 
+     Mise à jour réussie, redémarrage imminent. 
+     Échec de la mise à jour 
+     Format de mise à jour incorrect. Veuillez régénérer le fichier ! 
+     Le modèle du paquet ne correspond pas ! 
+     Ne pas mettre à jour ! 
+     L’image dépasse la taille de la partition – échec de la mise à jour. 
+     Résolution du logo de démarrage trop élevée – échec de la mise à jour. 
+     La mise à jour du logo de démarrage n’est pas prise en charge. 
+     Quitter 
+     Mise à jour en cours. Ne déconnectez pas l’alimentation. 
+     Remarque : après la mise à jour, supprimez le fichier ts.cfg de la carte T pour éviter une mise à jour automatique. 
+     Type 
+     Version 
+     Résolution 
+     Date 
+ 
+ 
+ 
+     מוזיקה 
+     וידאו 
+     קישוריות טלפון 
+     סורק.. 
+     שגיאת הפעלה! 
+     היסטוריית שיחות 
+     שם 
+     שיטת הצפנה 
+     סיסמה 
+     הצג סיסמה 
+     מצב חיבור 
+     שגיאת סיסמה 
+     כתובת  IP 
+     כתובת  MAC 
+     הגדרות שפה 
+     דיבאג ADB קווי 
+     סורק.. 
+     שגיאת הפעלה! 
+     הגדרה 
+     רדיו 
+     קצב 
+     חיוג 
+     שיחה 
+     היסטוריית שיחות 
+     אנשי קשר 
+     טוען 
+     הגדרות וויי-פיי 
+     שם 
+     שיטת הצפנה 
+     סיסמה 
+     הצג סיסמה 
+     התחבר 
+     מצב חיבור 
+     מנותק 
+     מחובר 
+     שגיאת סיסמה 
+     כתובת  IP 
+     מסיכת רשת משנה 
+     שער ברירת מחדל 
+     כתובת  MAC 
+     החזרה 
+     הגדרות שפה 
+     בהירות 
+     וויי-פיי 
+     דיבאג ADB קווי 
+     מספר גרסת מערכת 
+     מידע על הגרסה 
+     ניגודיות 
+     גוון 
+     רוויה 
+     בהירות 
+     תאריך 
+     שיטת חיבור 
+     הצג 
+     חיבור 
+     קול 
+     הפוך 
+     מפעל 
+     מערכת 
+     עוד 
+     פרמטרי מצלמה 
+     פורמט מצלמה 
+     ערוץ מצלמה 
+     סוג מתג 
+     סוג מצלמה נוכחי 
+     אפשרויות מפתח 
+     מערכת צבע 
+     עוצמת מדיה, תקשורת 
+     עוצמת קול שיחה 
+     אפקט צליל 
+     אישור 
+     ביטול 
+     הגדר מספר מסגרות לדילוג 
+     הגדרת זווית סיבוב המצלמה 
+     האם צליל החיבור מגיע מהמכונית? 
+     ההגדרות ייכנסו לתוקף לאחר האתחול מחדש 
+     התחל גלילה 
+     טוען תמונות 
+     האצה בנגיעה אחת 
+     לא מחובר 
+     מחובר 
+     מתחבר 
+     פותח 
+     מושבת 
+     סוגר 
+     ניתוק 
+     אלבום 
+     שידור  FM 
+     צופר 
+     מופעל 
+     כבוי 
+     האם זוהי הגרסה המקומית? 
+     הורדה 
+     פנאי 
+     מספר החיבורים המרבי הושג! 
+     שם המכשיר 
+     מכשיר זמין 
+     חבר מכשיר 
+     התחבר 
+     מתחבר 
+     לא מחובר 
+     מחובר 
+     לחץ אוויר בצמיגים 
+     לא תואם 
+     לא נמצא 
+     מחובר 
+     איפוס 
+     רגיל 
+     לא תקין 
+     לחץ על הצמיג כדי להתאים 
+     הגדרת לחץ אוויר בצמיגים 
+     יחידה 
+     לחץ אוויר גבוה 
+     לחץ אוויר נמוך 
+     טמפרטורה (℃) 
+     נקה את הצימוד 
+     שחזור להגדרות היצרן 
+     איפוס להגדרות יצרן 
+     מתג בלוטות' 
+     מענה אוטומטי 
+     חיבור אוטומטי 
+     המכשיר משויך 
+     להתנתק מהמכשיר? 
+     השם ארוך מדי! 
+     אנא השתמש בפונקציה זו כאשר הטלפון הנייד שלך אינו מחובר 
+     ייבא 
+     חזור 
+     צליל 
+     שאילת גרסה 
+     בדוק עדכונים 
+     שדרג  MCU 
+     התחל את השדרוג 
+     אין אות 
+     הפעלה/השבתה של פונקציה זו תנתק ותחבר מחדש באופן אוטומטי לפני כניסתה לתוקף. אנא אשר אם ברצונך להשתמש בפונקציה זו. 
+     מכשירים אחרים מחוברים 
+     אישור 
+     קרא קוד אישור 
+     החיבור אינו מורשה 
+     החיבור מורשה 
+     האם לעבור לדף שדרוג ה-MCU? 
+     PM 
+     AM 
+     פלט שמע מהרמקול 
+     פלט שמע מ-AUX 
+     שמע Carplay/Auto מופק מהבלוטות' של הטלפון שלך 
+     תמונה זו אינה נתמכת לתצוגה! 
+     אין קבצים 
+     התאמת פרמטרים לתצוגה 
+     דגם   MCU 
+     ישנם קבצי שדרוג זמינים, האם ברצונך לשדרג? 
+     לא נמצאו קבצי שדרוג. 
+     השדרוג הושלם 
+     גרסה אחרונה 
+     עדכן תוכן 
+     היפוך קווי סיוע 
+     מצלמת מראה אחורית 
+     הפעלה/השבתה של פונקציה זו תנתק ותתחבר מחדש באופן אוטומטי לפני שתיכנס לתוקף. אנא אשר אם ברצונך להחליף. 
+     מערכת זמן 
+     12 שעות 
+     24 שעות 
+     ניתן להזין עד 20 תווים בלבד 
+     הגדרה 
+     אפשרויות מפתח 
+     מתג  דיבאג 
+     הגדרת רשת 
+     הגדרת וויי-פיי 
+     הגדרת 4G 
+     הגדרת נקודה חמה 
+     הגדרת אתרנט 
+     מתג נקודה חמה 
+     שם נקודה חמה 
+     סיסמת נקודה חמה 
+     הצג סיסמה 
+     שמור 
+     הגדרת שפה 
+     ביטול 
+     אישור 
+     החלף את שפת המערכת ל-%S? 
+     שם 
+     שיטת הצפנה 
+     הצפנה 
+     פתח 
+     סיסמה 
+     סטטוס 
+     התחבר 
+     מנותק 
+     מאמת 
+     קבלת  IP 
+     מחובר 
+     כתובת  IP 
+     כתובת  MAC 
+     שגיאת סיסמה 
+     יצרן 
+     גרסה 
+     סוג חיבור 
+     קבלת IP באופן אוטומטי 
+     סטטי IP 
+     כתובת IP 
+     מסיכת רשת משנה 
+     שער ברירת מחדל 
+     שרת DNS מועדף 
+     שרת DNS גיבוי 
+     נשמר בהצלחה 
+     שמירה נכשלה 
+     כיול מגע 
+     שדרוג 
+     המערכת תאתחל בקרוב לצורך שדרוג. 
+     השדרוג בוצע בהצלחה, המערכת תאתחל בקרוב. 
+     השדרוג נכשל 
+     פורמט חבילת השדרוג שגוי. אנא צור את חבילת השדרוג שוב! 
+     מודל חבילת השדרוג אינו תואם! 
+     אל תשדרג! 
+     תמונת המראה גדולה מגודל המחיצה, והשדרוג נכשל. 
+     רזולוציית תמונת לוגו האתחול גדולה מרזולוציית המסך, והשדרוג נכשל. 
+     שדרוג לוגו האתחול אינו נתמך. השדרוג נכשל. 
+     יציאה 
+     משדרג, אנא אל תנתק את ספק הכוח. 
+     הערה: לאחר השלמת השדרוג, אנא מחק את הקובץ ts.cfg בכרטיס ה- T כדי למנוע שדרוג נוסף! 
+     סוג 
+     גרסה 
+     רזולוציה 
+     תאריך 
+ 
+ 
+ 
+     Musica 
+     Video 
+     Connettivit?del telefono 
+     Bluetooth 
+     Volume 
+     Volume musica 
+     Volume chiamata CarPlay 
+     Volume registrazione 
+     Sconosciuto 
+     Luned? 
+     Marted? 
+     Mercoled? 
+     Gioved? 
+     Venerd? 
+     Sabato 
+     Domenica 
+     Scansione in corso? 
+     Errore di riproduzione! 
+     Impostazioni 
+     Radio 
+     Ritmo 
+     Componi 
+     Chiamata 
+     Cronologia delle chiamate 
+     Contatti 
+     Caricamento 
+     Impostazioni WiFi 
+     Nome 
+     Metodo di crittografia 
+     Password 
+     Mostra password 
+     Connetti 
+     Stato della connessione 
+     Disconnetti 
+     Connesso 
+     Errore password 
+     Indirizzo IP 
+     Maschera di sottorete 
+     Gateway predefinito 
+     Indirizzo MAC 
+     Ritorna 
+     Impostazioni lingua 
+     Luminosit? 
+     wifi 
+     Debug ADB cablato 
+     Numero di versione del sistema 
+     Informazioni sulla versione 
+     Contrasto 
+     Tonalit? 
+     Saturazione 
+     Luminanza 
+     Data 
+     Metodo di connessione 
+     mostra 
+     Interconnessione 
+     Suono 
+     inverti 
+     Fabbrica 
+     Sistema 
+     Altro 
+     Parametri della telecamera 
+     Formato telecamera 
+     Canale telecamera 
+     Tipo di commutazione 
+     Tipo di telecamera corrente 
+     Opzioni sviluppatore 
+     Sistema colore 
+     Volume multimediale 
+     Volume chiamata 
+     Effetto sonori 
+     OK 
+     Annulla 
+     Imposta il numero di fotogrammi da saltare 
+     Imposta l'angolo di rotazione della telecamera 
+     L'audio connesso proviene dall'auto? 
+     Le impostazioni avranno effetto dopo un riavvio 
+     Avvia scorrimento 
+     Caricamento immagini 
+     Accelerazione con un tocco 
+     Non connesso 
+     Connesso 
+     Connessione in corso 
+     Apertura in corso 
+     Disabilitato 
+     Chiusura in corso 
+     Disconnessione in corso 
+     Album 
+     Trasmissione FM 
+     Acceso 
+     Acceso 
+     Spento 
+     ?la versione nazionale? 
+     Download in corso 
+     Intrattenimento 
+     ?stato raggiunto il numero massimo di connessioni! 
+     Nome del dispositivo 
+     Dispositivo disponibile 
+     Connetti dispositivo 
+     Connetti 
+     Connessione in corso 
+     Non connesso 
+     Connesso 
+     Pressione degli pneumatici 
+     Non corrispondente 
+     Non trovato 
+     Connesso 
+     Reimposta 
+     Normale 
+     Anomalo 
+     Clicca sullo pneumatico da associare 
+     Impostazione pressione pneumatici 
+     unit? 
+     Alta pressione 
+     Bassa pressione 
+     Temperatura (?) 
+     Cancella associazione 
+     Sei sicuro di voler ripristinare alle impostazioni di fabbrica? 
+     Ripristina alle impostazioni di fabbrica 
+     Interruttore Bluetooth 
+     Risposta automatica 
+     Connessione automatica 
+     Il dispositivo ?associato 
+     Disconnettersi dal dispositivo? 
+     Il nome ?troppo lungo! 
+     Utilizza questa funzione quando il tuo telefono non ?connesso 
+     Importa 
+     indietro 
+     Audio 
+     Versione richiesta 
+     Verifica aggiornamenti 
+     Aggiorna MCU 
+     Avvia l'aggiornamento 
+     Nessun segnale 
+     L'attivazione o la disattivazione di questa funzione determiner?la disconnessione e la riconnessione automatica prima dell'attivazione. Conferma se desideri utilizzare questa funzione. 
+     Altri dispositivi sono connessi 
+     Autorizzazione 
+     Leggere il codice di autorizzazione 
+     Interconnessione non autorizzata 
+     Interconnessione autorizzata 
+     Andare alla pagina di aggiornamento MCU? 
+     PM 
+     AM 
+     Uscita audio dall'altoparlante 
+     Uscita audio da AUX 
+     L'audio di CarPlay/Auto viene emesso dal Bluetooth del tuo telefono 
+     Questa immagine non ?supportata per la visualizzazione! 
+     Nessun file 
+     Regolazione dei parametri di visualizzazione 
+     Modello MCU 
+     Sono disponibili file di aggiornamento, desideri eseguire l'aggiornamento? 
+     Nessun file di aggiornamento trovato. 
+     Aggiornamento completato 
+     Ultima versione 
+     Aggiorna contenuto 
+     Aiuto per l'inversione 
+     Specchietto retrovisore con telecamera 
+     Abilitando o disabilitando questa funzione, la connessione verr?automaticamente disconnessa e riconnessa prima di avere effetto. Conferma se desideri cambiare. 
+     Sistema orario 
+     12 ore 
+     24 ore 
+     Puoi inserire solo un massimo di 20 caratteri 
+     Impostazioni 
+     Opzioni sviluppatore 
+     Interruttore di debug 
+     Configurazione di rete 
+     Configurazione del Wi-Fi 
+     Configurazione del 4G 
+     Configurazione hotspot 
+     Configurazione Ethernet 
+     Interruttore hotspot 
+     Nome hotspot 
+     Password hotspot 
+     Mostra password 
+     Salva 
+     Impostazione della lingua 
+     Annulla 
+     OK 
+     Vuoi cambiare la lingua del sistema in %s? 
+     Nome 
+     Metodo di crittografia 
+     Crittografia 
+     Apri 
+     Password 
+     Stato 
+     Connetti 
+     Disconnetti 
+     Autenticazione in corso 
+     Ottenimento IP in corso 
+     Connesso 
+     Indirizzo IP 
+     Indirzzo MAC 
+     Errore password 
+     Produttore 
+     Versione 
+     Tipo di connessione 
+     Ottieni automaticamente l'IP 
+     IP statico 
+     indirizzo IP 
+     Maschera di sottorete 
+     Gateway predefinito 
+     Server DNS preferito 
+     Server DNS di backup 
+     Salvataggio effettuato con successo 
+     Salvataggio non riuscito 
+     Calibrazione del touch 
+     Aggiornamento 
+     Il sistema verr?riavviato a breve per l'aggiornamento. 
+     Dopo aver completato correttamente l'aggiornamento, il sistema verr?riavviato a breve. 
+     Aggiornamento non riuscito 
+     Il formato del pacchetto di aggiornamento non ?corretto. Genera nuovamente il pacchetto di aggiornamento! 
+     Il modello del pacchetto di aggiornamento non corrisponde! 
+     Non effettuare l'aggiornamento! 
+     L'immagine mirror ?pi?grande della dimensione della partizione e l'aggiornamento non pu?esser effettuato. 
+     La risoluzione dell'immagine del logo di avvio ?maggiore della risoluzione dello schermo e l'aggiornamento non riesce. 
+     L'aggiornamento del logo di avvio non ?supportato. Aggiornamento non riuscito. 
+     Esci 
+     Aggiornamento in corso, non scollegare l'alimentazione. 
+     Nota: una volta completato l'aggiornamento, elimina il file ts.cfg nella scheda T per evitare che l'aggiornamento venga ripetuto! 
+     Tipo 
+     Versione 
+     Risoluzione 
+     Data 
+ 
+ 
+ 
+     音楽 
+     動画 
+     携帯電話接続 
+     Bluetooth 
+     音量 
+     音楽音量 
+     Carplay通話音量 
+     録音音量 
+     不明 
+     月曜日 
+     火曜日 
+     水曜日 
+     木曜日 
+     金曜日 
+     土曜日 
+     日曜日 
+     スキャン中.. 
+     再生エラー！ 
+     設定 
+     ラジオ 
+     リズム 
+     ダイアル 
+     通話 
+     通話歴 
+     連絡先 
+     読込中 
+     Wi-fi設定 
+     名前 
+     暗号化方法 
+     パスワード 
+     パスワード表示 
+     接続する 
+     接続状態 
+     切断 
+     接続済 
+     パスワードエラー 
+     IPアドレス 
+     サブネットマスク 
+     デフォルトゲートウェイ 
+     MACアドレス 
+     返送 
+     言語設定 
+     光度 
+     Wi-fi 
+     有線ADBデバッグ 
+     システムバージョン番号 
+     バージョン情報 
+     コントラスト 
+     色彩 
+     彩度 
+     輝度 
+     データ 
+     接続方法 
+     表示 
+     相互接続 
+     音声 
+     逆 
+     工場 
+     システム 
+     もっと 
+     カメラのパラメータ 
+     カメラフォーマット 
+     カメラチャネル 
+     切替タイプ 
+     現在のカメラタイプ 
+     デベロッパーオプション 
+     表色系 
+     メディア音量 
+     通話音量 
+     音響効果 
+     OK 
+     取消 
+     フレーム数を設定してスキップする 
+     カメラの回転角度を設定する 
+     接続音は車から発せられていますか？ 
+     設定は再起動後に有効になります 
+     スクロール開始 
+     読み取り画像 
+     ワンタッチ加速 
+     非統合 
+     接続済 
+     接続中 
+     開く 
+     無効済 
+     閉じる 
+     切断中 
+     アルバム 
+     FM伝送 
+     ホーン 
+     オン 
+     オフ 
+     これは国内バージョンですか？ 
+     ダウンロード中 
+     レクリエーション 
+     接続の最大数に達しました！ 
+     デバイス名 
+     利用可能なデバイス 
+     デバイスを接続 
+     接続する 
+     接続中 
+     未接続 
+     接続済 
+     タイヤ圧 
+     一致しません 
+     見つかりません 
+     接続済 
+     リセット 
+     正常 
+     異常 
+     タイヤをクリックして一致させます 
+     タイヤ圧設定 
+     単位 
+     高圧 
+     低圧 
+     温度（℃） 
+     ペアリング解除 
+     工場出荷時設定をリセットしますか？ 
+     工場出荷時設定をリセットする 
+     Bluetooth スイッチ 
+     自動応答 
+     自動接続 
+     デバイスはペアリングされました 
+     デバイスから切断しますか？ 
+     名前が長すぎます！ 
+     携帯電話が接続されていないときにこの機能を使用してください 
+     インポート 
+     戻る 
+     音声 
+     バージョンを照会する 
+     更新を確認する 
+     MCUをアップグレードする 
+     アップグレードを開始する 
+     信号なし 
+     この機能を有効／無効にすると、自動的に接続が切断され、再接続後に有効になります。この機能を使用するかどうか確認してください。 
+     他のデバイスが接続されています 
+     認可 
+     認証コードを読み取る 
+     相互接続は認証されていません 
+     相互接続は認証されています 
+     MCUアップグレードページに移動しますか？ 
+     午後 
+     午前 
+     スピーカーからの自動出力 
+     AUXからの音声出力 
+     Carplay/Auto 音響は、携帯電話のBluetooth からの出力です 
+     この画像は表示対象ではありません！ 
+     ファイルがありません 
+     パラメータ調整を表示する 
+     MCUモデル 
+     利用可能なアップグレードファイルがあります。アップグレードしますか？ 
+     アップグレードファイルが見つかりません。 
+     アップグレード完了 
+     最新バージョン 
+     更新内容 
+     逆アシスタントライン 
+     カメラ反転ミラー 
+     この機能を有効／無効にすると、自動的に接続が切断され、再接続後に有効になります。切替えるかどうか確認してください。 
+     時間システム 
+     12 時間 
+     24 時間 
+     最大20文字まで入力できます 
+     設定 
+     デベロッパーオプション 
+     デバッグスイッチ 
+     ネットワーク設定 
+     Wi-fi設定 
+     4G設定 
+     ホットスポット設定 
+     Ethernet設定 
+     ホットスポット切替 
+     ホットスポット名 
+     ホットスポットパスワード 
+     パスワード表示 
+     保存 
+     言語設定 
+     取消 
+     OK 
+     システム言語を%に切り替えますか？ 
+     名前 
+     暗号化方法 
+     暗号化 
+     オープン 
+     パスワード 
+     状態 
+     接続 
+     切断 
+     認証 
+     IP取得 
+     接続済 
+     IPアドレス 
+     MACアドレス 
+     パスワードエラー 
+     メーカー 
+     バージョン 
+     接続タイプ 
+     自動IP取得 
+     静的IP 
+     IPアドレス 
+     サブネットマスク 
+     デフォルトゲートウェイ 
+     優先DNSサーバー 
+     バックアップDNSサーバー 
+     正常に保存 
+     保存できません 
+     タッチ較正 
+     アップグレード 
+     システムはまもなくアップグレードのために再起動します 
+     正常にアップグレードしました。システムはまもなく再起動します 
+     アップグレードに失敗しました 
+     アップグレードパッケージ形式が誤っています。もう一度アップグレードパッケージを生成してください！ 
+     アップグレードパッケージモデルが一致しません！ 
+     アップグレードしないでください！ 
+     ミラー画像がパーティションサイズより大きく、アップグレードできません。 
+     ブートロゴ画像の解像度が画面解像度より大きく、アップグレードできません。 
+     ブートロゴのアップグレードに対応していません。アップグレードできません。 
+     退出 
+     アップグレード中です。電源を切断しないでください。 
+     注意：アップグレード完了後、再度アップグレードが行われないよう、Tカード内のts.cfgファイルを削除してください！ 
+     タイプ 
+     バージョン 
+     解像度 
+     日付 
+ 
+ 
+ 
+     Muzyka 
+     Wideo 
+     Łączność telefoniczna 
+     Bluetooth 
+     głośność 
+     Głośność muzyki 
+     Głośność połączeń CarPlay 
+     Głośność nagrywania 
+     Nieznane 
+     Poniedziałek 
+     Wtorek 
+     Środa 
+     Czwartek 
+     Piątek 
+     Sobota 
+     Niedziela 
+     Skanowanie... 
+     Błąd odtwarzania! 
+     Ustawienie 
+     Radio 
+     Rytm 
+     Wybieranie 
+     połączenie 
+     Historia połączeń 
+     Dane kontaktowe 
+     Ładowanie 
+     Ustawienia Wi-Fi 
+     Nazwa 
+     Metoda szyfrowania 
+     Hasło 
+     Pokaż hasło 
+     Połącz 
+     Stan połączenia 
+     Rozłącz 
+     Połączono 
+     Błąd hasła 
+     Adres IP 
+     maska podsieci 
+     brama domyślna 
+     Adres MAC 
+     wstecz 
+     Ustawienia języka 
+     jasność 
+     wifi 
+     Przewodowe debugowanie ADB 
+     Numer wersji systemu 
+     Informacje o wersji 
+     kontrast 
+     odcień 
+     nasycenie 
+     luminacja 
+     Data 
+     Metoda połączenia 
+     pokaż 
+     Połączenie międzysystemowe 
+     głos 
+     odwrócone 
+     fabryka 
+     system 
+     więcej 
+     Parametry kamery 
+     Format kamery 
+     Kanał kamery 
+     Typ przełączania 
+     Bieżący typ kamery 
+     Opcje programistyczne 
+     system kolorów 
+     głośność mediów 
+     Liczba połączeń 
+     efekt dźwiękowy 
+     Ok 
+     Anuluj 
+     Ustaw liczbę klatek do pominięcia 
+     Ustaw kąt obrotu kamery 
+     Czy podłączony dźwięk pochodzi z samochodu? 
+     Ustawienia zaczną obowiązywać po ponownym uruchomieniu 
+     Rozpocznij przewijanie 
+     Pobieranie obrazów 
+     Przyspieszenie jednym dotknięciem 
+     rozłączone 
+     połączone 
+     łączenie 
+     otwieranie 
+     nieaktywne 
+     zamykanie 
+     rozłączanie 
+     Album 
+     Transmisja FM 
+     Klakson 
+     Wł. 
+     Wył. 
+     Czy jest to wersja krajowa? 
+     pobieranie 
+     rekreacja 
+     Osiągnięto maksymalną liczbę połączeń! 
+     Nazwa urządzenia 
+     Dostępne urządzenie 
+     Podłącz urządzenie 
+     Połącz 
+     Łączenie 
+     Nie połączono 
+     Połączono 
+     Ciśnienie w oponach 
+     Brak dopasowania 
+     Nie znaleziono 
+     POŁĄCZONO 
+     reset 
+     prawidłowe 
+     nieprawidłowe 
+     Kliknij oponę, aby dopasować 
+     Ustawianie ciśnienia w oponie 
+     jednostka 
+     wysokie ciśnienie 
+     Niskie ciśnienie 
+     Temperatura (℃) 
+     Usuń parowanie 
+     Czy na pewno chcesz przywrócić ustawienia fabryczne? 
+     Przywróć fabryczne ustawienia domyślne 
+     Przełącznik Bluetooth 
+     Automatyczna odpowiedź 
+     Automatyczne połączenie 
+     Urządzenie zostało sparowane 
+     Odłączyć od urządzenia? 
+     Nazwa jest za długa! 
+     Z tej funkcji należy korzystać, gdy telefon komórkowy nie jest podłączony 
+     Importuj 
+     wstecz 
+     Dźwięk 
+     Zapytanie o wersję 
+     Sprawdź aktualizacje 
+     Aktualizacja MCU 
+     Rozpocznij aktualizację 
+     Brak sygnału 
+     Włączenie/wyłączenie tej funkcji spowoduje automatyczne rozłączenie i ponowne połączenie przed jej uruchomieniem. Potwierdź, czy chcesz korzystać z tej funkcji. 
+     Inne urządzenia są podłączone 
+     Autoryzacja 
+     Odczytaj kod autoryzacji 
+     Połączenie międzysystemowe nie jest autoryzowane 
+     Połączenie międzysystemowe jest autoryzowane 
+     Przejść do strony aktualizacji MCU? 
+     Po południu 
+     Przed południem 
+     Wyjście audio z głośnika 
+     Wyjście audio z urządzenia AUX 
+     Dźwięk Carplay/Auto jest odtwarzany przez Bluetooth telefonu 
+     Ten obraz nie jest obsługiwany w celu wyświetlania! 
+     Brak plików 
+     Regulacja parametrów wyświetlacza 
+     Model MCU 
+     Dostępne są pliki aktualizacji, czy chcesz dokonać aktualizacji? 
+     Nie znaleziono plików aktualizacji. 
+     Aktualizacja zakończona 
+     Najnowsza komercyjna 
+     Aktualizuj treści 
+     Odwracanie linii pomocniczych 
+     Lusterko wsteczne z kamerą 
+     Włączenie/wyłączenie tej funkcji spowoduje automatyczne rozłączenie i ponowne połączenie przed jej uruchomieniem. Potwierdź, czy chcesz się przełączyć. 
+     System czasu 
+     12 h 
+     24 h 
+     Można wprowadzić maksymalnie tylko 20 znaków 
+     Ustawienia 
+     Opcje programistyczne 
+     Przełącznik debugowania 
+     Konfiguracja sieci 
+     Konfiguracja Wi-Fi 
+     Konfiguracja 4G 
+     Konfiguracja hotspotu 
+     Konfiguracja sieci Ethernet 
+     Przełącznik hotspotu 
+     Nazwa hotspotu 
+     Hasło do hotspotu 
+     Pokaż hasło 
+     Zapisz 
+     Konfiguracja języka 
+     anuluj 
+     Ok 
+     Przełączyć język systemu na %s? 
+     Nazwa 
+     Metoda szyfrowania 
+     Szyfrowanie 
+     Otwórz 
+     Hasło 
+     Status 
+     Połączenie 
+     Rozłącz 
+     Uwierzytelnianie 
+     Uzyskanie adresu IP 
+     Połączono 
+     Adres IP 
+     Adres MAC 
+     Błąd hasła 
+     Producent 
+     Wersja 
+     Typ połączenia 
+     Automatycznie uzyskaj adres IP 
+     Statyczne IP 
+     Adres IP 
+     Maska podsieci 
+     Brama domyślna 
+     Preferowany serwer DNS 
+     Zapasowy serwer DNS 
+     Zapisano pomyślnie 
+     Zapisywanie nie powiodło się 
+     Kalibracja dotykowa 
+     Uaktualnij 
+     System zostanie wkrótce uruchomiony ponownie w celu aktualizacji. 
+     Aktualizacja powiodła się, system wkrótce uruchomi się ponownie. 
+     Aktualizacja nie powiodła się 
+     Format pakietu aktualizacji jest nieprawidłowy. Wygeneruj ponownie pakiet aktualizacyjny! 
+     Model pakietu aktualizacji nie pasuje! 
+     Nie aktualizuj! 
+     Obraz lustrzany jest większy niż rozmiar partycji i aktualizacja nie powiedzie się. 
+     Rozdzielczość obrazu logo rozruchowego jest większa niż rozdzielczość ekranu i aktualizacja nie powiodła się. 
+     Aktualizacja logo startowego nie jest obsługiwana. Aktualizacja nie powiodła się. 
+     Zakończ 
+     Podczas aktualizacji nie należy odłączać zasilania. 
+     Uwaga: Po zakończeniu aktualizacji należy usunąć plik ts.cfg z karty T, aby zapobiec ponownej aktualizacji! 
+     Typ 
+     Wersja 
+     Rozdzielczość 
+     Data 
+ 
+ 
+ 
+     Музыка 
+     Видео 
+     Связь телефона 
+     Bluetooth 
+     громкость 
+     Громкость музыки 
+     Громкость вызова по Carplay 
+     Громкость записи 
+     Неизвестно 
+     Понедельник 
+     Вторник 
+     Среда 
+     Четверг 
+     Пятница 
+     Суббота 
+     Воскресенье 
+     Идет сканирование... 
+     Ошибка воспроизведения! 
+     Настройки 
+     Радио 
+     Ритм 
+     Набор номер 
+     вызов 
+     История вызовов 
+     Контакты 
+     Загрузка 
+     Настройки WiFi 
+     Имя 
+     Метод шифрования 
+     Пароль 
+     Показать пароль 
+     Подключить 
+     Состояние подключения 
+     Отключение 
+     Подключено 
+     Ошибка пароля 
+     IP-адрес: 
+     маска подсети 
+     шлюз по умолчанию 
+     MAC-адрес 
+     назад 
+     Настройки языка 
+     яркость 
+     wifi 
+     Проводная отладка ADB 
+     Номер версии системы 
+     Информация о вверсии 
+     контрастность 
+     оттенок 
+     насыщенность 
+     освещенность 
+     Данные 
+     Метод подключения 
+     показать 
+     Взаимосвязь 
+     голос 
+     задний ход 
+     завод 
+     система 
+     подробнее 
+     Параметры камеры 
+     Формат камеры 
+     Канал камеры 
+     Тип переключения 
+     Тип текущей камеры 
+     Опции разработчика 
+     цветовая система 
+     громкость медиа 
+     Громкость вызова 
+     звуковой эффект 
+     Подтвердить 
+     Отмена 
+     пропустить 
+     угол поворота 
+     Связь - голос 
+     Подсказка связь - голос 
+     Пролистать 
+     Загрузка изображений 
+     ускорение 
+     не объединен 
+     подключено 
+     подключение 
+     открытие 
+     отключено 
+     закрытие 
+     отключение 
+     Альбом 
+     FMT 
+     Гудок 
+     Включить 
+     Отключить 
+     Это домашняя версия? 
+     загрузка... 
+     отдых 
+     Достигнуто максимальное количество соединений! 
+     Название устройства 
+     Доступные устройства 
+     Подключить устройство 
+     Подключить 
+     Подключение 
+     Не подключено 
+     Подключено 
+     Давление в шинах 
+     Не сопряжено 
+     Не найдено 
+     ПОДКЛЮЧЕНО 
+     сброс 
+     нормально 
+     не нормально 
+     Нажмите на шину для сопряжения 
+     Настройка давления в шинах 
+     единица 
+     высокое давление 
+     Низкое давление 
+     Температура (℃) 
+     Отменить сопряжение 
+     Подтвердить сброс настроек до заводских? 
+     Сброс настроек до заводских 
+     Выключатель Bluetooth 
+     Автоответ 
+     Автоподключение 
+     Устройство сопряжено 
+     Отключиться от устройства? 
+     Название слишком длинное! 
+     Используйте эту функцию, когда ваш мобильный телефон не подключен 
+     Импорт 
+     назад 
+     Звук 
+     Запрос версии 
+     Проверка обновления 
+     Обновление MCU 
+     Начать обновление 
+     Нет сигнала 
+     При включении/выключении этой функции происходит автоматическое отключение и повторное подключение. Подтвердите, хотите ли вы использовать эту функцию. 
+     Подключены другие устройства 
+     Авторизация 
+     Считывание кода авторизации 
+     Взаимосвязь не авторизована 
+     Взаимосвязь авторизована 
+     Перейти на страницу обновления MCU? 
+     дня 
+     утра 
+     Аудиовыход из динамика 
+     Аудиовыход из AUX 
+     Аудио Carplay/Auto выводится через Bluetooth вашего телефона. 
+     Отображение этого изображения не поддерживается! 
+     Нет файлов 
+     Настройка параметров дисплея 
+     Модель MCU 
+     Доступны файлы обновления, хотите ли вы выполнить обновление? 
+     Файлы обновления не найдены. 
+     Обновление завершено 
+     Последняя версия 
+     Обновить содержание 
+     Линии, помогающие при заднем ходе 
+     Зеркало заднего вида с камерой 
+     При включении/выключении этой функции происходит автоматическое отключение и повторное подключение. Подтвердите, хотите ли вы переключиться. 
+     Система времени 
+     12 часов 
+     24 часа 
+     Вы можете ввести не более 20 символов. 
+     Настройка 
+     Опции разработчика 
+     Переключатель отладки 
+     Настройка сети 
+     Настройка WiFi 
+     Настройка 4G 
+     Настройка точки доступа 
+     Настройка Ethernet 
+     Переключатель точки доступа 
+     Название точки доступа 
+     Пароль точки доступа 
+     Показать пароль 
+     Сохранить 
+     Настройка языка 
+     Отмена 
+     OK 
+     Переключить язык системы на %s? 
+     Имя 
+     Метод шифрования 
+     Шифрование 
+     Открыто 
+     Пароль 
+     Состояние 
+     Подключение 
+     Отключение 
+     Аутентификация... 
+     Получение IP 
+     Подключено 
+     IP-адрес: 
+     MAC-адрес: 
+     Ошибка пароля 
+     Производитель 
+     Версия: 
+     Тип подключения 
+     Автоматическое получение IP 
+     Статический IP 
+     IP-адрес 
+     Маска подсети 
+     Шлюз по умолчанию 
+     Предпочитаемый DNS-сервер 
+     Резервный DNS-сервер 
+     Сохранено 
+     Ошибка сохранения 
+     Калибровка сенсора 
+     Обновление 
+     Система скоро перезагрузится для обновления. 
+     Обновление завершено, система скоро перезагрузится. 
+     Обновление не удалось 
+     Формат пакета обновления неверен. Сгенерируйте пакет обновления еще раз! 
+     Модель пакета обновления не соответствует! 
+     Обновление запрещено! 
+     Зеркальный образ больше размера раздела, обновление не удалось. 
+     Разрешение логотипа при запуске превышает разрешение экрана, обновление не удалось 
+     Обновление логотипа при запуске не поддерживается. Обновление не удалось 
+     Выход 
+     Идет обновление, не отключайте источник питания. 
+     Примечание: после завершения обновления удалите файл ts.cfg с карты T, чтобы предотвратить повторное обновление! 
+     Тип 
+     Версия: 
+     Разрешение 
+     Дата 
+ 
+ 
+ 
+     Müzik 
+     Video 
+     Telefon bağlantısı 
+     Bluetooth 
+     ses 
+     Müzik hacmi 
+     Carplay çağrı hacmi 
+     Kayıt hacmi 
+     Bilinmeyen 
+     Pazartesi 
+     Salı 
+     Çarşamba 
+     Perşembe 
+     Cuma 
+     Cumartesi 
+     Pazar 
+     Taranıyor.. 
+     Oyun hatası! 
+     Ayar 
+     Radyo 
+     Ritim 
+     Arama 
+     çağrı 
+     Arama geçmişi 
+     Kişiler 
+     Yükleniyor 
+     WiFi Ayarları 
+     İsim 
+     Şifreleme yöntemi 
+     Parola 
+     Şifreyi göster 
+     Bağlan 
+     Bağlantı durumu 
+     Bağlantıyı kes 
+     Bağlandı 
+     Parola hatası 
+     IP adresi 
+     alt ağ maskesi 
+     varsayılan ağ geçidi 
+     MAC adresi 
+     geri dön 
+     Dil ayarları 
+     parlaklık 
+     kablosuz internet 
+     Kablolu ADB hata ayıklama 
+     Sistem sürüm numarası 
+     Sürüm Bilgisi 
+     kontrast 
+     renk tonu 
+     doygunluk 
+     parlaklık 
+     Tarih 
+     Bağlantı yöntemi 
+     göstermek 
+     Arabağlantı 
+     ses 
+     ters 
+     fabrika 
+     sistem 
+     daha fazla 
+     Kamera parametreleri 
+     Kamera formatı 
+     Kamera kanalı 
+     Anahtarlama tipi 
+     Mevcut kamera tipi 
+     Geliştirici seçenekleri 
+     renk sistemi 
+     medya hacmi 
+     Çağrı hacmi 
+     ses efekti 
+     Tamam 
+     İptal 
+     Atlanacak kare sayısını ayarla 
+     Kamera dönüş açısını ayarla 
+     Bağlandı sesi araçtan mı gelir? 
+     Ayarlar yeniden başlatmadan sonra geçerli olacaktır 
+     Kaydırmayı başlat 
+     Resim yükleniyor 
+     Tek dokunuşla hızlanma 
+     birleşmemiş 
+     bağlandı 
+     bağlanıyor 
+     açılıyor 
+     devre dışı 
+     kapanıyor 
+     bağlantı kesiliyor 
+     Albüm 
+     FM aktarımı 
+     Korna 
+     Açık 
+     Kapalı 
+     Bu yerli sürüm mü? 
+     indiriliyor 
+     yeniden oluşturma 
+     Maksimum bağlantı sayısına ulaşıldı! 
+     Cihaz adı 
+     Kullanılabilir cihaz 
+     Cihazı bağlayın 
+     Bağlan 
+     Bağlanıyor 
+     Bağlanmadı 
+     Bağlandı 
+     Lastik basıncı 
+     Eşleşmedi 
+     Bulunamadı 
+     BAĞLANDI 
+     sıfırla 
+     normal 
+     anormal 
+     Eşleştirmek için lastiği tıklayın 
+     Lastik basıncı ayarı 
+     birim 
+     yüksek basınç 
+     Düşük basınç 
+     Sıcaklık (°C) 
+     Eşleştirmeyi temizle 
+     Fabrika ayarlarına dönmek istediğinizden emin misiniz? 
+     Fabrika ayarlarını geri yükle 
+     Bluetooth anahtarı 
+     Otomatik yanıtlama 
+     Otomatik bağlantı 
+     Cihaz eşleştirildi 
+     Cihazdan bağlantı kesilsin mi? 
+     İsim çok uzun! 
+     Cep telefonunuz bağlı olmadığında bu işlevi kullanın 
+     İçe Aktar 
+     geri 
+     Ses 
+     Sorgu sürümü 
+     Güncellemeleri kontrol edin 
+     MCU'yu Yükseltme 
+     Yükseltmeyi başlat 
+     Sinyal yok 
+     Bu fonksiyonun etkinleştirilmesi/devre dışı bırakılması, etkili olmadan önce otomatik olarak bağlantıyı kesip yeniden bağlanmasını sağlayacaktır. Lütfen bu işlevi kullanmak isteyip istemediğinizi onaylayın. 
+     Diğer cihazlar bağlı 
+     Yetkilendirme 
+     Yetkilendirme kodunu oku 
+     Ara bağlantıya izin verildi 
+     Ara bağlantıya izin verilmedi 
+     MCU yükseltme sayfasına gitmek ister misiniz? 
+     PM 
+     AM 
+     Hoparlörden ses çıkışı 
+     AUX'tan ses çıkışı 
+     Carplay/Auto sesi telefonunuzun Bluetooth'undan çıkar 
+     Bu görselin görüntülenmesi desteklenmiyor! 
+     Dosya yok 
+     Parametre ayarlamasını görüntüle 
+     MCU modeli 
+     Mevcut yükseltme dosyaları var. Yükseltmek istiyor musunuz? 
+     Yükseltme dosyası bulunamadı. 
+     Yükseltme tamamlandı 
+     Son sürüm 
+     İçeriği güncelle 
+     Geri vites yardım hatları 
+     Kameralı geri vites aynası 
+     Bu fonksiyonun etkinleştirilmesi/devre dışı bırakılması, etkili olmadan önce otomatik olarak bağlantıyı kesip yeniden bağlanmasını sağlayacaktır. Lütfen değiştirmek isteyip istemediğinizi onaylayın. 
+     Zaman sistemi 
+     12 saat 
+     24 saat 
+     Yalnızca en fazla 20 karakter girebilirsiniz 
+     Kurulum 
+     Geliştirici seçenekleri 
+     Hata ayıklama anahtarı 
+     Ağ kurulumu 
+     Wifi kurulumu 
+     4G kurulumu 
+     Hotspot kurulumu 
+     Ethernet kurulumu 
+     Hotspot anahtarı 
+     Hotspot adı 
+     Hotspot şifresi 
+     Şifreyi göster 
+     Kaydet 
+     Dil kurulumu 
+     Iptal 
+     Tamam 
+     Sistem dili %s olarak değiştirilsin mi? 
+     İsim 
+     Şifreleme yöntemi 
+     Şifreleme 
+     Aç 
+     Parola 
+     Durum 
+     Bağlan 
+     Bağlantıyı_kes 
+     Doğrulama 
+     IP alınıyor 
+     Bağlandı 
+     IP adresi 
+     MAC adresi 
+     Parola hatası 
+     Üretici 
+     Sürümü 
+     Bağlantı türü 
+     Otomatik olarak IP al 
+     Statik IP 
+     IP adresi 
+     Alt ağ maskesi 
+     Varsayılan ağ geçidi 
+     Tercih edilen DNS sunucusu 
+     Yedek DNS sunucusu 
+     Kaydetme başarılı 
+     Kaydetme başarısız 
+     Dokunmatik kalibrasyon 
+     Yükseltme 
+     Sistem yükseltme için yakında yeniden başlatılacaktır. 
+     Yükseltme başarıyla gerçekleştirildi. Sistem yakında yeniden başlatılacak. 
+     Yükseltme başarısız oldu 
+     Yükseltme paketi biçimi yanlış. Lütfen yükseltme paketini tekrar oluşturun! 
+     Yükseltme paketi modeli eşleşmiyor! 
+     Yükseltme yapmayın! 
+     Yansıtma görüntüsü bölüm boyutundan daha büyüktür ve yükseltme başarısız olur. 
+     Önyükleme logosu görüntüsünün çözünürlüğü ekran çözünürlüğünden büyüktür ve yükseltme başarısız olur. 
+     Önyükleme logosunun yükseltilmesi desteklenmez. Yükseltme başarısız oldu. 
+     Çıkış 
+     Yükseltme yaparken, lütfen güç kaynağının bağlantısını kesmeyin. 
+     Not: Yükseltme tamamlandıktan sonra, tekrar yükseltmeyi önlemek için lütfen T kartındaki ts.cfg dosyasını silin! 
+     Tip 
+     sürüm 
+     Çözünürlük 
+     Tarih 
+ 
+
+ 
+ 
+     音乐 
+     视频 
+     手机互联 
+     蓝牙 
+     音量 
+     音乐音量 
+     carplay打电话音量 
+     录音音量 
+     未知 
+     星期一 
+     星期二 
+     星期三 
+     星期四 
+     星期五 
+     星期六 
+     星期日 
+     扫描中... 
+     播放出错! 
+     不支持播放该视频 
+     设置 
+     收音机 
+     音效 
+     拨号 
+	 通话 
+     通话记录 
+     联系人 
+     加载中... 
+     WiFi设置 
+     名称： 
+     加密方式： 
+     密码： 
+     显示密码 
+     连接 
+     连接状态： 
+     断开连接 
+     已连接 
+     密码错误 
+     IP地址: 
+     子网掩码 
+     默认网关 
+     MAC地址: 
+     返回 
+     语言设置 
+     亮度 
+     WiFi 
+     有线ADB调试 
+     系统版本号 
+     版本信息 
+     对比度 
+     色彩度 
+     饱和度 
+     明度 
+     时间日期 
+     连接方式 
+     显示 
+     互联 
+     声音 
+     倒车 
+     工厂 
+     系统 
+     更多 
+     摄像头参数 
+     摄像头格式 
+     摄像头通道 
+     切换类型 
+     当前摄像头类型： 
+     开发者选项 
+     丽色系统 
+     媒体音量 
+     通话音量 
+     音效 
+	 确定 
+	 取消 
+	 设置跳过前面多少帧图像 
+	 设置摄像头旋转角度 
+	 互联声音是否从车机发出 
+	 设置后重启才生效 
+	 开启轮播 
+	 正在加载图片... 
+	 一键加速 
+	 未连接 
+	 已连接 
+	 连接中... 
+	 打开中 
+	 未打开 
+	 关闭中 
+	 断开中 
+	 相册 
+	 Fm发射 
+	 喇叭 
+     已开启 
+     已关闭 
+	 是否为国内版本 
+	 下载中... 
+	 娱乐 
+     当前已是最大连接数量! 
+     设备名称 
+     可用设备 
+	 连接设备 
+     连接 
+     连接中 
+     未连接 
+     已连接 
+     请在您的手机未连接&quot;时使用此功能 
+
+	 连接步骤: 
+	 提示: 
+	 CarPlay连接帮助 
+	 1.使用iPhone手机连接蓝牙,蓝牙名称为: 
+	 2.在手机弹窗显示&quot;使用iPhone的Carplay车载？&quot;时选择使用Carplay车载选项 
+	 1.首次连接等待时间较长 
+	 2.只支持苹果手机 
+	 3.连接成功后，蓝牙会自动断开 
+	 Android Auto连接帮助 
+	 1.选择Android Auto选项 
+	 2.使用手机连接蓝牙,蓝牙名称为: 
+	 1.只支持Android手机 
+	 2.请确认Auto应用及依赖应用为最新版本 
+	 AirPlay连接帮助 
+	 1.请使用iPhone手机连接WiFi,WiFi名称为: 
+	 2.WiFi密码为: 
+	 3.在iPhone手机控制中心的屏幕镜像里选择: 
+	 1.只支持iPhone手机 
+	 Miracast连接帮助 
+	 1.打开安卓手机，进入到系统设置界面 
+	 2.找到更多连接，开启手机投屏 
+	 3.等待扫描,连接设备名为: 
+	 AiCast连接帮助 
+	 1.打开安卓手机，AiCast软件 
+	 2.点击添加设备 
+	 3.等待扫描,连接设备名为: 
+	 CarLife连接帮助 
+	 1.打开车机wifi，车机连上手机热点。 
+	 2.手机打开百度CarLife APP 
+	 3.等待车机自动跳转 
+	 4.连接完成 
+	 胎压 
+	 未匹配 
+	 未找到 
+	 已连接 
+	 重置 
+	 正常 
+	 不正常 
+	 点击轮胎可进行匹配 
+	 胎压设置 
+	 单位 
+	 高压 
+	 低压 
+	 温度(℃) 
+	 清除配对 
+	 确认恢复出厂设置？ 
+	 恢复出厂设置 	
+	 蓝牙开关 
+	 自动接听 
+	 自动连接 
+	 已配对设备 
+	 要断开与该设备的连接吗？ 
+	 名称过长! 
+	 请在手机未连接时使用此功能 
+	 导入 
+	 返回 
+	 声场 
+	 查询版本 
+	 检查更新 
+	 升级 MCU 
+	 开始升级 
+	 无信号 
+	 开启/关闭此功能会自动断开连接后重新连接才能生效，请确认是否使用此功能 
+	 已连接其他设备 
+	 授权 
+	 读取授权码 
+	 互联未授权 
+	 互联已授权 
+	 是否进入mcu升级界面 
+	 下午 
+	 上午 
+	 音频从本机喇叭输出 
+	 音频从本机AUX输出 
+	 Carplay/Auto 音频从手机蓝牙输出 
+	 是否删除联系人 
+	 是否删除通话记录 
+	 不支持显示该图片! 
+	 无文件 
+	 显示参数调节 
+	 MCU 型号 
+	 有可用文件升级,是否升级? 
+	 未发现升级文件 
+	 升级完成 
+	 最新版本 
+	 更新内容 
+	 倒车辅助线 
+	 摄像头倒车镜像 
+	 开启/关闭此功能会自动断开连接后重新连接才能生效,请确认是否切换 
+	 时间制式 
+	 12小时 
+	 24小时 
+	 最多只能输入20个字符 
+     设置 
+     开发者选项 
+     调试开关 
+     网络设置 
+     WIFI设置 
+     4G设置 
+     热点设置 
+     以太网设置 
+     热点开关 
+     热点名称： 
+     热点密码： 
+     显示密码 
+     保存 
+     语言设置 
+     取消 
+     确定 
+     是否将系统语言切换为%s? 
+     名称： 
+     加密方式： 
+     加密 
+     开放 
+     密码： 
+     状态： 
+     连接 
+     断开连接 
+     认证中... 
+     正在获取IP 
+     已连接 
+     IP地址： 
+     MAC地址： 
+     密码错误 
+     制造商： 
+     版本： 
+     连接类型 
+     自动获取IP 
+     静态IP 
+     IP地址 
+     子网掩码 
+     默认网关 
+     首选DNS服务器 
+     备用DNS服务器 
+     保存成功 
+     保存失败 
+     触摸校准 
+	 升级 
+	 系统即将重启进行升级 
+	 升级成功，系统即将重启 
+	 升级失败 
+	 升级包格式错误，请重新生成升级包！ 
+	 升级包机型不匹配！ 
+	 禁止升级！ 
+	 镜像大于分区大小，升级失败 
+	 开机logo图片分辨率大于屏幕分辨率，升级失败 
+	 不支持升级开机logo，升级失败 
+	 退出 
+	 升级中，请勿断电 
+	 注意：升级完成后，请删除T卡内的ts.cfg文件，防止再次升级! 
+	 类型： 
+	 版本： 
+	 分辨率： 
+	 日期： 
+	 手机正在通话 
+	 音频输出 
+	 未知来电 
+	 年 
+	 月 
+	 日 
+	 时 
+	 分 
+	 关屏 
+	 升级信息 
+	 总共 
+	 位联系人 
+ 
