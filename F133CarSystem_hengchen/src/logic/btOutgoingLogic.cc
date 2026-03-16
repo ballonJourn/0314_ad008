@@ -31,6 +31,7 @@
 */
 
 #include "bt/context.h"
+#include "utils/mem_profiler.h"
 
 static bt_cb_t _s_bt_cb;
 
@@ -68,6 +69,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
+    MEM_LIFECYCLE("btOutgoing", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	_bt_add_cb();
 	mnumberTextViewPtr->setText(bt::get_call_num());
@@ -87,20 +89,21 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
-
+	MEM_LIFECYCLE("btOutgoing", "show");
 }
 
 /*
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
-
+	MEM_LIFECYCLE("btOutgoing", "hide");
 }
 
 /*
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
+	MEM_LIFECYCLE("btOutgoing", "quit");
 	_bt_remove_cb();
 }
 

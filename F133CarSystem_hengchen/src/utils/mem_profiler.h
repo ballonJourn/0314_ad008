@@ -223,6 +223,42 @@ static inline void _mem_prof_dump_vm_detail(const char *tag) {
 #define MEM_TRANSITION(from, to) \
     MEM_SNAP("transition", "from=%s to=%s", from, to)
 
+/*
+ * MEM_REVERSE_CYCLE(event)
+ * 倒车进入/退出循环计数器 - 追踪多次循环后的累积泄漏
+ * event: "enter" / "exit"
+ * 输出当前循环次数和VmData，用于检测每次循环后VmData是否单调递增
+ */
+#define MEM_REVERSE_CYCLE(event) \
+    do { \
+        static int _reverse_cycle_count = 0; \
+        if (strcmp(event, "enter") == 0) _reverse_cycle_count++; \
+        long _vsz, _rss; \
+        _mem_prof_get_proc_mem(&_vsz, &_rss); \
+        long _free = _mem_prof_get_free_mem_kb(); \
+        LOGD("[MEM_REV_CYCLE] %s | cycle=%d | VSZ:%ldKB RSS:%ldKB FreeMem:%ldKB", \
+             event, _reverse_cycle_count, _vsz, _rss, _free); \
+        _mem_prof_dump_vm_detail("REV_CYCLE_" event); \
+    } while(0)
+
+/*
+ * MEM_FUNC_TIME_BEGIN(var)
+ * MEM_FUNC_TIME_END(tag, var)
+ * 函数级耗时测量 - 精确追踪哪个函数占了多少时间
+ */
+#define MEM_FUNC_TIME_BEGIN(var) \
+    long long var##_func_ms = _mem_prof_get_ms()
+
+#define MEM_FUNC_TIME_END(tag, var) \
+    do { \
+        long long _elapsed = _mem_prof_get_ms() - var##_func_ms; \
+        if (_elapsed > 50) { \
+            LOGW("[MEM_SLOW] %s | elapsed:%lldms (>50ms)", tag, _elapsed); \
+        } else { \
+            LOGD("[MEM_TIME] %s | elapsed:%lldms", tag, _elapsed); \
+        } \
+    } while(0)
+
 #else /* MEM_PROFILER_ENABLE == 0 */
 
 /* 发布版本 - 所有宏展开为空, 零开销 */
@@ -236,6 +272,9 @@ static inline void _mem_prof_dump_vm_detail(const char *tag) {
 #define MEM_LIFECYCLE(activity, event)        ((void)0)
 #define MEM_WARN_IF_LOW(tag, threshold_kb)   ((void)0)
 #define MEM_TRANSITION(from, to)             ((void)0)
+#define MEM_REVERSE_CYCLE(event)             ((void)0)
+#define MEM_FUNC_TIME_BEGIN(var)             ((void)0)
+#define MEM_FUNC_TIME_END(tag, var)          ((void)0)
 
 #endif /* MEM_PROFILER_ENABLE */
 

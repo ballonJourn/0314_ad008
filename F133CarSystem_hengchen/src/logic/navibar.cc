@@ -404,6 +404,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  */
 static void onUI_init() {
 	MEM_LIFECYCLE("navibar", "init");
+//	MEM_FB_INFO("navibar_init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	_UI_init();
 

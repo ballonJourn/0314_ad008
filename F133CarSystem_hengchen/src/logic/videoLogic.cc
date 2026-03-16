@@ -411,6 +411,7 @@ static void onUI_intent(const Intent *intentPtr) {
  */
 static void onUI_show() {
 	MEM_LIFECYCLE("video", "show");
+	MEM_WARN_IF_LOW("video_show", 4000);
 	LOGD("[video] onUI_show");
 	is_video_activity_show = true;
 	is_back = false;
@@ -442,6 +443,7 @@ static void onUI_show() {
  */
 static void onUI_hide() {
 	MEM_LIFECYCLE("video", "hide");
+	MEM_VM_DETAIL("video_hide_ENTRY");
 	is_video_activity_show = false;
 	is_video_show = false;
 	if (mvideoPlayWindowPtr->isWndShow()) {
@@ -458,6 +460,10 @@ static void onUI_hide() {
     		sys::setting::set_reverse_topbar_show(true);
     	}
     }
+
+    // [P1] 释放pagecache，为后续Activity(特别是倒车)腾出空间
+    fy::drop_caches();
+    MEM_SNAP_SIMPLE("video_hide_EXIT");
 }
 
 /*
@@ -465,6 +471,7 @@ static void onUI_hide() {
  */
 static void onUI_quit() {
 	MEM_LIFECYCLE("video", "quit");
+	MEM_VM_DETAIL("video_quit_ENTRY");
 	if (iconRotate.isRunning())
 		iconRotate.requestExitAndWait();
 	if (mvideoPlayWindowPtr->isWndShow()) {

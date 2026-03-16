@@ -242,6 +242,7 @@ static ViewTouchListener _s_view_touch_listener;
  */
 static void onUI_init() {
     MEM_LIFECYCLE("lylinkview", "init");
+    MEM_VM_DETAIL("lylinkview_init_ENTRY");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 	_bt_add_cb();
 	LayoutPosition pos = LayoutPosition(0, 0, ScreenHelper::getScreenWidth(), ScreenHelper::getScreenHeight());
@@ -290,6 +291,7 @@ static void onUI_show() {
  */
 static void onUI_hide() {
 	MEM_LIFECYCLE("lylinkview", "hide");
+	MEM_VM_DETAIL("lylinkview_hide_ENTRY");
 	mActivityPtr->unregisterUserTimer(DELAY_PLAY_TIMER);
 	_link_stop();
 
@@ -297,6 +299,9 @@ static void onUI_hide() {
 		app::hide_floatwnd();
 	}
 
+	// [P1] 释放pagecache为后续Activity腾出空间
+	fy::drop_caches();
+	MEM_SNAP_SIMPLE("lylinkview_hide_EXIT");
 }
 
 /*
@@ -304,6 +309,7 @@ static void onUI_hide() {
  */
 static void onUI_quit() {
 	MEM_LIFECYCLE("lylinkview", "quit");
+	MEM_VM_DETAIL("lylinkview_quit_ENTRY");
 	// DELAY(100);
 	_bt_remove_cb();
 	mVideoView1Ptr->setTouchListener(NULL);

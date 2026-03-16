@@ -292,6 +292,7 @@ static void onUI_intent(const Intent *intentPtr) {
  */
 static void onUI_show() {
 	MEM_LIFECYCLE("music", "show");
+	MEM_WARN_IF_LOW("music_show", 4000);
 	is_back = false;
 	if (media::music_is_playing()) {
 	    refreshMusicInfo();
@@ -318,6 +319,7 @@ static void onUI_show() {
  */
 static void onUI_hide() {
 	MEM_LIFECYCLE("music", "hide");
+	MEM_VM_DETAIL("music_hide_ENTRY");
 
 	// [FIX] 释放音乐界面的图片资源，为倒车摄像头腾出内存
 	// music.ftu 共42个控件 = 14.4MB RGBA纹理，加上main的30.8MB，
@@ -341,6 +343,7 @@ static void onUI_hide() {
  */
 static void onUI_quit() {
 	MEM_LIFECYCLE("music", "quit");
+	MEM_VM_DETAIL("music_quit_ENTRY");
 	if (iconRotate.isRunning())
 		iconRotate.requestExitAndWait();
 	mode::remove_event_mode_cb(_event_mode_cb);
