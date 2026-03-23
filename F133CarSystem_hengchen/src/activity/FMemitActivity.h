@@ -26,8 +26,8 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
-#define ID_FMEMIT_TextView12    50018
 #define ID_FMEMIT_TextView11    50017
+#define ID_FMEMIT_TextView12    50018
 #define ID_FMEMIT_TextView10    50014
 #define ID_FMEMIT_TextViewBg    50016
 #define ID_FMEMIT_tipCancel    20007

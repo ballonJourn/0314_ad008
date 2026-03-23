@@ -32,10 +32,8 @@
 #define ID_MUSIC_TextView10    50020
 #define ID_MUSIC_TextView9    50019
 #define ID_MUSIC_TextView8    50018
-#define ID_MUSIC_TextViewBg    50017
 #define ID_MUSIC_TextView7    50016
 #define ID_MUSIC_TextView5    50010
-#define ID_MUSIC_TextView6    50015
 #define ID_MUSIC_SubItem1    24003
 #define ID_MUSIC_TextView3    50006
 #define ID_MUSIC_TextView4    50009

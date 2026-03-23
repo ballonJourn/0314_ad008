@@ -4,8 +4,8 @@
 #include "FMemitActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
-static ZKTextView* mTextView12Ptr;
 static ZKTextView* mTextView11Ptr;
+static ZKTextView* mTextView12Ptr;
 static ZKTextView* mTextView10Ptr;
 static ZKTextView* mTextViewBgPtr;
 static ZKButton* mtipCancelPtr;
@@ -156,8 +156,8 @@ FMemitActivity::~FMemitActivity() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mActivityPtr = NULL;
-    mTextView12Ptr = NULL;
     mTextView11Ptr = NULL;
+    mTextView12Ptr = NULL;
     mTextView10Ptr = NULL;
     mTextViewBgPtr = NULL;
     mtipCancelPtr = NULL;
@@ -198,8 +198,8 @@ const char* FMemitActivity::getAppName() const{
 //TAG:onCreate
 void FMemitActivity::onCreate() {
 	Activity::onCreate();
-    mTextView12Ptr = (ZKTextView*)findControlByID(ID_FMEMIT_TextView12);
     mTextView11Ptr = (ZKTextView*)findControlByID(ID_FMEMIT_TextView11);
+    mTextView12Ptr = (ZKTextView*)findControlByID(ID_FMEMIT_TextView12);
     mTextView10Ptr = (ZKTextView*)findControlByID(ID_FMEMIT_TextView10);
     mTextViewBgPtr = (ZKTextView*)findControlByID(ID_FMEMIT_TextViewBg);
     mtipCancelPtr = (ZKButton*)findControlByID(ID_FMEMIT_tipCancel);

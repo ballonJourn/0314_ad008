@@ -246,6 +246,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  */
 static void onUI_init() {
 	MEM_LIFECYCLE("topbar", "init");
+	MEM_SNAP_SIMPLE("topbar_init_ENTRY");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	Icon_Init();
 	sys_time_(*TimeHelper::getDateTime());
@@ -281,6 +282,7 @@ static void onUI_hide() {
  */
 static void onUI_quit() {
 	MEM_LIFECYCLE("topbar", "quit");
+	MEM_SNAP_SIMPLE("topbar_quit_ENTRY");
 	_bt_remove_cb();
 	WIFIMANAGER->removeWifiListener(&mainWifiListener);
 	MOUNTMONITOR->removeMountListener(&_mount_listener);

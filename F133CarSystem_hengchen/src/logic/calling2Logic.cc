@@ -1,7 +1,5 @@
 #pragma once
-#include "utils/mem_profiler.h"
 #include "uart/ProtocolSender.h"
-#include "utils/BrightnessHelper.h"
 /*
 *此文件由GUI工具生成
 *文件功能：用于处理用户的逻辑相应代码
@@ -32,34 +30,6 @@
 * 在Eclipse编辑器中  使用 “alt + /”  快捷键可以打开智能提示
 */
 
-#include "media/audio_recorder.h"
-#include "misc/storage.h"
-#include "utils/PWMHelper.h"
-
-static PWMHelper _s_pwm(1, 50000, 50, 0);
-
-const int LEN = 255;
-const int OFFSET = 0;		//lyink (0 + 32), blink(32 + 220)
-static bool read_otp_len(int offset, int len) {
-	uint8_t otp_data[len];
-	if (!storage::otp_read_data(offset, otp_data, len)) {
-		LOGE("[bt] otp read data err !!!\n");
-		return false;
-	}
-	LOGD("read_otp_len ------------------------");
-	std::string otpstr;
-	char buf[64];
-	for (int i=0; i<len; i++) {
-		if (i == 32) {
-			snprintf(buf, TABLESIZE(buf), "\n%x ", otp_data[i]);
-		} else {
-			snprintf(buf, TABLESIZE(buf), "%x ", otp_data[i]);
-		}
-		otpstr += buf;
-	}
-	mTextViewOtpPtr->setText(otpstr);
-	return true;
-}
 
 /**
  * 注册定时器
@@ -75,7 +45,6 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
  * 当界面构造时触发
  */
 static void onUI_init(){
-    MEM_LIFECYCLE("testrecord", "init");
     //Tips :添加 UI初始化的显示代码到这里,如:mText1Ptr->setText("123");
 
 }
@@ -93,17 +62,13 @@ static void onUI_intent(const Intent *intentPtr) {
  * 当界面显示时触发
  */
 static void onUI_show() {
-    MEM_LIFECYCLE("testrecord", "show");
-	mTextViewPwmPtr->setText(30);
-	mSeekBarPwmPtr->setProgress(30);
-	read_otp_len(0,32);
+
 }
 
 /*
  * 当界面隐藏时触发
  */
 static void onUI_hide() {
-    MEM_LIFECYCLE("testrecord", "hide");
 
 }
 
@@ -111,7 +76,6 @@ static void onUI_hide() {
  * 当界面完全退出时触发
  */
 static void onUI_quit() {
-    MEM_LIFECYCLE("testrecord", "quit");
 
 }
 
@@ -150,7 +114,7 @@ static bool onUI_Timer(int id){
  *         false
  *            触摸事件将继续传递到控件上
  */
-static bool onTestRecordActivityTouchEvent(const MotionEvent &ev) {
+static bool oncalling2ActivityTouchEvent(const MotionEvent &ev) {
     switch (ev.mActionStatus) {
 		case MotionEvent::E_ACTION_DOWN://触摸按下
 			//LOGD("时刻 = %ld 坐标  x = %d, y = %d", ev.mEventTime, ev.mX, ev.mY);
@@ -164,28 +128,127 @@ static bool onTestRecordActivityTouchEvent(const MotionEvent &ev) {
 	}
 	return false;
 }
-
-static void _audio_record_cb(const void *data, uint32_t size) {
-
-}
-
-static bool onButtonClick_Button1(ZKButton *pButton) {
-    LOGD(" ButtonClick Button1 !!!\n");
-    if(!mButton1Ptr->isSelected()){
-    	audio::record_start(16000, _audio_record_cb);
-    } else {
-    	audio::record_stop();
-    }
-    mButton1Ptr->setSelected(!mButton1Ptr->isSelected());
+static bool onButtonClick_soundButton(ZKButton *pButton) {
+    LOGD(" ButtonClick soundButton !!!\n");
     return false;
 }
 
-static void onProgressChanged_SeekBarPwm(ZKSeekBar *pSeekBar, int progress) {
-    //LOGD(" ProgressChanged SeekBarPwm %d !!!\n", progress);
-	mTextViewPwmPtr->setText(progress);
-	BRIGHTNESSHELPER->setDvdd(progress);
+static bool onButtonClick_hangupButton(ZKButton *pButton) {
+    LOGD(" ButtonClick hangupButton !!!\n");
+    return false;
 }
-static bool onButtonClick_sys_back(ZKButton *pButton) {
-    LOGD(" ButtonClick sys_back !!!\n");
+
+static bool onButtonClick_keyBoardButton(ZKButton *pButton) {
+    LOGD(" ButtonClick keyBoardButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_stopMicButton(ZKButton *pButton) {
+    LOGD(" ButtonClick stopMicButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_outhangupButton(ZKButton *pButton) {
+    LOGD(" ButtonClick outhangupButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_answerButton(ZKButton *pButton) {
+    LOGD(" ButtonClick answerButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_rejectButton(ZKButton *pButton) {
+    LOGD(" ButtonClick rejectButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key1Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key1Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key2Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key2Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key3Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key3Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key4Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key4Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key5Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key5Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key6Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key6Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key7Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key7Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key8Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key8Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key9Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key9Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_key0Button(ZKButton *pButton) {
+    LOGD(" ButtonClick key0Button !!!\n");
+    return false;
+}
+
+static bool onButtonClick_keyJINGButton(ZKButton *pButton) {
+    LOGD(" ButtonClick keyJINGButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_keyXINGButton(ZKButton *pButton) {
+    LOGD(" ButtonClick keyXINGButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_delButton(ZKButton *pButton) {
+    LOGD(" ButtonClick delButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_queryMusicButton(ZKButton *pButton) {
+    LOGD(" ButtonClick queryMusicButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_phoneButton(ZKButton *pButton) {
+    LOGD(" ButtonClick phoneButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_btrecordButton(ZKButton *pButton) {
+    LOGD(" ButtonClick btrecordButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_btcontactsButton(ZKButton *pButton) {
+    LOGD(" ButtonClick btcontactsButton !!!\n");
+    return false;
+}
+
+static bool onButtonClick_btsettingButton(ZKButton *pButton) {
+    LOGD(" ButtonClick btsettingButton !!!\n");
     return false;
 }

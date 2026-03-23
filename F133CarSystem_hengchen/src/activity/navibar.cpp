@@ -2,7 +2,6 @@
 #include "entry/EasyUIContext.h"
 
 /*TAG:GlobalVariable全局变量*/
-static ZKButton* mButton1Ptr;
 static ZKTextView* mtimeTextViewPtr;
 static ZKTextView* mTextviewDDRPtr;
 static ZKTextView* mphoneTextViewPtr;
@@ -63,7 +62,6 @@ typedef struct {
 
 /*TAG:ButtonCallbackTab按键映射表*/
 static S_ButtonCallback sButtonCallbackTab[] = {
-    ID_NAVIBAR_Button1, onButtonClick_Button1,
     ID_NAVIBAR_phoneButton, onButtonClick_phoneButton,
     ID_NAVIBAR_btButton, onButtonClick_btButton,
     ID_NAVIBAR_settingButton, onButtonClick_settingButton,
@@ -143,7 +141,6 @@ navibar::~navibar() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mnavibarPtr = NULL;
-    mButton1Ptr = NULL;
     mtimeTextViewPtr = NULL;
     mTextviewDDRPtr = NULL;
     mphoneTextViewPtr = NULL;
@@ -176,7 +173,6 @@ const char* navibar::getAppName() const{
 //TAG:onCreate
 void navibar::onCreate() {
 	BaseApp::onCreate();
-    mButton1Ptr = (ZKButton*)findControlByID(ID_NAVIBAR_Button1);
     mtimeTextViewPtr = (ZKTextView*)findControlByID(ID_NAVIBAR_timeTextView);
     mTextviewDDRPtr = (ZKTextView*)findControlByID(ID_NAVIBAR_TextviewDDR);
     mphoneTextViewPtr = (ZKTextView*)findControlByID(ID_NAVIBAR_phoneTextView);

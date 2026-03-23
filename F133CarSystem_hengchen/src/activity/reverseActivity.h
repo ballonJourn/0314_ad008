@@ -28,6 +28,7 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
+#define ID_REVERSE_LinePainter2    52002
 #define ID_REVERSE_LinePainter    52001
 #define ID_REVERSE_ListView1    80001
 #define ID_REVERSE_TextView1    50002

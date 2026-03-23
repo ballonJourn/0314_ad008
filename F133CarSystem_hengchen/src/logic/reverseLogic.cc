@@ -86,79 +86,151 @@ static cam_info_t _s_cam_info_tab[] = {
 static MyPictureCallback sMyPictureCallback;
 static MyErrorCodeCallback sMyErrorCodeCallback;
 
+/**
+ * 双画布倒车线绘制方案 — 内存优化核心
+ *
+ * 问题: 1600x600单画布 framebuffer = 1600*600*4 = 3.84MB
+ *       F133 ~54MB RAM, 与camera v4l2 buffer争夺 → 进倒车卡顿
+ *
+ * 方案: 拆为左右两个最小矩形画布, 仅覆盖线条实际绘制区域
+ *   mLinePainterPtr  → 左侧倒车线
+ *   mLinePainter2Ptr → 右侧倒车线
+ *
+ * 内存对比:
+ *   原方案: 1600 × 600 × 4 = 3,840,000 bytes (3.66MB)
+ *   新方案: 2 × (230 × 400 × 4) = 736,000 bytes (0.70MB)
+ *   节省: 3.14MB (81.7%)
+ *
+ * ┌──────────────────────────────────────────────────────────────┐
+ * │                      1600 × 600 屏幕                         │
+ * │                                                              │
+ * │  ┌─LEFT─┐                                      ┌─RIGHT─┐   │
+ * │  │220,200│                                      │1150,200│   │
+ * │  │      │  (中间无倒车线, 不分配framebuffer)    │       │   │
+ * │  │230×400│                                      │230×400 │   │
+ * │  │      │                                      │       │   │
+ * │  └──────┘                                      └───────┘   │
+ * └──────────────────────────────────────────────────────────────┘
+ *
+ * ZK IDE 设置 (两个长方形画布):
+ * ┌────────────┬──────┬──────┬───────┬────────┐
+ * │ 控件       │  X   │  Y   │ Width │ Height │
+ * ├────────────┼──────┼──────┼───────┼────────┤
+ * │ LinePainter│  220 │  200 │  230  │  400   │
+ * │ LinePainter2│1150 │  200 │  230  │  400   │
+ * └────────────┴──────┴──────┴───────┴────────┘
+ */
+
+// ============================================================================
+// 双画布布局参数 — 必须与 reverse.ftu 中控件的 x, y, w, h 严格一致
+// ============================================================================
+
+// 左画布 (覆盖左侧倒车线区域)
+// 线条x范围: LBX=240 → LTX+CORNER=430, 加20px余量
+// 线条y范围: LTY=220 → LBY=600, 加20px上余量
+#define LEFT_CANVAS_X       220    // 画布左上角屏幕x
+#define LEFT_CANVAS_Y       200    // 画布左上角屏幕y
+#define LEFT_CANVAS_W       230    // 画布宽 (覆盖 220→450, 包裹240~430)
+#define LEFT_CANVAS_H       400    // 画布高 (覆盖 200→600, 包裹220~600)
+
+// 右画布 (覆盖右侧倒车线区域, 与左侧镜像对称)
+// 线条x范围: RTX-CORNER=1170 → RBX=1360, 加20px余量
+#define RIGHT_CANVAS_X     1150    // 画布左上角屏幕x
+#define RIGHT_CANVAS_Y      200    // 画布左上角屏幕y
+#define RIGHT_CANVAS_W      230    // 画布宽 (覆盖 1150→1380, 包裹1170~1360)
+#define RIGHT_CANVAS_H      400    // 画布高 (覆盖 200→600, 包裹220~600)
+
 static void _draw_reverse_line() {
 	SZKPoint lt, rt, lb, rb;
 	sys::setting::get_reverse_line_point(lt, rt, lb, rb);
 
 	SZKPoint points[3];
 
-	int h = lb.y - lt.y;  // 垂直高度, 限制不为0
+	int h = lb.y - lt.y;  // 垂直高度
+	if (h <= 0) return;   // 安全守卫: 防止除零和无效坐标
+
 	int gh = REVERSE_LINE_G_RATIO * h;
 	int yh = REVERSE_LINE_Y_RATIO * h;
 
-	mLinePainterPtr->setLineWidth(REVERSE_LINE_WIDTH);
+	// ========== 左侧倒车线 → mLinePainterPtr ==========
+	// 屏幕坐标 → 画布本地坐标: local_x = screen_x - LEFT_CANVAS_X
+	//                          local_y = screen_y - LEFT_CANVAS_Y
+	if (mLinePainterPtr) {
+		mLinePainterPtr->setLineWidth(REVERSE_LINE_WIDTH);
 
-	// draw left
-	int w = lb.x - lt.x;
-	float ratio = (float) w / h;
+		int w = lb.x - lt.x;
+		float ratio = (float) w / h;
 
-	points[0].x = lt.x + REVERSE_LINE_CORNER_LEN;
-	points[0].y = lt.y;
-	points[1].x = lt.x;
-	points[1].y = lt.y;
-	points[2].x = ratio * gh + lt.x;
-	points[2].y = lt.y + gh;
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_G_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		// 绿色段 (远距离)
+		points[0].x = (lt.x + REVERSE_LINE_CORNER_LEN) - LEFT_CANVAS_X;
+		points[0].y = lt.y - LEFT_CANVAS_Y;
+		points[1].x = lt.x - LEFT_CANVAS_X;
+		points[1].y = lt.y - LEFT_CANVAS_Y;
+		points[2].x = (int)(ratio * gh + lt.x) - LEFT_CANVAS_X;
+		points[2].y = (lt.y + gh) - LEFT_CANVAS_Y;
+		mLinePainterPtr->setSourceColor(REVERSE_LINE_G_COLOR);
+		mLinePainterPtr->drawLines(points, 3);
 
-	points[0].x = points[2].x + REVERSE_LINE_CORNER_LEN;
-	points[0].y = points[2].y;
-	points[1].x = points[2].x;
-	points[1].y = points[2].y;
-	points[2].x = ratio * (gh + yh) + lt.x;
-	points[2].y = lt.y + (gh + yh);
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_Y_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		// 黄色段 (中距离)
+		points[0].x = points[2].x + REVERSE_LINE_CORNER_LEN;
+		points[0].y = points[2].y;
+		points[1].x = points[2].x;
+		points[1].y = points[2].y;
+		points[2].x = (int)(ratio * (gh + yh) + lt.x) - LEFT_CANVAS_X;
+		points[2].y = (lt.y + (gh + yh)) - LEFT_CANVAS_Y;
+		mLinePainterPtr->setSourceColor(REVERSE_LINE_Y_COLOR);
+		mLinePainterPtr->drawLines(points, 3);
 
-	points[0].x = points[2].x + REVERSE_LINE_CORNER_LEN;
-	points[0].y = points[2].y;
-	points[1].x = points[2].x;
-	points[1].y = points[2].y;
-	points[2].x = lb.x;
-	points[2].y = lb.y;
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_R_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		// 红色段 (近距离)
+		points[0].x = points[2].x + REVERSE_LINE_CORNER_LEN;
+		points[0].y = points[2].y;
+		points[1].x = points[2].x;
+		points[1].y = points[2].y;
+		points[2].x = lb.x - LEFT_CANVAS_X;
+		points[2].y = lb.y - LEFT_CANVAS_Y;
+		mLinePainterPtr->setSourceColor(REVERSE_LINE_R_COLOR);
+		mLinePainterPtr->drawLines(points, 3);
+	}
 
-	// draw right
-	w = rb.x - rt.x;
-	ratio = (float) w / h;
+	// ========== 右侧倒车线 → mLinePainter2Ptr ==========
+	// 屏幕坐标 → 画布本地坐标: local_x = screen_x - RIGHT_CANVAS_X
+	//                          local_y = screen_y - RIGHT_CANVAS_Y
+	if (mLinePainter2Ptr) {
+		mLinePainter2Ptr->setLineWidth(REVERSE_LINE_WIDTH);
 
-	points[0].x = rt.x - REVERSE_LINE_CORNER_LEN;
-	points[0].y = rt.y;
-	points[1].x = rt.x;
-	points[1].y = rt.y;
-	points[2].x = ratio * gh + rt.x;
-	points[2].y = rt.y + gh;
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_G_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		int w = rb.x - rt.x;
+		float ratio = (float) w / h;
 
-	points[0].x = points[2].x - REVERSE_LINE_CORNER_LEN;
-	points[0].y = points[2].y;
-	points[1].x = points[2].x;
-	points[1].y = points[2].y;
-	points[2].x = ratio * (gh + yh) + rt.x;
-	points[2].y = rt.y + (gh + yh);
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_Y_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		// 绿色段
+		points[0].x = (rt.x - REVERSE_LINE_CORNER_LEN) - RIGHT_CANVAS_X;
+		points[0].y = rt.y - RIGHT_CANVAS_Y;
+		points[1].x = rt.x - RIGHT_CANVAS_X;
+		points[1].y = rt.y - RIGHT_CANVAS_Y;
+		points[2].x = (int)(ratio * gh + rt.x) - RIGHT_CANVAS_X;
+		points[2].y = (rt.y + gh) - RIGHT_CANVAS_Y;
+		mLinePainter2Ptr->setSourceColor(REVERSE_LINE_G_COLOR);
+		mLinePainter2Ptr->drawLines(points, 3);
 
-	points[0].x = points[2].x - REVERSE_LINE_CORNER_LEN;
-	points[0].y = points[2].y;
-	points[1].x = points[2].x;
-	points[1].y = points[2].y;
-	points[2].x = rb.x;
-	points[2].y = rb.y;
-	mLinePainterPtr->setSourceColor(REVERSE_LINE_R_COLOR);
-	mLinePainterPtr->drawLines(points, 3);
+		// 黄色段
+		points[0].x = points[2].x - REVERSE_LINE_CORNER_LEN;
+		points[0].y = points[2].y;
+		points[1].x = points[2].x;
+		points[1].y = points[2].y;
+		points[2].x = (int)(ratio * (gh + yh) + rt.x) - RIGHT_CANVAS_X;
+		points[2].y = (rt.y + (gh + yh)) - RIGHT_CANVAS_Y;
+		mLinePainter2Ptr->setSourceColor(REVERSE_LINE_Y_COLOR);
+		mLinePainter2Ptr->drawLines(points, 3);
+
+		// 红色段
+		points[0].x = points[2].x - REVERSE_LINE_CORNER_LEN;
+		points[0].y = points[2].y;
+		points[1].x = points[2].x;
+		points[1].y = points[2].y;
+		points[2].x = rb.x - RIGHT_CANVAS_X;
+		points[2].y = rb.y - RIGHT_CANVAS_Y;
+		mLinePainter2Ptr->setSourceColor(REVERSE_LINE_R_COLOR);
+		mLinePainter2Ptr->drawLines(points, 3);
+	}
 }
 
 typedef struct {
@@ -284,10 +356,12 @@ static void onUI_init() {
 //	}
 
 	if (sys::setting::is_reverse_line_view()) {
-		mLinePainterPtr->setVisible(true);
+		if (mLinePainterPtr) mLinePainterPtr->setVisible(true);
+		if (mLinePainter2Ptr) mLinePainter2Ptr->setVisible(true);
 		_draw_reverse_line();
 	} else {
-		mLinePainterPtr->setVisible(false);
+		if (mLinePainterPtr) mLinePainterPtr->setVisible(false);
+		if (mLinePainter2Ptr) mLinePainter2Ptr->setVisible(false);
 	}
 
 	// 初始化音量记录结构

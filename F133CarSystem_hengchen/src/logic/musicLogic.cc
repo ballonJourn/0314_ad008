@@ -294,11 +294,19 @@ static void onUI_show() {
 	MEM_LIFECYCLE("music", "show");
 	MEM_WARN_IF_LOW("music_show", 4000);
 	is_back = false;
+
+	// [FIX] onUI_hide中为倒车腾内存释放了专辑封面(setBackgroundPic(NULL)),
+	// 退出倒车回来时必须恢复,无论当前是否正在播放——
+	// 因为倒车期间 reverse_show() 会暂停音乐, 回来时 music_is_playing()=false,
+	// 如果不在这里恢复, 专辑封面将永远空白
+	if (media::music_get_play_index() != -1) {
+		refreshMusicInfo();
+		setDuration();
+	}
+
 	if (media::music_is_playing()) {
-	    refreshMusicInfo();
-	    setDuration();
 	    mtitleTextViewPtr->setTextColor(0xFF00FCFF);
-	    mButtonPlayPtr->setSelected(media::music_is_playing());
+	    mButtonPlayPtr->setSelected(true);
 		mmusicWindowPtr->showWnd();
 
 		// 如果音乐正在播放，说明是从主应用界面进入的

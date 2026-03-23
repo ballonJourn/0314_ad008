@@ -212,7 +212,7 @@ static void update_link_status_text() {
         }
     }
 
-    // 更新AirPlay状态 - dock1Window下的AirPlayButton
+    // 更新AirPlay状态 - dock2Window下的AirPlayButton
     if (mAirPlayButtonPtr) {
         if (link_type == LINK_TYPE_AIRPLAY) {
             mAirPlayButtonPtr->setText("Connected");
@@ -221,7 +221,7 @@ static void update_link_status_text() {
         }
     }
 
-    // 更新Miracast状态 - dock1Window下的MiracastButton
+    // 更新Miracast状态 - dock2Window下的MiracastButton
     if (mMiracastButtonPtr) {
         if (link_type == LINK_TYPE_MIRACAST) {
             mMiracastButtonPtr->setText("Connected");
@@ -242,9 +242,19 @@ static void update_link_status_text() {
 
 // ============================================================================
 // dock1Window按钮的背景图片设置
+// dock1现在包含: musicWindow, musictext, AudiooutButton, CarPlayButton,
+//               AndroidAutoButton, BluetoothButton
 // ============================================================================
 static void set_dock1_button_backgrounds() {
     MEM_SNAP_SIMPLE("dock1_bg_LOAD_START");
+    if (mmusicWindowPtr) {
+        mmusicWindowPtr->setBackgroundPic(
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_music_n.png").c_str());
+    }
+    if (mAudiooutButtonPtr) {
+        mAudiooutButtonPtr->setBackgroundPic(
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_audio_out_n.png").c_str());
+    }
     if (mCarPlayButtonPtr) {
         mCarPlayButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_carplay_n.png").c_str());
@@ -256,14 +266,6 @@ static void set_dock1_button_backgrounds() {
     if (mBluetoothButtonPtr) {
         mBluetoothButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_bt_n.png").c_str());
-    }
-    if (mAirPlayButtonPtr) {
-        mAirPlayButtonPtr->setBackgroundPic(
-            CONFIGMANAGER->getResFilePath("/HomePage/icon_airplay_n.png").c_str());
-    }
-    if (mMiracastButtonPtr) {
-        mMiracastButtonPtr->setBackgroundPic(
-            CONFIGMANAGER->getResFilePath("/HomePage/icon_miracast_n.png").c_str());
     }
 }
 
@@ -277,25 +279,26 @@ static void set_dock2_button_backgrounds() {
     }
     if (mMusicButtonPtr) {
         mMusicButtonPtr->setBackgroundPic(
-            CONFIGMANAGER->getResFilePath("/HomePage/icon_music_n.png").c_str());
-    }
-    if (mAudiooutButtonPtr) {
-        mAudiooutButtonPtr->setBackgroundPic(
-            CONFIGMANAGER->getResFilePath("/HomePage/icon_audio_out_n.png").c_str());
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_music2_n.png").c_str());
     }
     if (mSettingsButtonPtr) {
         mSettingsButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_set_n.png").c_str());
     }
-    if (mvideoButtonPtr) {
-        mvideoButtonPtr->setBackgroundPic(
-            CONFIGMANAGER->getResFilePath("/HomePage/icon_video_n.png").c_str());
+    if (mAirPlayButtonPtr) {
+        mAirPlayButtonPtr->setBackgroundPic(
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_airplay_n.png").c_str());
+    }
+    if (mMiracastButtonPtr) {
+        mMiracastButtonPtr->setBackgroundPic(
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_miracast_n.png").c_str());
     }
 }
 
 // ============================================================================
 // dock3Window按钮的背景图片设置
-// 第三页只有一个PictureButton，其余4个位置用占位背景图填充
+// 第三页有 PictureButton 和 videoButton，其余3个位置用占位背景图填充
+// (TextViewRightarea2已删除，因为video卡片占据了该位置)
 // ============================================================================
 static void set_dock3_button_backgrounds() {
     MEM_SNAP_SIMPLE("dock3_bg_LOAD_START");
@@ -303,29 +306,21 @@ static void set_dock3_button_backgrounds() {
         mPictureButtonPtr->setBackgroundPic(
             CONFIGMANAGER->getResFilePath("/HomePage/icon_picture_n.png").c_str());
     }
-    // 占位背景: 补齐第三页空缺的4个按钮区域
-    bitmap_t *bmp = NULL;
-    if (mTextViewRightarea2Ptr) {
-        bmp = NULL;
-//        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_9_rightarea2.jpg").c_str(), 3);
-        mTextViewRightarea2Ptr->setBackgroundPic(
-                CONFIGMANAGER->getResFilePath("/HomePage/crop_9_rightarea2.png").c_str());
+    if (mvideoButtonPtr) {
+        mvideoButtonPtr->setBackgroundPic(
+            CONFIGMANAGER->getResFilePath("/HomePage/icon_video_n.png").c_str());
     }
+    // 占位背景: 补齐第三页空缺的3个按钮区域
+    // 注意: TextViewRightarea2已删除(被videoButton替代)
     if (mTextViewRightarea3Ptr) {
-        bmp = NULL;
-//        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_10_rightarea3.jpg").c_str(), 3);
         mTextViewRightarea3Ptr->setBackgroundPic(
                 CONFIGMANAGER->getResFilePath("/HomePage/crop_10_rightarea3.png").c_str());
     }
     if (mTextViewRightarea4Ptr) {
-        bmp = NULL;
-//        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_11_rightarea4.jpg").c_str(), 3);
         mTextViewRightarea4Ptr->setBackgroundPic(
                 CONFIGMANAGER->getResFilePath("/HomePage/crop_11_rightarea4.png").c_str());
     }
     if (mTextViewRightarea5Ptr) {
-        bmp = NULL;
-//        BitmapHelper::loadBitmapFromFile(bmp, CONFIGMANAGER->getResFilePath("/HomePage/crop_12_rightarea5.jpg").c_str(), 3);
         mTextViewRightarea5Ptr->setBackgroundPic(
                 CONFIGMANAGER->getResFilePath("/HomePage/crop_12_rightarea5.png").c_str());
     }
@@ -335,25 +330,25 @@ static void set_dock3_button_backgrounds() {
 // 释放各dock按钮的背景图片 (按页释放)
 // ============================================================================
 static void release_dock1_button_backgrounds() {
+    if (mmusicWindowPtr) mmusicWindowPtr->setBackgroundPic(NULL);
+    if (mAudiooutButtonPtr) mAudiooutButtonPtr->setBackgroundPic(NULL);
     if (mCarPlayButtonPtr) mCarPlayButtonPtr->setBackgroundPic(NULL);
     if (mAndroidAutoButtonPtr) mAndroidAutoButtonPtr->setBackgroundPic(NULL);
     if (mBluetoothButtonPtr) mBluetoothButtonPtr->setBackgroundPic(NULL);
-    if (mAirPlayButtonPtr) mAirPlayButtonPtr->setBackgroundPic(NULL);
-    if (mMiracastButtonPtr) mMiracastButtonPtr->setBackgroundPic(NULL);
 }
 
 static void release_dock2_button_backgrounds() {
     if (mAicastButtonPtr) mAicastButtonPtr->setBackgroundPic(NULL);
     if (mMusicButtonPtr) mMusicButtonPtr->setBackgroundPic(NULL);
-    if (mAudiooutButtonPtr) mAudiooutButtonPtr->setBackgroundPic(NULL);
     if (mSettingsButtonPtr) mSettingsButtonPtr->setBackgroundPic(NULL);
-    if (mvideoButtonPtr) mvideoButtonPtr->setBackgroundPic(NULL);
+    if (mAirPlayButtonPtr) mAirPlayButtonPtr->setBackgroundPic(NULL);
+    if (mMiracastButtonPtr) mMiracastButtonPtr->setBackgroundPic(NULL);
 }
 
 static void release_dock3_button_backgrounds() {
     if (mPictureButtonPtr) mPictureButtonPtr->setBackgroundPic(NULL);
-    // 释放占位背景
-    if (mTextViewRightarea2Ptr) mTextViewRightarea2Ptr->setBackgroundPic(NULL);
+    if (mvideoButtonPtr) mvideoButtonPtr->setBackgroundPic(NULL);
+    // 释放占位背景 (TextViewRightarea2已删除)
     if (mTextViewRightarea3Ptr) mTextViewRightarea3Ptr->setBackgroundPic(NULL);
     if (mTextViewRightarea4Ptr) mTextViewRightarea4Ptr->setBackgroundPic(NULL);
     if (mTextViewRightarea5Ptr) mTextViewRightarea5Ptr->setBackgroundPic(NULL);
@@ -1641,7 +1636,14 @@ static bool onButtonClick_toLocalmusicButton(ZKButton *pButton) {
 
 // ============================================================================
 // dock1Window 按钮点击事件
+// dock1: AudiooutButton, CarPlayButton, AndroidAutoButton, BluetoothButton
 // ============================================================================
+static bool onButtonClick_AudiooutButton(ZKButton *pButton) {
+    LOGD(" ButtonClick AudiooutButton !!!\n");
+    EASYUICONTEXT->openActivity("FMemitActivity");
+    return false;
+}
+
 static bool onButtonClick_CarPlayButton(ZKButton *pButton) {
     LOGD(" ButtonClick CarPlayButton !!!\n");
     open_link_activity(E_LINK_MODE_CARPLAY);
@@ -1666,20 +1668,9 @@ static bool onButtonClick_BluetoothButton(ZKButton *pButton) {
     return false;
 }
 
-static bool onButtonClick_AirPlayButton(ZKButton *pButton) {
-    LOGD(" ButtonClick AirPlayButton !!!\n");
-    open_link_activity(E_LINK_MODE_AIRPLAY);
-    return false;
-}
-
-static bool onButtonClick_MiracastButton(ZKButton *pButton) {
-    LOGD(" ButtonClick MiracastButton !!!\n");
-    open_link_activity(E_LINK_MODE_MIRACAST);
-    return false;
-}
-
 // ============================================================================
 // dock2Window 按钮点击事件
+// dock2: AicastButton, MusicButton, SettingsButton, AirPlayButton, MiracastButton
 // ============================================================================
 static bool onButtonClick_AicastButton(ZKButton *pButton) {
     LOGD(" ButtonClick AicastButton !!!\n");
@@ -1699,15 +1690,37 @@ static bool onButtonClick_MusicButton(ZKButton *pButton) {
     return false;
 }
 
-static bool onButtonClick_AudiooutButton(ZKButton *pButton) {
-    LOGD(" ButtonClick AudiooutButton !!!\n");
-    EASYUICONTEXT->openActivity("FMemitActivity");
-    return false;
-}
-
 static bool onButtonClick_SettingsButton(ZKButton *pButton) {
     LOGD(" ButtonClick SettingsButton !!!\n");
     EASYUICONTEXT->openActivity("setshowActivity");
+    return false;
+}
+
+static bool onButtonClick_AirPlayButton(ZKButton *pButton) {
+    LOGD(" ButtonClick AirPlayButton !!!\n");
+    open_link_activity(E_LINK_MODE_AIRPLAY);
+    return false;
+}
+
+static bool onButtonClick_MiracastButton(ZKButton *pButton) {
+    LOGD(" ButtonClick MiracastButton !!!\n");
+    open_link_activity(E_LINK_MODE_MIRACAST);
+    return false;
+}
+
+// ============================================================================
+// dock3Window 按钮点击事件
+// dock3: PictureButton, videoButton
+// ============================================================================
+static bool onButtonClick_PictureButton(ZKButton *pButton) {
+    LOGD(" ButtonClick PictureButton !!!\n");
+    if (lk::is_connected()) {
+        if (mlinkTipsWindowPtr) {
+            mlinkTipsWindowPtr->showWnd();
+        }
+        return false;
+    }
+    EASYUICONTEXT->openActivity("PhotoAlbumActivity");
     return false;
 }
 
@@ -1720,20 +1733,5 @@ static bool onButtonClick_videoButton(ZKButton *pButton) {
         return false;
     }
     EASYUICONTEXT->openActivity("videoActivity");
-    return false;
-}
-
-// ============================================================================
-// dock3Window 按钮点击事件
-// ============================================================================
-static bool onButtonClick_PictureButton(ZKButton *pButton) {
-    LOGD(" ButtonClick PictureButton !!!\n");
-    if (lk::is_connected()) {
-        if (mlinkTipsWindowPtr) {
-            mlinkTipsWindowPtr->showWnd();
-        }
-        return false;
-    }
-    EASYUICONTEXT->openActivity("PhotoAlbumActivity");
     return false;
 }

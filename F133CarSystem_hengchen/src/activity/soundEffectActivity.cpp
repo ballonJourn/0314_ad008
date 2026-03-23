@@ -4,6 +4,7 @@
 #include "soundEffectActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
+static ZKWindow* mWindow1Ptr;
 static ZKButton* mreturnButtonPtr;
 static ZKTextView* mTextView13Ptr;
 static ZKTextView* mTextView12Ptr;
@@ -150,6 +151,7 @@ soundEffectActivity::~soundEffectActivity() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mActivityPtr = NULL;
+    mWindow1Ptr = NULL;
     mreturnButtonPtr = NULL;
     mTextView13Ptr = NULL;
     mTextView12Ptr = NULL;
@@ -184,6 +186,7 @@ const char* soundEffectActivity::getAppName() const{
 //TAG:onCreate
 void soundEffectActivity::onCreate() {
 	Activity::onCreate();
+    mWindow1Ptr = (ZKWindow*)findControlByID(ID_SOUNDEFFECT_Window1);
     mreturnButtonPtr = (ZKButton*)findControlByID(ID_SOUNDEFFECT_returnButton);
     mTextView13Ptr = (ZKTextView*)findControlByID(ID_SOUNDEFFECT_TextView13);
     mTextView12Ptr = (ZKTextView*)findControlByID(ID_SOUNDEFFECT_TextView12);

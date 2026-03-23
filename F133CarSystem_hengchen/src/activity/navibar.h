@@ -21,7 +21,6 @@
 #include "control/ZKVideoView.h"
 #include "window/ZKSlideWindow.h"
 /*TAG:Macro宏ID*/
-#define ID_NAVIBAR_Button1    20002
 #define ID_NAVIBAR_timeTextView    50003
 #define ID_NAVIBAR_TextviewDDR    50007
 #define ID_NAVIBAR_phoneTextView    50002

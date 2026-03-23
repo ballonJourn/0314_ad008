@@ -4,6 +4,7 @@
 #include "reverseActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
+static ZKPainter* mLinePainter2Ptr;
 static ZKPainter* mLinePainterPtr;
 static ZKListView* mListView1Ptr;
 static ZKTextView* mTextView1Ptr;
@@ -119,6 +120,7 @@ reverseActivity::~reverseActivity() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mActivityPtr = NULL;
+    mLinePainter2Ptr = NULL;
     mLinePainterPtr = NULL;
     mListView1Ptr = NULL;
     mTextView1Ptr = NULL;
@@ -133,6 +135,7 @@ const char* reverseActivity::getAppName() const{
 //TAG:onCreate
 void reverseActivity::onCreate() {
 	Activity::onCreate();
+    mLinePainter2Ptr = (ZKPainter*)findControlByID(ID_REVERSE_LinePainter2);
     mLinePainterPtr = (ZKPainter*)findControlByID(ID_REVERSE_LinePainter);
     mListView1Ptr = (ZKListView*)findControlByID(ID_REVERSE_ListView1);if(mListView1Ptr!= NULL){mListView1Ptr->setListAdapter(this);mListView1Ptr->setItemClickListener(this);}
     mTextView1Ptr = (ZKTextView*)findControlByID(ID_REVERSE_TextView1);
@@ -170,7 +173,7 @@ void reverseActivity::onClick(ZKBase *pBase) {
 
 void reverseActivity::onResume() {
 	Activity::onResume();
-//  mCameraViewReversePtr->startPreview();
+    mCameraViewReversePtr->startPreview();
 	EASYUICONTEXT->registerGlobalTouchListener(this);
 	startVideoLoopPlayback();
 	onUI_show();

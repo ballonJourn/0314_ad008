@@ -192,9 +192,12 @@ static void onUI_intent(const Intent *intentPtr) {
  */
 static void onUI_show() {
 	MEM_LIFECYCLE("linkhelp", "show");
+	MEM_WARN_IF_LOW("linkhelp_show", 4000);
 	//mmc3TextViewPtr->setText(fy::format("3.找到lylink_%s,点击进行连接", fy::gen_uuid_str().c_str()));
 //	set_back_pic();
+	MEM_IMG_LOAD_BEGIN(linkhelp_bg);
 	mTextViewBgPtr->setBackgroundPic("/link/wallpaper.png");
+	MEM_IMG_LOAD_END("linkhelp_wallpaper", linkhelp_bg, "/link/wallpaper.png");
 	mode::set_switch_mode(E_SWITCH_MODE_NULL);
 }
 
@@ -204,6 +207,8 @@ static void onUI_show() {
 static void onUI_hide() {
 	MEM_LIFECYCLE("linkhelp", "hide");
 	mTextViewBgPtr->setBackgroundPic(NULL);
+	fy::drop_caches();
+	MEM_SNAP_SIMPLE("linkhelp_hide_EXIT");
 }
 
 /*
