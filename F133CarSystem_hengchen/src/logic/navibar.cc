@@ -186,6 +186,12 @@ static void _bt_remove_cb() {
 
 //收起状态栏
 void fold_statusbar() {
+	// [安全守卫] navibar可能已被hideNaviBar()销毁(倒车内存优化)
+	// 此时mnavibarPtr为NULL, 直接操作会segfault
+	if (!mnavibarPtr) {
+		sys::setting::set_navibar_show(false);
+		return;
+	}
 	LayoutPosition pos = mnavibarPtr->getPosition();
 	if(pos.mTop <= 0){
 		pos.mTop = -pos.mHeight;

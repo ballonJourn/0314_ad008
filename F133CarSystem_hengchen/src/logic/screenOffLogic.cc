@@ -64,6 +64,69 @@ static void set_back_pic() {
 	mTextBgPtr->setBackgroundBmp(bg_bmp);
 }
 
+// ============================================================================
+// 倒车时屏保资源管理 — 由 mainLogic._reverse_status_cb 调用
+//
+// 问题: screenOff 的 time.jpg bitmap (1600×600×3 ≈ 2.88MB) + 秒针定时器
+//        在倒车期间完全无用, 却占用宝贵内存
+// 方案: suspend 释放 bitmap + 停定时器; resume 恢复
+//        Activity 实例保留, 退出倒车后用户仍看到屏保
+//
+// 安全性:
+//   - mActivityPtr/mTextBgPtr 等指针在 onUI_init 时已赋值
+//   - setBackgroundBmp(NULL) 是幂等操作, 多次调用无副作用
+//   - 定时器 unregister 也是幂等的
+// ============================================================================
+static bool _s_screenoff_suspended = false;
+
+void screenOff_suspend_for_reverse() {
+	if (_s_screenoff_suspended) return;  // 防止重入
+	_s_screenoff_suspended = true;
+
+	LOGD("[screenOff] suspend: releasing bitmap and stopping timers\n");
+
+	// 1. 释放背景 bitmap — 这是最大的内存占用
+	if (mTextBgPtr) {
+		mTextBgPtr->setBackgroundBmp(NULL);
+	}
+
+	// 2. 隐藏指针控件 — 减少绘制开销
+	if (mPointSecondPtr) mPointSecondPtr->setVisible(false);
+	if (mPointMinutePtr) mPointMinutePtr->setVisible(false);
+	if (mPointHourPtr)   mPointHourPtr->setVisible(false);
+	if (mTextCenterPtr)  mTextCenterPtr->setVisible(false);
+
+	// 3. 停止所有定时器 — 停止秒针更新 (timer 0) 和延迟显示 (timer 1)
+	if (mActivityPtr) {
+		mActivityPtr->unregisterUserTimer(0);
+		mActivityPtr->unregisterUserTimer(1);
+	}
+}
+
+void screenOff_resume_from_reverse() {
+	if (!_s_screenoff_suspended) return;  // 未暂停则不恢复
+	_s_screenoff_suspended = false;
+
+	LOGD("[screenOff] resume: restoring bitmap and timers\n");
+
+	// 1. 重新加载背景 bitmap
+	set_back_pic();
+
+	// 2. 恢复指针控件显示
+	if (mPointSecondPtr) mPointSecondPtr->setVisible(true);
+	if (mPointMinutePtr) mPointMinutePtr->setVisible(true);
+	if (mPointHourPtr)   mPointHourPtr->setVisible(true);
+	if (mTextCenterPtr)  mTextCenterPtr->setVisible(true);
+
+	// 3. 恢复时间显示
+	set_time(*TimeHelper::getDateTime());
+
+	// 4. 重新注册秒针定时器 (timer 0, 1秒间隔)
+	if (mActivityPtr) {
+		mActivityPtr->registerUserTimer(0, 1000);
+	}
+}
+
 /**
  * 注册定时器
  * 填充数组用于注册定时器
@@ -132,6 +195,7 @@ static void onUI_hide() {
  */
 static void onUI_quit() {
 	MEM_LIFECYCLE("screenOff", "quit");
+	_s_screenoff_suspended = false;  // 清除暂停标志，防止状态残留
 	BRIGHTNESSHELPER->screenOn();
 	LOGD("sys::setting::get_brightness() = %d",sys::setting::get_brightness());
 	//sys::setting::set_brightness(sys::setting::get_brightness());

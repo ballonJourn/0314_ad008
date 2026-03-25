@@ -155,6 +155,42 @@ static void seek_to_current_play() {
     mmusicListViewPtr->refreshListView();
 }
 
+static void _show_list_area_controls() {
+	if (mmusicListViewPtr) mmusicListViewPtr->setVisible(true);
+	// mTextView7Ptr 可能已从FTU删除(背景转移到ListView), 兼容处理
+	if (mTextView7Ptr) mTextView7Ptr->setVisible(true);
+	if (mSDButtonPtr) mSDButtonPtr->setVisible(true);
+	if (mUSB1ButtonPtr) mUSB1ButtonPtr->setVisible(true);
+	// mUSB2ButtonPtr 默认 hidden (FTU中 visible=false), 不恢复
+	if (mTextView1Ptr) mTextView1Ptr->setVisible(true);
+	if (mTextView2Ptr) mTextView2Ptr->setVisible(true);
+	if (mTextView3Ptr) mTextView3Ptr->setVisible(true);
+	// mTextView4Ptr 默认 hidden (FTU中 visible=false), 不恢复
+}
+
+// ============================================================================
+// 列表区域可见性管理
+//
+// 背景: musicWindow 从 1600x600 缩小到实际播放界面所需尺寸 (约 602x470)
+// 以节省 ~2.5MB framebuffer. 缩小后 musicWindow 不再覆盖整个屏幕,
+// 列表区域的控件会从 musicWindow 边缘"露出来".
+//
+// 解决: musicWindow 显示时隐藏列表区控件, 隐藏时恢复.
+// 注意: setVisible 不释放framebuffer, 只跳过绘制和合成, 但能防止视觉穿透
+//       并减轻 compositor 合成压力 (少合一层 = 少一次 blit)
+// ============================================================================
+static void _hide_list_area_controls() {
+	if (mmusicListViewPtr) mmusicListViewPtr->setVisible(false);
+	if (mTextView7Ptr) mTextView7Ptr->setVisible(false);
+	if (mSDButtonPtr) mSDButtonPtr->setVisible(false);
+	if (mUSB1ButtonPtr) mUSB1ButtonPtr->setVisible(false);
+	if (mUSB2ButtonPtr) mUSB2ButtonPtr->setVisible(false);
+	if (mTextView1Ptr) mTextView1Ptr->setVisible(false);  // tab_line 分隔线
+	if (mTextView2Ptr) mTextView2Ptr->setVisible(false);  // icon_sd
+	if (mTextView3Ptr) mTextView3Ptr->setVisible(false);  // icon_usb
+	if (mTextView4Ptr) mTextView4Ptr->setVisible(false);  // icon_input
+}
+
 static void _music_play_status_cb(music_play_status_e status) {
 	switch (status) {
 	case E_MUSIC_PLAY_STATUS_STARTED:    // 播放开始
@@ -183,6 +219,7 @@ static void _music_play_status_cb(music_play_status_e status) {
 		mButtonPlayPtr->setSelected(false);
 		mtitleTextViewPtr->setTextColor(0xFFFFFFFF);
 		mmusicWindowPtr->hideWnd();
+		_show_list_area_controls();
 		break;
 
 	case E_MUSIC_PLAY_STATUS_ERROR:{// 播放错误
@@ -194,7 +231,7 @@ static void _music_play_status_cb(music_play_status_e status) {
 		break;
 
 	case E_MUSIC_PLAY_STATUS_COMPLETED:  // 播放结束
-//		media::music_next();
+		media::music_next();
 		break;
 	}
 }
@@ -228,16 +265,19 @@ static void _event_mode_cb(event_mode_e mode) {
 			if (enter_type == E_ENTER_FROM_LIST) {
 				// 从列表进入的，返回列表
 				mmusicWindowPtr->hideWnd();
+				_show_list_area_controls();
 				enter_type = E_ENTER_FROM_APP;  // 重置状态
 				mode::set_switch_mode(E_SWITCH_MODE_GOBACK);  // 回到列表后设置为goback模式
 			} else {
 				// 从主应用进入的，直接返回主应用
 				mmusicWindowPtr->hideWnd();
+				_show_list_area_controls();
 				EASYUICONTEXT->goBack();
 			}
 		} else {
 			// 音乐窗口没有显示，当前在列表界面
 			if (is_back) {
+				_hide_list_area_controls();
 				mmusicWindowPtr->showWnd();
 				// 修复：恢复原始进入方式，而不是强制设置为E_ENTER_FROM_LIST
 				enter_type = original_enter_type;
@@ -295,6 +335,15 @@ static void onUI_show() {
 	MEM_WARN_IF_LOW("music_show", 4000);
 	is_back = false;
 
+	// [FIX] 恢复 onUI_hide 中释放的装饰性图片资源
+	// 这些是 FTU 中静态设置的背景图, hide时为腾内存主动释放, show时需恢复
+	if (mTextViewPtr) {
+		mTextViewPtr->setBackgroundPic("media_player/icon_media_cover_bg_n.png");
+	}
+	if (mTextView8Ptr) {
+		mTextView8Ptr->setBackgroundPic("media_player/progress_n.png");
+	}
+
 	// [FIX] onUI_hide中为倒车腾内存释放了专辑封面(setBackgroundPic(NULL)),
 	// 退出倒车回来时必须恢复,无论当前是否正在播放——
 	// 因为倒车期间 reverse_show() 会暂停音乐, 回来时 music_is_playing()=false,
@@ -304,16 +353,18 @@ static void onUI_show() {
 		setDuration();
 	}
 
-	if (media::music_is_playing()) {
+	if (media::music_is_playing() || media::music_get_play_index() != -1) {
 	    mtitleTextViewPtr->setTextColor(0xFF00FCFF);
 	    mButtonPlayPtr->setSelected(true);
+		_hide_list_area_controls();
 		mmusicWindowPtr->showWnd();
 
-		// 如果音乐正在播放，说明是从主应用界面进入的
+		// 如果音乐正在播放或有播放记录，说明是从主应用界面进入的
 		enter_type = E_ENTER_FROM_APP;
 		original_enter_type = E_ENTER_FROM_APP;  // 同时设置原始进入方式
 		mode::set_switch_mode(E_SWITCH_MODE_NULL);  // 直接返回主应用界面
 	} else {
+		_show_list_area_controls();
 		seek_to_current_play();
 		// 此时还在列表界面，没有进入音乐播放窗口
 		enter_type = E_ENTER_FROM_APP;  // 默认为从主应用进入
@@ -329,20 +380,25 @@ static void onUI_hide() {
 	MEM_LIFECYCLE("music", "hide");
 	MEM_VM_DETAIL("music_hide_ENTRY");
 
-	// [FIX] 释放音乐界面的图片资源，为倒车摄像头腾出内存
-	// music.ftu 共42个控件 = 14.4MB RGBA纹理，加上main的30.8MB，
-	// 再加camera的9MB = 54.2MB > 系统可用50MB → 必然OOM卡死
-	//
-	// 虽然控件纹理缓冲区无法释放（直到Activity quit），
-	// 但可以释放动态加载的图片资源减轻压力：
+	// [FIX] 释放音乐界面的动态图片资源，为倒车/互联腾出内存
+	// 控件 framebuffer 无法释放（直到 Activity quit），
+	// 但动态加载的 bitmap 可以释放:
 
 	// 1. 释放专辑封面图片 (来自/tmp/m1.jpg的解码bitmap)
 	if (mpicTextViewPtr) {
 		mpicTextViewPtr->setBackgroundPic(NULL);
 	}
 
-	// 2. 强制释放pagecache，立即为camera腾出空间
-	//    /tmp/m1.jpg 的pagecache + id3解析的文件cache
+	// 2. 释放 musicWindow 内的装饰性图片资源
+	//    这些图片在 onUI_show / refreshMusicInfo 时会重新加载
+	if (mTextViewPtr) {
+		mTextViewPtr->setBackgroundPic(NULL);   // icon_media_cover_bg_n.png (242x242)
+	}
+	if (mTextView8Ptr) {
+		mTextView8Ptr->setBackgroundPic(NULL);  // progress_n.png 进度条背景
+	}
+
+	// 3. 强制释放pagecache，立即为camera腾出空间
 	fy::drop_caches();
 }
 
@@ -463,10 +519,12 @@ static bool onButtonClick_USB2Button(ZKButton *pButton) {
 
 static int getListItemCount_musicListView(const ZKListView *pListView) {
     //LOGD("getListItemCount_musicListView !\n");
-	if (media::get_audio_list_size(_s_select_storage) == 0) {
-		mTextView7Ptr->setTextTr("No files");
-	} else {
-		mTextView7Ptr->setText("");
+	if (mTextView7Ptr) {
+		if (media::get_audio_list_size(_s_select_storage) == 0) {
+			mTextView7Ptr->setTextTr("No files");
+		} else {
+			mTextView7Ptr->setText("");
+		}
 	}
     return media::get_audio_list_size(_s_select_storage);
 }
@@ -496,6 +554,7 @@ static void onListItemClick_musicListView(ZKListView *pListView, int index, int 
     // 标记为从列表进入音乐播放界面
     enter_type = E_ENTER_FROM_LIST;
 
+    _hide_list_area_controls();
     mmusicWindowPtr->showWnd();
 
     // 设置为返回列表模式
@@ -516,6 +575,7 @@ static void onListItemClick_musicListView(ZKListView *pListView, int index, int 
 static bool onButtonClick_musicCloseButton(ZKButton *pButton) {
     LOGD(" ButtonClick musicCloseButton !!!\n");
     mmusicWindowPtr->hideWnd();
+    _show_list_area_controls();
     return false;
 }
 
@@ -538,6 +598,7 @@ static bool onButtonClick_musicListButton(ZKButton *pButton) {
     seek_to_current_play();
     mmusicListViewPtr->refreshListView();
     mmusicWindowPtr->hideWnd();
+    _show_list_area_controls();
 
 //    回到列表后，重置为主应用进入模式，因为下次进入就是从列表进入了
 //    enter_type = E_ENTER_FROM_APP;  // 重置状态
@@ -600,6 +661,7 @@ static bool onButtonClick_musicButton(ZKButton *pButton) {
         return false;
     }
 
+    _hide_list_area_controls();
     mmusicWindowPtr->showWnd();
     mButtonPlayPtr->setSelected(media::music_is_playing());
     media::music_is_playing() ?  mtitleTextViewPtr->setTextColor(0xFF00FCFF) :  mtitleTextViewPtr->setTextColor(0xFFFFFF);
