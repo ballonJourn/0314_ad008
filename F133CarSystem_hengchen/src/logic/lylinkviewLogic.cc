@@ -15,6 +15,7 @@
 #include <base/ui_handler.h>
 #include "utils/mem_profiler.h"
 #include "utils/SlideManager.h"
+#include "net/context.h"
 
 #define DELAY_PLAY_TIMER     1
 #define STOP_TIMER		9
@@ -233,16 +234,29 @@ static void _link_stop() {
 	//   和startPreview 200ms延迟来避免内存竞争
 	if (sys::reverse_does_enter_status()) {
 		if (link_type == LINK_TYPE_WIFILY) {
-			// Aicast倒车: 只隐藏图层，不停止视频流，保持协议连接
+			// Aicast倒车(从lylinkview界面直接进入倒车): 只隐藏图层，不停止视频流，保持协议连接
 			// 退出倒车后 _link_start() → get_video_param()仍有效 → 直接video_show恢复
 			_link_view_hide();
 		} else {
 			// 其他互联倒车: 可以安全停止
 			lk::video_stop();
 		}
-	} else if (link_type != LINK_TYPE_WIFILY) {
-		// 非倒车非Aicast: 正常停止
+	} else {
+		// 非倒车场景(用户通过floatwnd home等方式主动离开投屏界面): 统一停止视频
+		// [FIX-AICAST-HOME] 之前AiCast在此分支被跳过(不stop video), 导致h264解码流
+		//   持续运行消耗内存。当用户从mainLogic进入倒车时, camera buffer与h264争夺
+		//   仅剩的几MB内存 → OOM → 卡死。
+		//   修复策略: 对AiCast关闭WiFi P2P连接, 这会:
+		//   1. 中断P2P数据链路 → h264解码器因无数据自动停止 → 释放解码buffer内存
+		//   2. lylink检测到连接断开 → 触发LYLINK_LINK_DISCONN回调 → 完整清理协议层
+		//   3. LYLINK_LINK_DISCONN中bt::power_on()恢复蓝牙 → 系统状态干净
+		//   用户需要重新发起AiCast投屏, 但保证了系统稳定性和倒车安全性。
+		//   lylink服务本身不停止(不调stop_lylink), 保持就绪状态等待下次连接。
 		lk::video_stop();
+		if (link_type == LINK_TYPE_WIFILY) {
+			LOGD("[lylinkview] AiCast home exit: closing WiFi P2P to release resources");
+			net::change_mode(E_NET_MODE_NULL, true);
+		}
 	}
 	lk::remove_lylink_callback(_lylink_video_callback);
 	_link_view_hide();
