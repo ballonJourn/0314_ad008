@@ -297,3 +297,43 @@ static bool onButtonClick_sys_home(ZKButton *pButton) {
     updateWndPos(BackButtonEvent, 0, 0);
     return false;
 }
+
+static bool onButtonClick_volButton(ZKButton *pButton) {
+    LOGD("[floatwnd] ButtonClick volButton !!!\n");
+    // 先收起浮窗弹出面板，回到浮球模式
+    updateWndPos(BackButtonEvent, 0, 0);
+    // 切换ctrlbar音量窗口（与topbar volumButton逻辑一致）
+    if (app::is_show_ctrlbar() && (mode::get_event_mode() == E_EVENT_MODE_VOICE)) {
+        app::hide_ctrlbar();
+    } else {
+        mode::set_event_mode(E_EVENT_MODE_VOICE);
+        app::show_ctrlbar();
+    }
+    return false;
+}
+
+static bool onButtonClick_PlayVolButton(ZKButton *pButton) {
+    LOGD("[floatwnd] ButtonClick PlayVolButton !!!\n");
+    updateWndPos(BackButtonEvent, 0, 0);
+    // 切换ctrlbar通话音量窗口
+    if (app::is_show_ctrlbar() && (mode::get_event_mode() == E_EVENT_MODE_PLAYVOL)) {
+        app::hide_ctrlbar();
+    } else {
+        mode::set_event_mode(E_EVENT_MODE_PLAYVOL);
+        app::show_ctrlbar();
+    }
+    return false;
+}
+
+static bool onButtonClick_brightnessButton(ZKButton *pButton) {
+    LOGD("[floatwnd] ButtonClick brightnessButton !!!\n");
+    updateWndPos(BackButtonEvent, 0, 0);
+    // 切换ctrlbar亮度窗口（与topbar lightButton逻辑一致）
+    if (app::is_show_ctrlbar() && (mode::get_event_mode() == E_EVENT_MODE_BRIGHTNESS)) {
+        app::hide_ctrlbar();
+    } else {
+        mode::set_event_mode(E_EVENT_MODE_BRIGHTNESS);
+        app::show_ctrlbar();
+    }
+    return false;
+}

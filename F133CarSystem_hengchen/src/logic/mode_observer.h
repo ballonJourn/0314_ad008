@@ -17,6 +17,7 @@ typedef enum {
 	E_EVENT_MODE_NULL,
 	E_EVENT_MODE_BRIGHTNESS,   // 亮度调节事件
 	E_EVENT_MODE_VOICE,        // 声音调节事件
+	E_EVENT_MODE_PLAYVOL,      // 通话音量调节事件
 	E_EVENT_MODE_GOBACK,       // 返回事件
 } event_mode_e;
 

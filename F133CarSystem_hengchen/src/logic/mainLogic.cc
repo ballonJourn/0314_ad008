@@ -116,10 +116,6 @@ static int _current_page_index = 0;  // 当前页面索引 (0, 1, 2)
 // ============================================================================
 static void set_dock_button_backgrounds_for_page(int page);
 
-// ============================================================================
-// 切换dock窗口的显示
-// page: 0 - dock1Window, 1 - dock2Window, 2 - dock3Window
-// ============================================================================
 static void switch_dock_window(int page) {
     if (page < 0) page = 0;
     if (page > 2) page = 2;
@@ -157,6 +153,23 @@ static void switch_dock_window(int page) {
     // 只加载当前页的按钮背景，释放其他页的，防止图片过多卡顿
     set_dock_button_backgrounds_for_page(page);
 }
+
+// ============================================================================
+// 供外部(topbar)调用: 若不在第0页则切回第0页, 返回true表示执行了切换
+// ============================================================================
+bool handle_main_page_back() {
+    if (_current_page_index != 0) {
+        switch_dock_window(0);
+        return true;
+    }
+    return false;
+}
+
+// ============================================================================
+// 切换dock窗口的显示
+// page: 0 - dock1Window, 1 - dock2Window, 2 - dock3Window
+// ============================================================================
+
 
 // 根据滑动方向切换页面
 static void switch_page_by_direction(int delta_x) {

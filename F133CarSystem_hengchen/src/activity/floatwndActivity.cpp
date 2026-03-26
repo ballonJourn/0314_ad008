@@ -4,6 +4,9 @@
 #include "floatwndActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
+static ZKButton* mbrightnessButtonPtr;
+static ZKButton* mPlayVolButtonPtr;
+static ZKButton* mvolButtonPtr;
 static ZKButton* mPopButtonPtr;
 static ZKButton* msys_homePtr;
 static ZKWindow* mPopWindowPtr;
@@ -44,6 +47,9 @@ typedef struct {
 
 /*TAG:ButtonCallbackTab按键映射表*/
 static S_ButtonCallback sButtonCallbackTab[] = {
+    ID_FLOATWND_brightnessButton, onButtonClick_brightnessButton,
+    ID_FLOATWND_PlayVolButton, onButtonClick_PlayVolButton,
+    ID_FLOATWND_volButton, onButtonClick_volButton,
     ID_FLOATWND_PopButton, onButtonClick_PopButton,
     ID_FLOATWND_sys_home, onButtonClick_sys_home,
 };
@@ -118,6 +124,9 @@ floatwndActivity::~floatwndActivity() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mActivityPtr = NULL;
+    mbrightnessButtonPtr = NULL;
+    mPlayVolButtonPtr = NULL;
+    mvolButtonPtr = NULL;
     mPopButtonPtr = NULL;
     msys_homePtr = NULL;
     mPopWindowPtr = NULL;
@@ -130,6 +139,9 @@ const char* floatwndActivity::getAppName() const{
 //TAG:onCreate
 void floatwndActivity::onCreate() {
 	Activity::onCreate();
+    mbrightnessButtonPtr = (ZKButton*)findControlByID(ID_FLOATWND_brightnessButton);
+    mPlayVolButtonPtr = (ZKButton*)findControlByID(ID_FLOATWND_PlayVolButton);
+    mvolButtonPtr = (ZKButton*)findControlByID(ID_FLOATWND_volButton);
     mPopButtonPtr = (ZKButton*)findControlByID(ID_FLOATWND_PopButton);
     msys_homePtr = (ZKButton*)findControlByID(ID_FLOATWND_sys_home);
     mPopWindowPtr = (ZKWindow*)findControlByID(ID_FLOATWND_PopWindow);

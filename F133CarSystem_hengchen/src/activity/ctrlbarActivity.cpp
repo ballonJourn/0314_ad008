@@ -4,6 +4,10 @@
 #include "ctrlbarActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
+static ZKTextView* mPlayVolTextViewPtr;
+static ZKButton* mPlayVolButtonPtr;
+static ZKSeekBar* mPlayVolSeekBarPtr;
+static ZKWindow* mPlayVolWindowPtr;
 static ZKTextView* mlightTextViewPtr;
 static ZKButton* mlightButtonPtr;
 static ZKSeekBar* mlightSeekBarPtr;
@@ -49,6 +53,7 @@ typedef struct {
 
 /*TAG:ButtonCallbackTab按键映射表*/
 static S_ButtonCallback sButtonCallbackTab[] = {
+    ID_CTRLBAR_PlayVolButton, onButtonClick_PlayVolButton,
     ID_CTRLBAR_lightButton, onButtonClick_lightButton,
     ID_CTRLBAR_volumButton, onButtonClick_volumButton,
 };
@@ -62,6 +67,7 @@ typedef struct {
 }S_ZKSeekBarCallback;
 /*TAG:SeekBarCallbackTab*/
 static S_ZKSeekBarCallback SZKSeekBarCallbackTab[] = {
+    ID_CTRLBAR_PlayVolSeekBar, onProgressChanged_PlayVolSeekBar,
     ID_CTRLBAR_lightSeekBar, onProgressChanged_lightSeekBar,
     ID_CTRLBAR_volumSeekBar, onProgressChanged_volumSeekBar,
 };
@@ -125,6 +131,10 @@ ctrlbarActivity::~ctrlbarActivity() {
     unregisterProtocolDataUpdateListener(onProtocolDataUpdate);
     onUI_quit();
     mActivityPtr = NULL;
+    mPlayVolTextViewPtr = NULL;
+    mPlayVolButtonPtr = NULL;
+    mPlayVolSeekBarPtr = NULL;
+    mPlayVolWindowPtr = NULL;
     mlightTextViewPtr = NULL;
     mlightButtonPtr = NULL;
     mlightSeekBarPtr = NULL;
@@ -142,6 +152,10 @@ const char* ctrlbarActivity::getAppName() const{
 //TAG:onCreate
 void ctrlbarActivity::onCreate() {
 	Activity::onCreate();
+    mPlayVolTextViewPtr = (ZKTextView*)findControlByID(ID_CTRLBAR_PlayVolTextView);
+    mPlayVolButtonPtr = (ZKButton*)findControlByID(ID_CTRLBAR_PlayVolButton);
+    mPlayVolSeekBarPtr = (ZKSeekBar*)findControlByID(ID_CTRLBAR_PlayVolSeekBar);if(mPlayVolSeekBarPtr!= NULL){mPlayVolSeekBarPtr->setSeekBarChangeListener(this);}
+    mPlayVolWindowPtr = (ZKWindow*)findControlByID(ID_CTRLBAR_PlayVolWindow);
     mlightTextViewPtr = (ZKTextView*)findControlByID(ID_CTRLBAR_lightTextView);
     mlightButtonPtr = (ZKButton*)findControlByID(ID_CTRLBAR_lightButton);
     mlightSeekBarPtr = (ZKSeekBar*)findControlByID(ID_CTRLBAR_lightSeekBar);if(mlightSeekBarPtr!= NULL){mlightSeekBarPtr->setSeekBarChangeListener(this);}

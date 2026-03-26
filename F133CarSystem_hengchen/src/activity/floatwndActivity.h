@@ -26,6 +26,9 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
+#define ID_FLOATWND_brightnessButton    20004
+#define ID_FLOATWND_PlayVolButton    20003
+#define ID_FLOATWND_volButton    20002
 #define ID_FLOATWND_PopButton    20001
 #define ID_FLOATWND_sys_home   101
 #define ID_FLOATWND_PopWindow    110001

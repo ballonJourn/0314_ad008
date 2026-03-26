@@ -830,10 +830,9 @@ static bool _start_link() {
 	if (sys::setting::get_link_mode() == E_LINK_MODE_AIRPLAY) {
 		params.width = 640;
 		params.height = 480;
-//	}
-//	else if (sys::setting::get_link_mode() == E_LINK_MODE_CARPLAY) {
-//		params.width = 800;
-//		params.height = 480;
+	} else if (sys::setting::get_link_mode() == E_LINK_MODE_CARPLAY) {
+		params.width = 1280;
+		params.height = 480;
 	} else {
 		params.width = LINK_VIEW_WIDTH;
 		params.height = LINK_VIEW_HEIGHT;

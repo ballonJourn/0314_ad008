@@ -552,6 +552,10 @@ static bool onnavibarActivityTouchEvent(const MotionEvent &ev) {
 	if (sys::reverse_does_enter_status()){
 		return false;
 	}
+	// 投屏界面有floatwnd，禁止下拉navibar
+	if (lk::is_connected()) {
+		return false;
+	}
 	if (mPlayVolSeekBarPtr->isPressed()) {
 		return false;
 	}

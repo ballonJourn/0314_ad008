@@ -1,4 +1,3 @@
-
 #pragma once
 #include "uart/ProtocolSender.h"
 
@@ -21,6 +20,7 @@
 #define WIFIMANAGER			NETMANAGER->getWifiManager()
 
 //extern bool handle_main_page_back();
+extern bool handle_main_page_back();
 // extern bool _is_transitioning_from_activity;
 extern void set_activity_transition_flag(bool flag);
 
@@ -413,6 +413,13 @@ static bool onButtonClick_sys_home(ZKButton *pButton) {
         // } else {
         //     LOGD("Home button: already on main page (page 0) in mainActivity");
         // }
+    } else if (app && (strcmp(app, "mainActivity") == 0)) {
+        // 当前已在mainActivity, 按Home回到第1页
+        if (handle_main_page_back()) {
+            LOGD("Home button: returned to page 0 in mainActivity");
+        } else {
+            LOGD("Home button: already on page 0 in mainActivity");
+        }
     } else {
         // **新增：设置过渡标记**
 //         if (should_delay_transition) {
@@ -460,12 +467,13 @@ static bool onButtonClick_backButton(ZKButton *pButton) {
                 break;
             }
 
-//            if (app && (strcmp(app, "main2Activity") == 0)) {
-//                if (handle_main_page_back()) {
-//                    LOGD("Page back handled in mainActivity");
-//                    break;
-//                }
-//            }
+            // 当在mainActivity的第2/3页时，按返回键先回到第1页
+            if (app && (strcmp(app, "mainActivity") == 0)) {
+                if (handle_main_page_back()) {
+                    LOGD("Back button: returned to page 0 in mainActivity");
+                    break;
+                }
+            }
 
 //             // **新增：设置过渡标记**
             // if (should_delay_transition) {

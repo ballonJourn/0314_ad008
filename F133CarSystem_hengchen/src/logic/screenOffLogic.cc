@@ -162,7 +162,8 @@ static void onUI_intent(const Intent *intentPtr) {
 static void onUI_show() {
 	MEM_LIFECYCLE("screenOff", "show");
 	mActivityPtr->registerUserTimer(DELAY_PLAY_TIMER, 900);
-	// 先隐藏指针和中心文本控件
+	// 先隐藏所有控件（包括TextBg），避免TextBg先于指针显示导致不美观
+	mTextBgPtr->setVisible(false);
 	mPointMinutePtr->setVisible(false);
 	mPointSecondPtr->setVisible(false);
 	mPointHourPtr->setVisible(false);
@@ -230,8 +231,10 @@ static bool onUI_Timer(int id){
 		break;
 	}
 	case 1:{
-		// 300ms延迟后显示背景图片和控件
+		// 300ms延迟后：先加载背景图片，再同步显示所有控件（TextBg+指针+中心文本）
 		set_back_pic();
+		set_time(*TimeHelper::getDateTime());
+		mTextBgPtr->setVisible(true);
 		mPointMinutePtr->setVisible(true);
 		mPointSecondPtr->setVisible(true);
 		mPointHourPtr->setVisible(true);

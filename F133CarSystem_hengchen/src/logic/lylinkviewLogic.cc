@@ -14,6 +14,7 @@
 #include "utils/BrightnessHelper.h"
 #include <base/ui_handler.h>
 #include "utils/mem_profiler.h"
+#include "utils/SlideManager.h"
 
 #define DELAY_PLAY_TIMER     1
 #define STOP_TIMER		9
@@ -67,12 +68,35 @@ static void _link_view_show(const LYLINKAPI_VIDEO_PARAM *param) {
 	case LINK_TYPE_AIRPLAY:
 	case LINK_TYPE_MIRACAST:
 	case LINK_TYPE_WIFILY:
-		if ((float) sw / w > (float) sh / h) {
-			vw = sh * w / h;
-			vx = (sw - vw) / 2;
-		} else {
-			vh = sw * h / w;
-			vy = (sh - vh) / 2;
+		if (w > 0 && h > 0) {
+			if (w >= h) {
+				// 手机横屏: 优先填满屏幕宽度，等比缩放高度
+				vw = sw;
+				vh = sw * h / w;
+				if (vh > sh) {
+					// 高度超出屏幕，则改为按高度适配
+					vh = sh;
+					vw = sh * w / h;
+					vx = (sw - vw) / 2;
+					vy = 0;
+				} else {
+					vx = 0;
+					vy = (sh - vh) / 2;
+				}
+			} else {
+				// 手机竖屏: 按高度适配，宽度居中
+				vh = sh;
+				vw = sh * w / h;
+				if (vw > sw) {
+					vw = sw;
+					vh = sw * h / w;
+					vy = (sh - vh) / 2;
+					vx = 0;
+				} else {
+					vx = (sw - vw) / 2;
+					vy = 0;
+				}
+			}
 		}
 
 		if ((rot == 90) || (rot == 270)) {
@@ -94,6 +118,8 @@ static void _link_view_show(const LYLINKAPI_VIDEO_PARAM *param) {
 		break;
 	}
 
+	LOGD("[lylinkview] video_show: src(%d x %d) -> view(%d, %d, %d, %d) screen(%d x %d)",
+		w, h, vx, vy, vw, vh, sw, sh);
 	lk::video_show(vx, vy, vw, vh);
 }
 
@@ -102,10 +128,17 @@ static void _link_view_hide() {
 }
 
 static void _link_touch(LYLINK_TOUCHMODE_E mode, int x, int y) {
-//	if(lk::get_lylink_type() == LINK_TYPE_WIFICP){
-//		x = x * 800 / 1024;
-//		y = y * 480 / 600;
-//	}
+	// 触摸坐标映射: 屏幕坐标(0~SCREEN_WIDTH/HEIGHT) -> 视频协商坐标(0~params.width/height)
+	// CarPlay/AndroidAuto等协商分辨率可能与物理屏幕不同，需要等比缩放
+	LYLINKAPI_VIDEO_PARAM param;
+	if (lk::get_video_param(param) && param.width > 0 && param.height > 0) {
+		int sw = LINK_VIEW_WIDTH;   // 物理屏幕宽 1600
+		int sh = LINK_VIEW_HEIGHT;  // 物理屏幕高 600
+		if (param.width != sw || param.height != sh) {
+			x = x * param.width / sw;
+			y = y * param.height / sh;
+		}
+	}
 	lylinkapi_touch(0, mode, x, y);
 }
 
@@ -279,6 +312,10 @@ static void onUI_show() {
 	fy::drop_caches();
 	app::hide_topbar();
 	sys::setting::set_reverse_topbar_show(false);
+
+	// 投屏界面有floatwnd，禁止下拉出navibar
+	SLIDEMANAGER->setCanSlide(false);
+
 	LOGD("[lylinkview] assist_switch: %d", sys::setting::is_assist_switch_enabled());
 	if (sys::setting::is_assist_switch_enabled()) {
 		LOGD("[lylink floatwnd] show floatwnd ---------\n");
@@ -298,6 +335,9 @@ static void onUI_hide() {
 	if (sys::setting::is_assist_switch_enabled()) {
 		app::hide_floatwnd();
 	}
+
+	// 退出投屏界面，恢复navibar下拉功能
+	SLIDEMANAGER->setCanSlide(true);
 
 	// [P1] 释放pagecache为后续Activity腾出空间
 	fy::drop_caches();
@@ -324,9 +364,15 @@ static void onUI_quit() {
 
 	_link_stop();
 
+	// 退出投屏界面，恢复navibar下拉功能
+	SLIDEMANAGER->setCanSlide(true);
+
 	if (sys::setting::is_assist_switch_enabled()) {
 		app::hide_floatwnd();
 	}
+
+	// 退出投屏界面，恢复navibar下拉功能
+	SLIDEMANAGER->setCanSlide(true);
 
 }
 

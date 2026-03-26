@@ -26,6 +26,10 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
+#define ID_CTRLBAR_PlayVolTextView    50003
+#define ID_CTRLBAR_PlayVolButton    20003
+#define ID_CTRLBAR_PlayVolSeekBar    91003
+#define ID_CTRLBAR_PlayVolWindow    110003
 #define ID_CTRLBAR_lightTextView    50002
 #define ID_CTRLBAR_lightButton    20002
 #define ID_CTRLBAR_lightSeekBar    91002

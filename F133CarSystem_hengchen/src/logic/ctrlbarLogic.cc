@@ -48,6 +48,8 @@ extern void setSettingFtu_BrillianceSeekBar(int progress);
 extern void setSettingFtu_MediaSeekBar(int progress);
 extern void set_navibar_brightnessBar(int progress);
 extern void set_navibar_PlayVolSeekBar(int progress);
+extern void set_navibar_phoneSeekBar(int progress);
+extern void setSettingFtu_CallSeekBar(int progress);
 static bool ctrlbar_is_load = false;
 
 void set_ctrlbar_lightSeekBar(int progress) {
@@ -60,6 +62,13 @@ void set_ctrlbar_volumSeekBar(int progress) {
 	if (ctrlbar_is_load) {
 		mvolumTextViewPtr->setText(progress*10);
 		mvolumSeekBarPtr->setProgress(progress);
+	}
+}
+
+void set_ctrlbar_PlayVolSeekBar(int progress) {
+	if (ctrlbar_is_load) {
+		mPlayVolTextViewPtr->setText(progress*10);
+		mPlayVolSeekBarPtr->setProgress(progress);
 	}
 }
 
@@ -82,6 +91,16 @@ public:
 			mlightTextViewPtr->setText(progress*10);
 			setSettingFtu_BrillianceSeekBar(progress);
 			set_navibar_brightnessBar(progress);
+		} else if (pSeekBar->getID() == mPlayVolSeekBarPtr->getID()) {
+			audio::set_lylink_call_vol(progress / 10.f, false);
+			if (bt::is_calling()) {
+				bt::call_vol(progress / 10.f);
+			} else if (lk::is_connected() && lk::get_is_call_state() != CallState_Hang) {
+				audio::set_lylink_call_vol(progress / 10.f, true);
+			}
+			mPlayVolTextViewPtr->setText(progress*10);
+			setSettingFtu_CallSeekBar(progress);
+			set_navibar_phoneSeekBar(progress);
 		}
 	}
 	virtual void onStartTrackingTouch(ZKSeekBar *pSeekBar) {
@@ -90,14 +109,14 @@ public:
 	virtual void onStopTrackingTouch(ZKSeekBar *pSeekBar) {
 		int progress = pSeekBar->getProgress();
 		if (pSeekBar->getID() == mvolumSeekBarPtr->getID()) {
-//			bool effect = bt::is_calling() || (lk::is_connected() && lk::get_is_call_state() != CallState_Hang);
-//			audio::set_system_vol(progress / 10.f, !effect);
 			setSettingFtu_MediaSeekBar(progress);
 			set_navibar_PlayVolSeekBar(progress);
 		} else if (pSeekBar->getID() == mlightSeekBarPtr->getID()) {
-//			sys::setting::set_brightness(progress*10);
 			setSettingFtu_BrillianceSeekBar(progress);
 			set_navibar_brightnessBar(progress);
+		} else if (pSeekBar->getID() == mPlayVolSeekBarPtr->getID()) {
+			setSettingFtu_CallSeekBar(progress);
+			set_navibar_phoneSeekBar(progress);
 		}
 	}
 };
@@ -111,12 +130,22 @@ static void _event_mode_cb(event_mode_e mode) {
 		mlightTextViewPtr->setText(sys::setting::get_brightness());
 		mlightWindowPtr->showWnd();
 		mvolumWindowPtr->hideWnd();
+		mPlayVolWindowPtr->hideWnd();
 		mActivityPtr->unregisterUserTimer(BAR_HIDE_TIMER);
 		mActivityPtr->registerUserTimer(BAR_HIDE_TIMER, BAR_HIDE_TIMEOUT);
 	} else if (mode == E_EVENT_MODE_VOICE) {
 		mvolumSeekBarPtr->setProgress(audio::get_system_vol() * 10);
 		mvolumTextViewPtr->setText((int)(audio::get_system_vol()*100));
 		mvolumWindowPtr->showWnd();
+		mlightWindowPtr->hideWnd();
+		mPlayVolWindowPtr->hideWnd();
+		mActivityPtr->unregisterUserTimer(BAR_HIDE_TIMER);
+		mActivityPtr->registerUserTimer(BAR_HIDE_TIMER, BAR_HIDE_TIMEOUT);
+	} else if (mode == E_EVENT_MODE_PLAYVOL) {
+		mPlayVolSeekBarPtr->setProgress(audio::get_lylink_call_vol() * 10);
+		mPlayVolTextViewPtr->setText((int)(audio::get_lylink_call_vol()*100));
+		mPlayVolWindowPtr->showWnd();
+		mvolumWindowPtr->hideWnd();
 		mlightWindowPtr->hideWnd();
 		mActivityPtr->unregisterUserTimer(BAR_HIDE_TIMER);
 		mActivityPtr->registerUserTimer(BAR_HIDE_TIMER, BAR_HIDE_TIMEOUT);
@@ -144,6 +173,7 @@ static void onUI_init(){
 	ctrlbar_is_load = true;
 	mvolumSeekBarPtr->setSeekBarChangeListener(&seekListener);
 	mlightSeekBarPtr->setSeekBarChangeListener(&seekListener);
+	mPlayVolSeekBarPtr->setSeekBarChangeListener(&seekListener);
 }
 
 /**
@@ -180,6 +210,7 @@ static void onUI_quit() {
 	ctrlbar_is_load = false;
 	mvolumSeekBarPtr->setSeekBarChangeListener(NULL);
 	mlightSeekBarPtr->setSeekBarChangeListener(NULL);
+	mPlayVolSeekBarPtr->setSeekBarChangeListener(NULL);
 }
 
 /**
@@ -266,5 +297,14 @@ static void onProgressChanged_lightSeekBar(ZKSeekBar *pSeekBar, int progress) {
 
 static bool onButtonClick_lightButton(ZKButton *pButton) {
     LOGD(" ButtonClick lightButton !!!\n");
+    return false;
+}
+
+static void onProgressChanged_PlayVolSeekBar(ZKSeekBar *pSeekBar, int progress) {
+    //LOGD(" ProgressChanged PlayVolSeekBar %d !!!\n", progress);
+}
+
+static bool onButtonClick_PlayVolButton(ZKButton *pButton) {
+    LOGD(" ButtonClick PlayVolButton !!!\n");
     return false;
 }

@@ -664,18 +664,45 @@ static void _proc_download_contact(const char *data, int len) {
 		LOGD("--%d-- --%s-- --联系人--下载已结束--!\n", __LINE__, __FILE__);
 		return;
 	}
+
+	// 数据至少需要4字节(2位name_len + 2位num_len)
+	if (len < 4) {
+		LOGD("[bt] contact data too short, len=%d, skip\n", len);
+		return;
+	}
+
 	int name_len = atoi(std::string(data, 2).c_str());
 	int num_len = atoi(std::string(data+2, 2).c_str());
+
+	// 校验长度合法性，防止越界读取
+	if (name_len < 0 || num_len < 0 || (4 + name_len + num_len) > len) {
+		LOGD("[bt] contact data invalid: name_len=%d, num_len=%d, frame_len=%d, skip\n",
+			name_len, num_len, len);
+		return;
+	}
 
 	bt_contact_t info;
 	info.name = std::string(data + 4, name_len);
 	info.num = std::string(data + 4 + name_len, num_len);
 	info.num = trim_blank(info.num);
-	//LOGD("contact name: %s, num: %s\n", info.name.c_str(), info.num.c_str());
 
-//	LOGD("contact name: %s, num: %s, pinyin: %s\n", info.name.c_str(), info.num.c_str(), info.pinyin.c_str());
+	// 过滤掉号码为空的联系人(蓝牙模块可能在结束前发送空帧)
+	if (info.num.empty()) {
+		LOGD("[bt] contact num is empty, name='%s', skip\n", info.name.c_str());
+		return;
+	}
 
-	LOCK_OP(_s_info_mutex, _s_bt_info.contact_list.push_back(info));
+	// 去重: 检查是否已存在相同号码的联系人
+	{
+		Mutex::Autolock _l(_s_info_mutex);
+		for (size_t i = 0; i < _s_bt_info.contact_list.size(); i++) {
+			if (_s_bt_info.contact_list[i].num == info.num) {
+				LOGD("[bt] duplicate contact num='%s', skip\n", info.num.c_str());
+				return;
+			}
+		}
+		_s_bt_info.contact_list.push_back(info);
+	}
 	_notify_download_cb(E_BT_DOWNLOAD_CONTACT_DATA);
 }
 
