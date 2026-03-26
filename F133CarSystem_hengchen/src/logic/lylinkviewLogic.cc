@@ -225,9 +225,23 @@ static void _link_stop() {
 		sys::setting::set_reverse_topbar_show(true);
 		app::show_topbar();
 	}
-//	if(link_type != LINK_TYPE_WIFILY && link_type != LINK_TYPE_AIRPLAY) {
-	if(link_type != LINK_TYPE_WIFILY){
-		// 回到本地模式
+	// [FIX] 倒车时的视频流处理——按协议类型区分策略
+	// CarPlay/AndroidAuto: video_stop() 安全，退出倒车后协议能自动重新推流
+	// Aicast(LINK_TYPE_WIFILY): video_stop() 会发LYLINK_VIDEO_NATIVE并清除video_info，
+	//   但Aicast协议在收到VIDEO_NATIVE后认为投屏已结束，后续video_start()无法恢复画面
+	//   → 退出倒车后黑屏。改为只隐藏h264图层(video_hide)，配合camera buffer降级(2个)
+	//   和startPreview 200ms延迟来避免内存竞争
+	if (sys::reverse_does_enter_status()) {
+		if (link_type == LINK_TYPE_WIFILY) {
+			// Aicast倒车: 只隐藏图层，不停止视频流，保持协议连接
+			// 退出倒车后 _link_start() → get_video_param()仍有效 → 直接video_show恢复
+			_link_view_hide();
+		} else {
+			// 其他互联倒车: 可以安全停止
+			lk::video_stop();
+		}
+	} else if (link_type != LINK_TYPE_WIFILY) {
+		// 非倒车非Aicast: 正常停止
 		lk::video_stop();
 	}
 	lk::remove_lylink_callback(_lylink_video_callback);

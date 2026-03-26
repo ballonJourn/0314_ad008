@@ -330,7 +330,15 @@ static void onUI_init() {
 	mCameraViewReversePtr->setFormatSize(sys::setting::get_camera_wide(),sys::setting::get_camera_high());
 	mCameraViewReversePtr->setRotation((ERotation)sys::setting::get_camera_rot());
 	mCameraViewReversePtr->setFrameRate(sys::setting::get_camera_rate());
-	mCameraViewReversePtr->setOption("req_bufs_count", "3");
+	// [FIX] 互联模式下降低camera buffer数量，防止SunxiMemPalloc失败
+	// 正常: 3个buffer (720×576×1.5×3 = 1.78MB) — 三缓冲，DMA/显示/备用各一个
+	// 互联: 2个buffer (720×576×1.5×2 = 1.18MB) — 双缓冲，省608KB给lylink资源释放
+	// CVBS信号25/30fps，双缓冲完全满足实时显示需求，不会产生可感知的撕裂或丢帧
+	if (lk::is_connected()) {
+		mCameraViewReversePtr->setOption("req_bufs_count", "2");
+	} else {
+		mCameraViewReversePtr->setOption("req_bufs_count", "3");
+	}
 	mCameraViewReversePtr->setOption("mem_type", "2");
 	char buf[16] = {0};
 	sprintf(buf, "%dx%d", sys::setting::get_camera_re_wide(), sys::setting::get_camera_re_high());
@@ -409,7 +417,15 @@ static void onUI_show() {
 	}
 	fy::drop_caches();
 
-	mActivityPtr->registerUserTimer(DELAY_START_PREVIEM_TIMER, 0);
+	// [FIX] 延迟startPreview，给lylink音频/视频资源释放留出时间
+	// 问题: reverse_show()中调用lk::music_pause()发送LYLINK_AUDIO_NATIVE命令给手机,
+	//   手机端响应OnAudioStop并关闭音频流是异步的(约200-500ms)。
+	//   旧代码registerUserTimer(DELAY_START_PREVIEM_TIMER, 0)立即启动camera预览，
+	//   此时lylink audio player还未执行audio_close释放内存，
+	//   加上lylinkview_hide时Aicast的视频流也未停止(已在lylinkviewLogic中修复),
+	//   导致FreeMem不足→SunxiMemPalloc fail→camera retry死循环→画面抖动
+	// 修复: 给200ms延迟，确保音频资源释放完成后再启动camera
+	mActivityPtr->registerUserTimer(DELAY_START_PREVIEM_TIMER, 200);
 	if (sys::setting::is_reverse_topbar_show()) {
 		app::hide_topbar();
 	}

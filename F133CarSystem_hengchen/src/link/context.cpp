@@ -833,6 +833,13 @@ static bool _start_link() {
 	} else if (sys::setting::get_link_mode() == E_LINK_MODE_CARPLAY) {
 		params.width = 1280;
 		params.height = 480;
+	} else if (sys::setting::get_link_mode() == E_LINK_MODE_LYLINK) {
+		// [FIX] Aicast(AICast)请求分辨率从1600x600降为800x600
+		// 1. 1600x600超宽屏上竖屏app(抖音等)字体极小，降低后h264 player硬件缩放会放大内容
+		// 2. h264码流数据量减半，解码内存占用降低，缓解倒车时内存竞争
+		// 3. 车载屏幕观看距离下800x600的清晰度完全够用
+		params.width = 800;
+		params.height = LINK_VIEW_HEIGHT;
 	} else {
 		params.width = LINK_VIEW_WIDTH;
 		params.height = LINK_VIEW_HEIGHT;

@@ -63,6 +63,7 @@
 #include "mode_observer.h"
 #include "mcu_hash_checker.h"
 #include "utils/mem_profiler.h"
+#include "utils/SlideManager.h"
 
 #define WIFIMANAGER			NETMANAGER->getWifiManager()
 
@@ -1098,6 +1099,14 @@ static void onUI_show() {
     _is_ui_update_paused = false;
     _is_in_reverse_mode = false;
 
+    // [FIX] 回到主界面时无条件恢复下拉功能
+    // 问题: lylinkview onUI_show 设 setCanSlide(false) 禁止下拉，
+    //   用户通过floatwnd home回到main后，虽然lylinkview hide中恢复了setCanSlide(true)，
+    //   但hide_topbar/show_topbar是异步timer，fold_statusbar()中的setCanSlide(false)
+    //   可能在lylinkview hide之后才执行，导致从main进入其他Activity(如图片浏览)时
+    //   下拉仍被禁用。在main onUI_show中无条件恢复是最可靠的兜底
+    SLIDEMANAGER->setCanSlide(true);
+
 	int curPos = -1;
 
     // 更新所有背景(包括分片主背景和所有控件)
@@ -1109,6 +1118,13 @@ static void onUI_show() {
 		if (bt::music_is_playing()) {
 			if (mButtonPlayPtr) {
 				mButtonPlayPtr->setSelected(true);
+			}
+		} else {
+			// [FIX-A] 蓝牙音乐未在播放时，确保按钮显示为暂停状态
+			// 场景: 进入CarPlay/互联后蓝牙音乐被暂停，退出回mainLogic时
+			// onUI_hide期间_is_ui_update_paused=true导致pause回调未更新按钮
+			if (mButtonPlayPtr) {
+				mButtonPlayPtr->setSelected(false);
 			}
 		}
 		update_main_music_time();
@@ -1125,6 +1141,26 @@ static void onUI_show() {
 			if (mtitleTextViewPtr) {
 				mtitleTextViewPtr->setLongMode(ZKTextView::E_LONG_MODE_SCROLL_CIRCULAR);
 				mtitleTextViewPtr->setTextColor(0xFFFFFFFF);
+			}
+		} else {
+			// [FIX-A] 本地音乐未在播放时，确保按钮显示为暂停状态
+			// 场景: 播放本地音乐 → 进入CarPlay(音乐被pause) → 退出CarPlay回main
+			// 由于进入CarPlay时onUI_hide设置_is_ui_update_paused=true，
+			// music_pause的回调在_music_play_status_cb中被提前return跳过了，
+			// 导致ButtonPlay仍残留为selected(true)即播放状态
+			if (mButtonPlayPtr) {
+				mButtonPlayPtr->setSelected(false);
+			}
+			if (mtitleTextViewPtr) {
+				mtitleTextViewPtr->setLongMode(ZKTextView::E_LONG_MODE_NONE);
+				mtitleTextViewPtr->setTextColor(0xFFFFFFFF);
+			}
+			// 音乐暂停但有播放记录时，仍然显示当前进度
+			if (media::music_get_play_index() != -1) {
+				curPos = media::music_get_current_position() / 1000;
+				if (mPlayProgressSeekbarPtr) {
+					mPlayProgressSeekbarPtr->setMax(media::music_get_duration() / 1000);
+				}
 			}
 		}
 		update_main_music_time();

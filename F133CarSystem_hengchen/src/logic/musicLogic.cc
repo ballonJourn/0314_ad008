@@ -354,8 +354,16 @@ static void onUI_show() {
 	}
 
 	if (media::music_is_playing() || media::music_get_play_index() != -1) {
-	    mtitleTextViewPtr->setTextColor(0xFF00FCFF);
-	    mButtonPlayPtr->setSelected(true);
+	    // [FIX-B] 分离按钮状态与窗口显示逻辑
+	    // 之前: music_is_playing() || play_index != -1 整体为true时一律设selected(true)
+	    // 问题: 播放本地音乐→进CarPlay(被pause)→退CarPlay→点音乐卡片进来
+	    //   此时 music_is_playing()=false 但 play_index != -1
+	    //   旧代码仍然设 selected(true)，用户看到播放按钮亮着但音乐实际没在播
+	    // 修复: 按钮状态严格跟随 music_is_playing()
+	    bool isPlaying = media::music_is_playing();
+	    mButtonPlayPtr->setSelected(isPlaying);
+	    mtitleTextViewPtr->setTextColor(isPlaying ? 0xFF00FCFF : 0xFFFFFFFF);
+
 		_hide_list_area_controls();
 		mmusicWindowPtr->showWnd();
 
@@ -363,6 +371,15 @@ static void onUI_show() {
 		enter_type = E_ENTER_FROM_APP;
 		original_enter_type = E_ENTER_FROM_APP;  // 同时设置原始进入方式
 		mode::set_switch_mode(E_SWITCH_MODE_NULL);  // 直接返回主应用界面
+
+		// [FIX-B] 音乐暂停时也恢复进度条显示
+		// 场景: 退出CarPlay后进入本地音乐，音乐虽暂停但仍有position信息
+		if (!isPlaying && media::music_get_play_index() != -1) {
+			int curPos = media::music_get_current_position() / 1000;
+			if (curPos > 0) {
+				mPlayProgressSeekbarPtr->setProgress(curPos);
+			}
+		}
 	} else {
 		_show_list_area_controls();
 		seek_to_current_play();
