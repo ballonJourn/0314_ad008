@@ -197,8 +197,20 @@ void fold_statusbar() {
 		pos.mTop = -pos.mHeight;
 		mnavibarPtr->setPosition(pos);
 		// 点击空白处，返回键，home收回下拉后，第一次下拉无效果
+		// [FIX] 增加互联连接时的保护: 当互联connected且当前不在lylinkview时,
+		//   不执行setCanSlide(false), 防止从lylinkview→main→其他Activity的
+		//   导航路径上fold_statusbar的异步调用覆盖mainLogic::onUI_show中的恢复
 	    if (!sys::setting::get_navibar_show()) {
-		    SLIDEMANAGER->setCanSlide(false);
+	    	bool skip_disable = false;
+	    	if (lk::is_connected()) {
+	    		const char *app = EASYUICONTEXT->currentAppName();
+	    		if (!app || strcmp(app, "lylinkviewActivity") != 0) {
+	    			skip_disable = true;
+	    		}
+	    	}
+	    	if (!skip_disable) {
+			    SLIDEMANAGER->setCanSlide(false);
+			}
 	    }
 	}
 	sys::setting::set_navibar_show(false);
@@ -552,9 +564,17 @@ static bool onnavibarActivityTouchEvent(const MotionEvent &ev) {
 	if (sys::reverse_does_enter_status()){
 		return false;
 	}
-	// 投屏界面有floatwnd，禁止下拉navibar
-	if (lk::is_connected()) {
-		return false;
+	// [FIX] 仅在lylinkview界面才禁止下拉navibar
+	// 旧逻辑: lk::is_connected() → 只要手机互联连接中就全局禁止下拉
+	// 问题: 用户通过floatwnd Home回到主界面再进入图片/视频等Activity时,
+	//   互联仍处于connected状态, 导致这些Activity也无法下拉navibar
+	// 修复: 改为检查当前Activity是否为lylinkviewActivity, 只在投屏界面才禁止
+	//   其他界面(main/PhotoAlbum/video等)即使互联仍连接也允许下拉
+	{
+		const char *app = EASYUICONTEXT->currentAppName();
+		if (app && lk::is_connected() && strcmp(app, "lylinkviewActivity") == 0) {
+			return false;
+		}
 	}
 	if (mPlayVolSeekBarPtr->isPressed()) {
 		return false;
