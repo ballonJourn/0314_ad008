@@ -833,6 +833,17 @@ static bool _start_link() {
 	} else if (sys::setting::get_link_mode() == E_LINK_MODE_CARPLAY) {
 		params.width = 1280;
 		params.height = 480;
+	} else if (sys::setting::get_link_mode() == E_LINK_MODE_ANDROIDAUTO) {
+		// [FIX] Android Auto 请求分辨率与 CarPlay 保持一致 (1280x480)
+		// 原先 AA 走 else 分支使用 LINK_VIEW_WIDTH x LINK_VIEW_HEIGHT (1600x600)，
+		// 与 CarPlay 的 1280x480 不一致，导致:
+		// 1. AA 与 CP 切换时视频裁剪/缩放逻辑不同，触摸坐标映射出现偏差
+		// 2. AA 使用 1600x600 时手机端渲染超宽画面，部分 app 适配异常
+		// 3. 两种协议统一为 1280x480 后，h264 解码内存占用一致，系统资源可预测
+		// 注: video_player_init 中 LINK_TYPE_WIFIAUTO 的 crop 逻辑已有 w==1280/h==480 分支,
+		//     与此处请求分辨率匹配，无需额外修改
+		params.width = 1280;
+		params.height = 480;
 	} else if (sys::setting::get_link_mode() == E_LINK_MODE_LYLINK) {
 		// [FIX] Aicast(AICast)请求分辨率从1600x600降为800x600
 		// 1. 1600x600超宽屏上竖屏app(抖音等)字体极小，降低后h264 player硬件缩放会放大内容
