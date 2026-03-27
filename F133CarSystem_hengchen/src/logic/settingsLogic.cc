@@ -44,6 +44,7 @@ static const char* languaueTextTab[] = {
     "Czech",                    // cs_CZ
     "Deutsch(Deutschland)",       // de_DE
     "Español(España)",           // es_ES
+    "Ελληνικά",                   // el_GR - 希腊语
     "עברית",                     // he_IL
     "Italiano(Italia)",          // it_IT
     "日本語",                     // ja_JP
@@ -77,6 +78,7 @@ typedef enum {
 	CS_E,      // 捷克文
 	DE_F,      // 德文
 	ES_E,      // 西班牙文
+	EL_E,      // 希腊文
 	HE_E,      // 希伯来文
 	IT_E,      // 意大利文
 	JA_E,      // 日文
@@ -109,6 +111,8 @@ static void Get_CurrentCode(const std::string Code){
 		s_language_type = DE_F;
 	}else if(Code == "es_ESL"){
 		s_language_type = ES_E;
+	}else if(Code == "el_GRL"){
+		s_language_type = EL_E;
 	}else if(Code == "he_ILL"){
 		s_language_type = HE_E;
 	}else if(Code == "it_ITL"){
@@ -153,6 +157,9 @@ static void Update_CurrentCode(LANGUAGETYPE type){
 		break;
 	case ES_E:
 		Code = "es_ESL";
+		break;
+	case EL_E:
+		Code = "el_GRL";
 		break;
 	case HE_E:
 		Code = "he_ILL";
