@@ -706,6 +706,16 @@ static void _music_play_status_cb(music_play_status_e status) {
 		if (status == E_MUSIC_PLAY_STATUS_STARTED || status == E_MUSIC_PLAY_STATUS_RESUME) {
 			sys::setting::set_music_play_dev(E_AUDIO_TYPE_MUSIC);
 		}
+		// [FIX] COMPLETED/ERROR 是播放逻辑事件而非UI事件，
+		// 即使主界面隐藏也必须触发 music_next()，否则切源到设置等界面后
+		// 歌曲播完不会自动播放下一曲
+		if (status == E_MUSIC_PLAY_STATUS_COMPLETED) {
+			LOGE("[main] music completed while UI paused, playing next\n");
+			media::music_next();
+		} else if (status == E_MUSIC_PLAY_STATUS_ERROR) {
+			LOGE("[main] music error while UI paused, skipping to next\n");
+			media::music_next(true);
+		}
 		// 缓存失效标记，onUI_show时会重新刷新
 		_is_music_info_cached = false;
 		return;
@@ -1041,6 +1051,13 @@ static void onUI_init() {
 
 	uart::init();
 	uart::set_amplifier_mute(0);
+
+	// [FIX] 开机时从storage恢复EQ音效设置到MCU，解决B+ OFF/ON后音效无记忆的问题
+	// 原来EQ只在soundEffectActivity的onUI_init中发送到MCU，用户不打开EQ页面则MCU保持默认值
+	for (int i = 0; i < 10; i++) {
+		uart::set_sound_effect(i, sys::setting::get_sound_effect(i));
+	}
+
 	uart::set_power_cr(1);
 	uart::add_power_state_cb(key_status);
 

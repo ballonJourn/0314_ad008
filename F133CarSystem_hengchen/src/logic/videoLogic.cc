@@ -417,20 +417,35 @@ static void onUI_show() {
 	is_back = false;
 
 	if (is_video_show) {
-		// 如果有视频在显示，说明是从主应用界面进入的
-		video_enter_type = E_VIDEO_ENTER_FROM_APP;
-		mode::set_switch_mode(E_SWITCH_MODE_NULL);  // 直接返回主应用界面
-		mvideoPlayWindowPtr->showWnd();
-	    mVideoCtrlWindowPtr->hideWnd();
-	    app::hide_topbar();
-		sys::setting::set_reverse_topbar_show(false);
+		// [BUG-C-FIX] 通话期间不自动恢复视频播放窗口
+		// 场景: 播放本地音乐 → 来电 → 通话中切入视频Activity
+		//       此时is_video_show=true(来自之前的播放记录),
+		//       原代码会showWnd()并注册DELAY_CHECK_TIMER恢复视频播放,
+		//       导致change_audio_type(VIDEO)抢占BT通话音源.
+		// 修复: 通话期间降级为列表模式, 不恢复视频播放窗口.
+		if (bt::is_calling()) {
+			LOGD("[video] BT call active on onUI_show, skip video resume\n");
+			is_video_show = false;
+			mode::set_switch_mode(E_SWITCH_MODE_GOBACK);
+		} else {
+			// 如果有视频在显示，说明是从主应用界面进入的
+			video_enter_type = E_VIDEO_ENTER_FROM_APP;
+			mode::set_switch_mode(E_SWITCH_MODE_NULL);  // 直接返回主应用界面
+			mvideoPlayWindowPtr->showWnd();
+			mVideoCtrlWindowPtr->hideWnd();
+			app::hide_topbar();
+			sys::setting::set_reverse_topbar_show(false);
+		}
 	} else {
 		// 没有视频显示，在列表界面
 		mode::set_switch_mode(E_SWITCH_MODE_GOBACK);
 	}
 
 	// 推迟检测播放，处理倒车界面未完全退出，视频播放异常问题
-	mActivityPtr->registerUserTimer(DELAY_CHECK_TIMER, 0);
+	// [BUG-C-FIX] 通话期间不注册视频恢复定时器
+	if (!bt::is_calling()) {
+		mActivityPtr->registerUserTimer(DELAY_CHECK_TIMER, 0);
+	}
 	if (mvideoPlayWindowPtr->isWndShow()) {
 		if (mVideoCtrlWindowPtr->isWndShow()) {
 			mActivityPtr->registerUserTimer(VIDEO_CTRL_VIEW, 3000);
@@ -524,6 +539,19 @@ static bool onUI_Timer(int id){
 	case DELAY_CHECK_TIMER:
 		if (is_video_activity_show && mvideoPlayWindowPtr->isWndShow()) {
 			LOGD("[video] delay check timer\n");
+			// [BUG-C-FIX] 蓝牙通话期间不恢复视频播放、不切换音源
+			// 根因: 用户在通话中切换到视频界面时, is_video_show=true导致
+			//       videoPlayWindow被显示, DELAY_CHECK_TIMER随后触发,
+			//       调用change_audio_type(E_AUDIO_TYPE_VIDEO)将MCU音源
+			//       从BT通道切到ARM通道, 导致通话声音消失, 视频声音输出.
+			// 修复: 通话状态下跳过视频音频恢复, 保持BT通话音源不被抢占.
+			//       通话结束后用户可手动恢复视频播放.
+			if (bt::is_calling()) {
+				LOGD("[video] BT call active, skip video audio resume\n");
+				mVideoviewTTPtr->stop();
+				mPlayButtonPtr->setSelected(false);
+				return false;
+			}
 			if (_s_play_index != -1) {
 				mVideoviewTTPtr->setVolume(0.0);
 				audio::change_audio_type(E_AUDIO_TYPE_VIDEO);
@@ -684,6 +712,16 @@ static void onVideoViewPlayerMessageListener_VideoviewTT(ZKVideoView *pVideoView
 	case ZKVideoView::E_MSGTYPE_VIDEO_PLAY_STARTED: {
     	if (media::music_is_playing()) {
     		media::music_pause();
+    	}
+
+    	// [BUG-C-FIX] 通话中视频意外启动时, 立即暂停视频并保持通话音源
+    	// 防御性检查: 即使前置检查被绕过(如异步回调时序), 此处仍能拦截
+    	// 视频对音源通道的抢占, 确保通话声音不中断
+    	if (bt::is_calling()) {
+    		LOGD("[video] BT call active on VIDEO_PLAY_STARTED, pause video to protect call audio\n");
+    		pVideoView->pause();
+    		mPlayButtonPtr->setSelected(false);
+    		break;
     	}
 
     	std::string file = media::get_video_file(_s_select_storage, _s_play_index);

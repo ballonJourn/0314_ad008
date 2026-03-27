@@ -359,12 +359,15 @@ static void _media_scan_cb(const char *dir, storage_type_e type, bool started) {
    	SlideEnable = true;
    	mActivityPtr->unregisterUserTimer(CAROUSELPICTIMER);
    	mCarouselPicPtr->setSelected(false);
+   	SetDisplayOpposite(true);
    }
-//	if(!mAlbumClassificationPtr->isWndShow()){
-//		mAlbumClassificationPtr->showWnd();
-//		app::show_topbar();
-//		sys::setting::set_reverse_topbar_show(true);
-//	}
+   if(!mAlbumClassificationPtr->isWndShow()){
+   	mAlbumClassificationPtr->showWnd();
+   	// 清空残留图片，避免显示已不可访问的文件
+   	mIndexPic1Ptr->setBackgroundPic("");
+   	mIndexPic2Ptr->setBackgroundPic("");
+   	mIndexPic3Ptr->setBackgroundPic("");
+   }
    if (started) {
    	iconRotate.run();
    }
