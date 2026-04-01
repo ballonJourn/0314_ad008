@@ -13,6 +13,7 @@
 #include "fy/os.hpp"
 #include "system/hardware.h"
 #include "utils/mem_profiler.h"
+#include "manager/ConfigManager.h"
 
 #define DELAY_START_PREVIEM_TIMER 1
 #define FORCE_HIDE_TOPBAR_TIMER   2
@@ -328,7 +329,20 @@ static void onUI_init() {
 	mCameraViewReversePtr->setDevPath(sys::setting::get_camera_dev());
 	mCameraViewReversePtr->setChannel(sys::setting::get_camera_chn());
 	mCameraViewReversePtr->setFormatSize(sys::setting::get_camera_wide(),sys::setting::get_camera_high());
-	mCameraViewReversePtr->setRotation((ERotation)sys::setting::get_camera_rot());
+	// [FIX] 补偿屏幕旋转，防止 camera overlay 被 DE 和 setRotation 双重旋转
+	// 原理: package.properties 中 rotateScreen:270 使 Display Engine 旋转所有图层(含camera overlay)
+	//       若 camera 再叠加自身 setRotation(3=270°), 总旋转=270+270=540=180°, 画面倒转
+	// 公式: adjusted = (physical_cam_rot - screen_rot + 4) % 4
+	//   例: physical=3(270°), screen=3(270°) → adjusted=(3-3+4)%4=0 → 正常
+	//        physical=3(270°), screen=0(0°)   → adjusted=(3-0+4)%4=3 → 保持原行为
+	{
+		int cam_rot = sys::setting::get_camera_rot();            // 物理相机旋转需求 (0-3)
+		int screen_rot = CONFIGMANAGER->getScreenRotate() / 90;  // 屏幕旋转 (0-3)
+		int adjusted_rot = (cam_rot - screen_rot + 4 + 1) % 4;  // 额外逆时针旋转90°
+		mCameraViewReversePtr->setRotation((ERotation)adjusted_rot);
+		LOGD("[reverse] cam_rot=%d, screen_rot=%d(x90°), adjusted_rot=%d\n",
+			cam_rot, screen_rot, adjusted_rot);
+	}
 	mCameraViewReversePtr->setFrameRate(sys::setting::get_camera_rate());
 	// [FIX] 互联模式下降低camera buffer数量，防止SunxiMemPalloc失败
 	// 正常: 3个buffer (720×576×1.5×3 = 1.78MB) — 三缓冲，DMA/显示/备用各一个
